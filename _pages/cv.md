@@ -8,8 +8,8 @@ redirect_from:
 ---
 {% include base_path %}
 
-The site is under construction!
-===============================
+Education
+=========
 
 * Ph.D in Data Science and Tourism Research, Himachal Pradesh University, 2026 (expected)
 * M.B.A. in Tourism Management, Indian Institute of Tourism and Travel Mangement (IITTM), 2019
