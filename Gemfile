@@ -10,3 +10,9 @@ group :jekyll_plugins do
 end
 
 gem 'github-pages'
+
+gem "tzinfo-data", "~> 1.2025"
+
+gem "faraday-retry", "~> 2.3"
+
+gem "wdm", "~> 0.2.0"

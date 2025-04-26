@@ -9,9 +9,9 @@
 # Basic Site Settings
 locale                   : "en-US"
 site_theme               : "default"
-title                    : "Your Name / Site Title"
+title                    : "Sahil Sharma"
 title_separator          : "-"
-name                     : &name "Your Name"
+name                     : &name "Sahil Sharma"
 description              : &description "personal description"
 url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -22,67 +22,43 @@ repository               : "academicpages/academicpages.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
-  name             : "Your Sidebar Name"
+  avatar           : "new_profile.jpg"
+  name             : "Sahil Sharma"
   pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
+  bio              : "PhD Research Scholar"
+  location         : "Shimla, India"
+  employer         : "Himachal Pradesh University"
   uri              : # URL
-  email            : "none@example.org" 
+  email            : "sahilsharmahimalaya@gmail.com"
 
-  # Academic websites
+  # Academic Profiles
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-  impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
-  semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
-  scopus           : # URL
-
-  # Repositories and software development
-  bitbucket        : # Username - Update with your username on the site
-  codepen          : # Username
-  dribbble         : # Username
-  github           : "academicpages"
-  kaggle           : # Username  
-  stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
+  orcid            : #"https://orcid.org/my-orcid?orcid=0000-0001-6946-2025"
+  researchgate     : "https://www.researchgate.net/profile/Sahil-Sharma-76?ev=hdr_xprf"
+  googlescholar    : "https://scholar.google.com/citations?user=nyfX-0MAAAAJ&hl=en"
+  scopus           : #"https://www.scopus.com/authid/detail.uri?authorId=58348145600"
+  web of science   : #"https://www.webofscience.com/wos/author/record/ABW-2067-2022"
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
-  facebook         : # Username
-  flickr           : # Username
-  foursquare       : # Username
-  goodreads        : # Username
-  google_plus      : # Username
-  keybase          : # Username
-  instagram        : # Username
-  lastfm           : # Username
-  linkedin         : # Username
-  mastodon         : # URL
-  medium           : # URL
+  github           : #"sahil-datascience"
+  facebook         : #"https://www.facebook.com/sahilsharmahimalaya/"
+  instagram        : #"https://www.instagram.com/sahil.shrma_/"
+  linkedin         : "sahil-sharma-172568163"
   pinterest        : # Username
-  soundcloud       : # Username
-  steam            : # Username
   telegram         : # URL
-  tumblr           : # Username
-  twitter          : # Username for X / Twitter
-  vine             : # Username
-  weibo            : # Username
-  wikipedia        : # Username
-  xing             : # Username
-  youtube          : # Username
-  zhihu            : # Username
+  twitter          : #"https://x.com/sahil_95_"
+  youtube          : #"https://www.youtube.com/channel/UCTY0OXFi8YK9YT5o9mnOLOw"
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
   books:
     title: 'Books'
   manuscripts:
-    title: 'Journal Articles'    
+    title: 'Journal Articles'
+  book_chapters:  
+    title: 'Book Chapters'
   conferences:
-    title: 'Conference Papers'
+    title: 'Conference Papers/Presentations'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -294,7 +270,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: Etc/UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
