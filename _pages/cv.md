@@ -13,7 +13,7 @@ The site is under construction!
 
 * Ph.D in Data Science and Tourism Research, Himachal Pradesh University, 2026 (expected)
 * M.B.A. in Tourism Management, Indian Institute of Tourism and Travel Mangement (IITTM), 2019
-* B.A. in Tourism Administration, Govt. Degree College Kullu, 2017
+* B.A. in Tourism Administration, Govt. Degree College Kullu, 20
 
 Work experience
 ===============
