@@ -13,4 +13,8 @@ Sahil is a PhD student at the Institute of Vocational Studies (IVS), Himachal Pr
 </div>
 
 
-Currently the website is underconstruction...
+
+
+**Note!** This website is currently under construction, more features, informaiton and content will be added soon. Thanks for your visit!
+
+{: .notice}
