@@ -8,6 +8,7 @@ date: 2022-06-01
 venue: 'Journal of Smart Tourism'
 paperurl: 'https://doi.org/10.52255/smarttourism.2022.2.2.4'
 citation: 'Sharma, S. (2022). Smart Tourism - A Solution for Tourism Challenges in Himachal, Journal of Smart Tourism, Vol, 2(2), 21-32.'
+researchgateurl: "https://www.researchgate.net/publication/365708394_Smart_Tourism_-_A_Solution_for_Tourism_Challenges_in_Himachal"
 ---
 **Abstract**
 
