@@ -1,7 +1,7 @@
 ---
 title: "Inputs for Effective Marketing of Hospitality in Ranchi"
 collection: publications
-category: "conference_paper"
+category: "conferences"
 permalink: /publication/2022-06-01-marketing-hospitality-ranchi
 date: 2022-06-01
 venue: "Promotion and Advertising of Leisure Activities for Sustainability of Hospitality (PALASH), Aman Publications, New Delhi, India."

@@ -1,7 +1,7 @@
 ---
 title: "Linguistic Features and Topical Difference in Hotel and Restaurant Reviews"
 collection: publications
-category: "conference_paper"
+category: "conferences"
 permalink: /publication/2025-01-01-linguistic-features-reviews
 date: 2025-01-01
 venue: "Proceedings ENTER25 Working Papers, Wroclaw, Poland"
