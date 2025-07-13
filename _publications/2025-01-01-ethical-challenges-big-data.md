@@ -8,3 +8,6 @@ venue: "Handbook on Big Data Marketing and Management in Tourism and Hospitality
 paperurl: "https://doi.org/10.4337/9781035300136.00018"
 citation: "Sharma, S. (2025). Ethical challenges of big data in tourism. In Handbook on Big Data Marketing and Management in Tourism and Hospitality (pp. 232–250). Edward Elgar Publishing."
 ---
+**Abstract**
+
+This is a placeholder abstract. Please replace it with the actual abstract of the publication.
