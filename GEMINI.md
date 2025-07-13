@@ -42,7 +42,7 @@ Based on this repository's structure, I can assist with the following common tas
 3.  Change your bio or social media links in `_config.yml`.
 4.  Add a new page (e.g., "Projects" or "Contact" page).
 5.  Change the navigation menu.
-6.  Find ResearchGate links for publications (see specific instructions below).
+6.  Find Google Scholar links for publications (see specific instructions below).
 
 Just tell me what you'd like to accomplish, and I can guide you through the steps or perform them for you.
 
@@ -50,16 +50,16 @@ Just tell me what you'd like to accomplish, and I can guide you through the step
 
 ## 3. Specific Task Instructions
 
-### Finding ResearchGate Links for Publications
+### Finding Google Scholar Links for Publications
 
-When asked to find ResearchGate links for publications, follow this approach:
+When asked to find Google Scholar links for publications, follow this approach:
 
 1.  List all files in the `_publications` directory.
 2.  For each file, extract the publication title.
-3.  Use a search engine to search for the title on ResearchGate.
+3.  Use a search engine to search for the title on Google Scholar.
 4.  If a match is found, verify it by comparing the title, authors, and publication date.
-5.  If the publication already has a `researchgateurl`, verify its correctness.
-6.  If the publication lacks a `researchgateurl`, add it to the file.
+5.  If the publication already has a `googlescholarurl`, verify its correctness.
+6.  If the publication lacks a `googlescholarurl`, add it to the file.
 7.  If no match is found, it's likely a placeholder and can be ignored.
 
 ---
