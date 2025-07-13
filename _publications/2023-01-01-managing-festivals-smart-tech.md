@@ -10,4 +10,4 @@ citation: "Sharma, S., & Dogra, J. (2023). Managing Festivals With Smart Technol
 ---
 **Abstract**
 
-This is a placeholder abstract. Please replace it with the actual abstract of the publication.
+This paper presents a scholarly synthesis of contemporary smart event technologies under a clear three phase event classification. The constructed conceptualisation is designed as an ideal synthesis of tech basics, utilisation benefits, and real examples. In the pre-event phase, uses of 3D event diagramming software are discussed. The actual-event phase provides a comprehensive discourse on - beacon technology, geo fencing, radio frequency identification (RFID), near field communication (NFC), wrist band, mobile app, chat bots, virtual reality (VR), and augmented reality (AR) - using some real examples from iconic international events/festivals such as Coachella, Tomorrowland, Glastonbury, etc. Lastly, in the post-event phase basics and uses of smart event data is explained.
