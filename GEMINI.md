@@ -92,9 +92,18 @@ When performing changes that require a commit and push, the agent will adhere to
 
 ### Local Testing and Verification
 
-Before pushing changes online, it is crucial to test them locally to ensure the website runs properly and all modifications are rendered as expected. Follow these steps:
+Before pushing changes online, it is crucial to test them locally to ensure the website runs properly and all modifications are rendered as expected. You have two primary options for local verification:
+
+#### Option 1: Full Local Server (for interactive testing)
 
 1.  **Start Jekyll Server:** Run the command `bundle exec jekyll serve` in the project root directory. This will build the site and start a local server, typically accessible at `http://localhost:4000`.
     *   **Note:** This command will keep running and serving the site. It will not get stuck, but it will occupy the terminal.
 2.  **Verify Changes:** Open your web browser and navigate to the local server address (e.g., `http://localhost:4000`). Check all affected pages and functionalities to confirm that your changes have been applied correctly and the website is functioning as intended.
 3.  **Stop Jekyll Server:** Once you have finished testing, return to the terminal where the Jekyll server is running and press `Ctrl + C` to stop the process.
+
+#### Option 2: Fast Local Build (for quick verification of changes)
+
+1.  **Build Jekyll Site:** Run the command `bundle exec jekyll build` in the project root directory. This will build the site into the `_site` directory without starting a server. This is generally faster for quick checks.
+2.  **Verify Changes:** After the build completes, inspect the generated HTML files directly within the `_site` directory (e.g., `_site/publications/index.html` or specific article HTML files) to confirm that your changes have been applied correctly. You can open these HTML files in your web browser.
+
+Choose the option that best suits your verification needs. The full server is better for interactive browsing, while the fast build is quicker for confirming file-level changes.
