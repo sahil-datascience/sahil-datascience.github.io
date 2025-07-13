@@ -5,8 +5,9 @@ category: manuscripts
 permalink: /publication/destination_resilience
 excerpt: ' '
 date: 2024-06-20
-venue: 'Tourism and Management Studies'
+venue: 'Tourism & Management Studies'
 paperurl: 'https://doi.org/10.18089/tms.20240402'
+citation: 'Sharma, S., Dogra, J., & Khan, S. . (2024). Destination resilience and transformations in the tourism sector: new tendencies in destination development and management. Tourism & Management Studies, 20(4), 17-26.'
 ---
 **Abstract**
 
