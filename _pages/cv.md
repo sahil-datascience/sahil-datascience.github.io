@@ -20,6 +20,8 @@ Phone- (+91) 7018706038
 
 Personal Website: [https://sahil-datascience.github.io/](https://sahil-datascience.github.io/)
 
+View/Download CV on Google Docs: [https://docs.google.com/document/d/1L9auMN2D9yT83YDPE_wSTqTrngZd32EKYnMCxMuoq-c/edit?usp=sharing](https://docs.google.com/document/d/1L9auMN2D9yT83YDPE_wSTqTrngZd32EKYnMCxMuoq-c/edit?usp=sharing)
+
 ---
 
 **1\.  Educational Qualifications**
