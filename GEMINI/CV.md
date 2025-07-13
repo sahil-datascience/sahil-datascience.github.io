@@ -1,0 +1,32 @@
+# CV Update Memory
+
+## Task Overview
+Updated CV data (`_data/cv.json`) and its rendering template (`_includes/cv-template.html`) to match a new Google Doc structure. The `_pages/cv.md` file was updated to use the `cv-layout`.
+
+## Key Challenges & Solutions
+
+1.  **Jekyll Caching Issues:**
+    *   **Problem:** Changes to `_data/cv.json`, `_includes/cv-template.html`, and `_pages/cv.md` were not consistently reflected in the `_site/cv/index.html` output after `bundle exec jekyll build`.
+    *   **Solution:** Aggressive cache clearing using `git clean -fdx` (to remove untracked and ignored files, including `_site/` and `.sass-cache/`) before rebuilding the Jekyll site. This was more effective than `rmdir` on Windows.
+    *   **Insight:** Jekyll's incremental build and caching can be aggressive. A full clean is often necessary to ensure all changes are picked up, especially when modifying data files or includes.
+
+2.  **Layout and Include Processing:**
+    *   **Problem:** Initial attempts to use `{% include cv-template.html %}` within `_pages/cv.md` did not render the dynamic content from `_data/cv.json`.
+    *   **Solution:** Moving the content of `_includes/cv-template.html` directly into `_layouts/cv-layout.html` and setting `layout: cv-layout` in `_pages/cv.md` ensured proper processing of Liquid tags and data access.
+    *   **Insight:** For complex data rendering, it's often more reliable to place Liquid logic directly within the layout file that processes the data, rather than relying solely on includes within Markdown pages.
+
+3.  **Windows Shell Commands:**
+    *   **Problem:** Standard `rm -rf` commands for directory deletion failed on Windows.
+    *   **Solution:** Used `git clean -fdx` as a reliable cross-platform alternative for clearing build artifacts within a Git repository.
+    *   **Insight:** Be mindful of OS-specific shell commands. `git clean -fdx` is a robust solution for clearing build directories in Git projects.
+
+## Relevant Files
+*   `_data/cv.json`
+*   `_includes/cv-template.html`
+*   `_layouts/cv-layout.html`
+*   `_pages/cv.md`
+*   `_config.yml`
+
+## Future Considerations
+*   When updating CV or similar data-driven pages, always perform a `git clean -fdx` before `bundle exec jekyll build`.
+*   If rendering issues persist, verify Liquid logic directly within the layout file and ensure data access paths are correct.

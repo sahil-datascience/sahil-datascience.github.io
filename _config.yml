@@ -225,6 +225,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      output: true
   # _teaching
   - scope:
       path: ""

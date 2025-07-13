@@ -1,152 +1,696 @@
 {
   "basics": {
-    "name": "Your Sidebar Name",
-    "email": "none@example.org",
-    "phone": "",
-    "website": "https://academicpages.github.io",
-    "summary": "Currently employed at Red Brick University. Short biography for the left-hand sidebar",
+    "name": "SAHIL SHARMA",
+    "label": "PhD Student, MBA (Tourism), BA (Tourism), and UGC - Junior Research Fellow (UGC-JRF)",
+    "title": "Tourism Administration and Management",
+    "email": "sahilsharmahimalaya@gmail.com",
+    "phone": "(+91) 7018706038",
+    "website": "https://sahil-datascience.github.io/",
     "location": {
-      "address": "",
-      "postalCode": "",
-      "city": "Earth",
-      "countryCode": "US",
-      "region": ""
+      "address": "Kullu - Manali",
+      "city": "Kullu",
+      "region": "Himachal Pradesh",
+      "country": "India"
     },
     "profiles": [
       {
-        "network": "Google Scholar",
-        "username": "",
-        "url": "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+        "network": "Research Gate",
+        "url": "https://www.researchgate.net/profile/Sahil-Sharma-76?ev=hdr_xprf"
       },
       {
-        "network": "ORCID",
-        "username": "",
-        "url": "http://orcid.org/yourorcidurl"
+        "network": "Scopus",
+        "url": "https://www.scopus.com/authid/detail.uri?authorId=58348145600"
+      },
+      {
+        "network": "Web of Science",
+        "url": "https://www.webofscience.com/wos/author/record/ABW-2067-2022"
       },
       {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "url": "https://github.com/sahil-datascience"
+      },
+      {
+        "network": "Facebook",
+        "url": "https://www.facebook.com/sahilsharmahimalaya/"
+      },
+      {
+        "network": "Twitter",
+        "url": "https://x.com/sahil_95_"
+      },
+      {
+        "network": "LinkedIn",
+        "url": "http://linkedin.com/in/sahil-sharma-172568163"
+      },
+      {
+        "network": "Instagram",
+        "url": "https://www.instagram.com/sahil.shrma_/"
+      },
+      {
+        "network": "YouTube",
+        "url": "https://www.youtube.com/channel/UCTY0OXFi8YK9YT5o9mnOLOw"
+      },
+      {
+        "network": "ORCID ID",
+        "url": "https://orcid.org/0000-0001-6946-2025"
       }
     ]
   },
-  "work": [],
   "education": [
     {
-      "institution": "GitHub University",
-      "area": "Ph.D in Version Control Theory",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2018",
-      "gpa": null,
-      "courses": []
+      "degree": "Ph.D. Candidate",
+      "field": "Big Data and Data Science for Tourism Research",
+      "institution": "Himachal Pradesh University (Tourism Department)",
+      "enrollmentDate": "Oct 2021"
     },
     {
-      "institution": "GitHub University",
-      "area": "M.S. in Jekyll",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2014",
-      "gpa": null,
-      "courses": []
+      "degree": "Master of Business Administration (MBA)",
+      "field": "Tourism and Travel Management",
+      "institution": "Indian Institute of Tourism and Travel Management (IITTM), Gwalior, India"
     },
     {
-      "institution": "GitHub University",
-      "area": "B.S. in GitHub",
-      "studyType": "",
-      "startDate": "",
-      "endDate": "2012",
-      "gpa": null,
-      "courses": []
+      "degree": "Bachelor of Arts in Tourism Administration (BA)",
+      "field": "Tourism Administration",
+      "institution": "Govt. Degree College, Kullu"
+    },
+    {
+      "degree": "School Education",
+      "field": "Physics, Chemistry, and Math.",
+      "institution": "Himachal Pradesh Board of School Education (HPBOSE)"
     }
   ],
-  "skills": [],
-  "languages": [],
-  "interests": [],
-  "references": [],
-  "publications": [
+  "researchPortfolio": {
+    "articles": [
+      {
+        "title": "Destination resilience and transformations in the tourism sector: new tendencies in destination development and management.",
+        "authors": "Sharma, S., Dogra, J., & Khan, S.",
+        "journal": "Tourism & Management Studies, 20(4), 17-26.",
+        "year": "2024",
+        "url": "https://doi.org/10.18089/tms.20240402",
+        "notes": "[SCOPUS/WOS Q2]"
+      },
+      {
+        "title": "Smart Tourism - A Solution for Tourism Challenges in Himachal",
+        "authors": "Sharma, S.",
+        "journal": "Journal of Smart Tourism, Vol, 2(2), 21-32.",
+        "year": "2022"
+      }
+    ],
+    "chapters": [
+      {
+        "title": "Ethical challenges of big data in tourism.",
+        "authors": "Sharma, S.",
+        "book": "Handbook on Big Data Marketing and Management in Tourism and Hospitality (pp. 232–250). Edward Elgar Publishing.",
+        "year": "2025",
+        "url": "https://doi.org/10.4337/9781035300136.00018"
+      },
+      {
+        "title": "Big Data in Adventure Travel.",
+        "authors": "Sharma, S.",
+        "book": "Routledge Handbook of Mobile Technology, Social Media and the Outdoors (pp. 307-320). Routledge.",
+        "year": "2025",
+        "notes": "[SCOPUS]"
+      },
+      {
+        "title": "Data Scientist in Tourism: Needs, Skills, and Scope.",
+        "authors": "Sharma, S.",
+        "book": "In: Sharma, A. (eds) International Handbook of Skill, Education, Learning, and Research Development in Tourism and Hospitality. Springer International Handbooks of Education. Springer, Singapore.",
+        "year": "2024",
+        "url": "https://doi.org/10.1007/978-981-99-3895-7_16-1",
+        "notes": "[SCOPUS]"
+      },
+      {
+        "title": "Rise of Big Data in the Industry 4.0 Era and the Crucial Need for Data Science in Sustainable Tourism",
+        "authors": "Sharma, S.",
+        "book": "Tučková, Z., Dey, S.K., Thai, H.H. and Hoang, S.D. (Ed.) Impact of Industry 4.0 on Sustainable Tourism, Emerald Publishing Limited, Bingley, pp. 133-149.",
+        "year": "2023",
+        "url": "https://doi.org/10.1108/978-1-80455-157-820231009",
+        "notes": "[SCOPUS]"
+      },
+      {
+        "title": "Managing Festivals With Smart Technologies and Their Contribution Towards Destination Promotion.",
+        "authors": "Sharma, S., & Dogra, J.",
+        "book": "In S. K. Kulshreshtha (Ed.), Managing Festivals for Destination Marketing and Branding (pp. 76–94). IGI Global.",
+        "year": "2023",
+        "url": "https://doi.org/10.4018/978-1-6684-6356-7.ch005",
+        "notes": "[SCOPUS]"
+      }
+    ],
+    "conferencePapers": [
+      {
+        "title": "Linguistic Features and Topical Difference in Hotel and Restaurant Reviews.",
+        "authors": "Sharma S",
+        "conference": "Proceedings ENTER25 Working Papers, Wroclaw, Poland, 2025, pp. 170–176. The International Federation for IT and Travel & Tourism.",
+        "year": "2025",
+        "url": "https://ifitt.net/wp-content/uploads/2025/04/ENTER25-WP-Proceedings-v1.3.pdf"
+      },
+      {
+        "title": "Inputs for Effective Marketing of Hospitality in Ranchi.",
+        "authors": "Sharma, S., & Dogra, J.",
+        "conference": "Promotion and Advertising of Leisure Activities for Sustainability of Hospitality (PALASH), Vol. (1), pp. 186–197. Aman Publications, New Delhi, India.",
+        "year": "2022"
+      }
+    ],
+    "conferencePresentations": [
+      {
+        "title": "Manipulating Topics in Text Corpus: A Data-Driven Understanding of Tourist Experiences",
+        "conference": "ITSA Amity Regional Conference for Asia 2025, at Amity Noida",
+        "date": "7-9 February 2025"
+      },
+      {
+        "title": "Ethical AI in Higher Education",
+        "conference": "conference organized by National Law University, Shimla, India",
+        "date": "June 2023"
+      },
+      {
+        "title": "Data Science and Tourism Research: A pilot review study",
+        "conference": "4th International Conference on Sustainable Development Goals and Management Practices organized by Lovely Professional University, India",
+        "date": "Feb 2023"
+      },
+      {
+        "title": "Inputs for Effective Marketing of Hospitality in Ranchi",
+        "conference": "IHM Ranchi",
+        "date": "March 2022"
+      },
+      {
+        "title": "Covid-19 induced Transformations and Destination Resilience",
+        "conference": "International Conference On Reflections on “New Tourism” and “New Normal” in Post COVID-19 World organized by Central University of Jammu",
+        "date": "May 2022"
+      },
+      {
+        "title": "UNWTO Tourism Villages: An analysis of Jibhi Valley in Himachal",
+        "conference": "3rd International Conference on Sustainable Development Goals and Management Practices organized by Lovely Professional University, India",
+        "date": "Feb 2022"
+      },
+      {
+        "title": "A Review of Tourism Research in Himachal",
+        "conference": "Tourism Conclave 2021 organized by Himachal Pradesh University",
+        "date": "Dec 2021"
+      }
+    ],
+    "dataPublications": [
+      {
+        "title": "Impact of Atal Tunnel and Rohtang Ropeway Project on the Tourism Industry in Manali, Himachal Pradesh.",
+        "authors": "Sharma, Sahil; Kashyap, Dr. Hiramani",
+        "publisher": "Mendeley Data, V2",
+        "year": "2021",
+        "doi": "10.17632/8cjchphss5.2"
+      }
+    ],
+    "peerReviewingActivities": [
+      {
+        "journal": "Heliyon",
+        "date": "September 2024"
+      },
+      {
+        "journal": "International Journal of Information Management Data Insights",
+        "date": "March 2024"
+      },
+      {
+        "journal": "International Journal of Tourism Policy (IJTP)",
+        "date": "Feb 2023"
+      },
+      {
+        "journal": "Journal of Smart Cities and Society",
+        "date": "August 2023"
+      }
+    ]
+  },
+  "teachingPortfolio": {
+    "teachingExperience": [
+      {
+        "subject": "Tourism Systems",
+        "duration": "a semester",
+        "year": "2024"
+      },
+      {
+        "subject": "Global Tourism",
+        "duration": "a semester",
+        "year": "February 2024 to October 2024"
+      },
+      {
+        "subject": "Organisation Behaviour",
+        "duration": "two semesters",
+        "year": "2021-23"
+      },
+      {
+        "subject": "Outbound Tourism",
+        "duration": "three semesters",
+        "year": "2021-24"
+      },
+      {
+        "subject": "Global Tourism",
+        "duration": "three semesters",
+        "year": "2021-23"
+      },
+      {
+        "subject": "Communication Skills",
+        "duration": "one semester",
+        "year": "2022"
+      },
+      {
+        "subject": "Airline Ticketing and Cargo Management",
+        "duration": "one semester",
+        "year": "2022"
+      }
+    ],
+    "invitedLectures": [
+      {
+        "date": "18 Feb 2023",
+        "institution": "Kamla Nehru College (University of Delhi)",
+        "topic": "Social Media Marketing in Tourism."
+      }
+    ]
+  },
+  "coursesAndCertificates": [
     {
-      "name": "Paper Title Number 1",
-      "publisher": "Journal 1",
-      "releaseDate": "2009-10-01",
-      "website": "http://academicpages.github.io/files/paper1.pdf",
-      "summary": "This paper is about the number 1. The number 2 is left for future work."
+      "name": "Foundation of Data Science",
+      "institution": "Indian Institute of Management (IIM) Bangalore",
+      "date": "July - December 2023"
     },
     {
-      "name": "Paper Title Number 2",
-      "publisher": "Journal 1",
-      "releaseDate": "2010-10-01",
-      "website": "http://academicpages.github.io/files/paper2.pdf",
-      "summary": "This paper is about the number 2. The number 3 is left for future work."
+      "name": "Data Science Specialization",
+      "institution": "John Hopkins University",
+      "date": "2022 - 2025",
+      "details": [
+        "Data Science Foundations using R",
+        "The Data Scientist’s Toolbox, Feb 2022",
+        "R Programming, May 2022",
+        "Getting and Cleaning Data, July 2022",
+        "Exploratory Data Analysis, Aug 2022",
+        "Reproducible Research, Aug 2022",
+        "Data Science Statistics and Machine Learning Specialisation",
+        "Statistical Inference, July 2023",
+        "Regression Models, August 2023",
+        "Practical Machine Learning, October, 2023",
+        "Developing Data Products, April 2024",
+        "Capstone Project (Built a next word prediction model using N-grams), February 2025."
+      ]
     },
     {
-      "name": "Paper Title Number 3",
-      "publisher": "Journal 1",
-      "releaseDate": "2015-10-01",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about the number 3. The number 4 is left for future work."
+      "name": "Natural Language Processing Specialisation",
+      "institution": "Deeplearning.AI",
+      "details": [
+        "Natural Language Processing with Classification and Vector Spaces, November 2024.",
+        "Natural Language Processing with Probabilistics Models, February 2025.",
+        "Natural Language Processing with Sequence Models, March 2025."
+      ]
     },
     {
-      "name": "Paper Title Number 4",
-      "publisher": "GitHub Journal of Bugs",
-      "releaseDate": "2024-02-17",
-      "website": "http://academicpages.github.io/files/paper3.pdf",
-      "summary": "This paper is about fixing template issue #693."
+      "name": "Machine Learning Specialization",
+      "institution": "Deeplearning.Ai and Stanford University",
+      "details": [
+        "Supervised Machine Learning: Regression and Classification, April 2025.",
+        "Advanced Learning Algorithms, June 2025."
+      ]
+    },
+    {
+      "name": "Mathematics for Machine Learning and Data Science Specialisation",
+      "institution": "Deeplearning.AI",
+      "details": [
+        "Linear Algebra for Machine Learning and Data Science, October 2024",
+        "Calculus for Machine Learning and Data Science, October 2024",
+        "Probability and Statistics for Machine Learning and Data Science, March 2025."
+      ]
+    },
+    {
+      "name": "Research Methods and Statistics in Social Sciences",
+      "institution": "University of Amsterdam",
+      "details": [
+        "Quantitative Research Methods",
+        "Qualitative Research Methods",
+        "Basic Statistics",
+        "Inferential Statistics",
+        "Methods and Statistics in Social Sciences - Project, Jan 2022"
+      ]
+    },
+    {
+      "name": "Academic English: Writing Specialization",
+      "details": [
+        "Grammar and Punctuation, May 2023",
+        "Getting Started with Essay Writing, June 2023",
+        "Advanced Writing, August 2023",
+        "Introduction to Research for Essay Writing, October 2023",
+        "Project: Writing a Research Paper, December 2023."
+      ]
+    },
+    {
+      "name": "Tidyverse Skills for Data Science in R",
+      "institution": "The John Hopkins University",
+      "details": [
+        "Introduction to the Tidyverse, Mar 2022",
+        "Importing Data in the Tidyverse, Apr 2022",
+        "Wrangling Data in the Tidyverse, Aug 2022",
+        "Visualising Data in the Tidyverse, Oct 2022",
+        "Modelling Data in the Tidyverse, August 2023."
+      ]
+    },
+    {
+      "name": "IBM Data Science Professional Certificate",
+      "details": [
+        "What is Data Science",
+        "Tools for Data Science",
+        "Data Science Methodology",
+        "Python for Data Science, AI & Development",
+        "Python Project for Data Science"
+      ]
+    },
+    {
+      "name": "Miscellaneous",
+      "details": [
+        "Geographical Information Systems (GIS) Specialization by the University of California.",
+        "Fundamentals of GIS,",
+        "Strategic Management and Innovation Specialization by the Copenhagen Business School",
+        "Strategic Management",
+        "Strategy Formulation",
+        "Strategy Implementation, Feb 2022",
+        "Google Project Management: Professional Certificate",
+        "Foundations of Project Management",
+        "Project Initiation: Starting a Successful Project"
+      ]
     }
   ],
-  "presentations": [
+  "awardsAndRecognitions": [
     {
-      "name": "Talk 1 on Relevant Topic in Your Field",
-      "event": "UC San Francisco, Department of Testing",
-      "date": "2012-03-01",
-      "location": "San Francisco, CA, USA",
-      "description": ""
+      "name": "Young Educator Award",
+      "event": "Student Conclave India 2024, organised by DTORR, St. Claret College, and UN Tourism."
     },
     {
-      "name": "Tutorial 1 on Relevant Topic in Your Field",
-      "event": "UC-Berkeley Institute for Testing Science",
-      "date": "2013-03-01",
-      "location": "Berkeley, CA, USA",
-      "description": ""
-    },
-    {
-      "name": "Talk 2 on Relevant Topic in Your Field",
-      "event": "London School of Testing",
-      "date": "2014-02-01",
-      "location": "London, UK",
-      "description": ""
-    },
-    {
-      "name": "Conference Proceeding talk 3 on Relevant Topic in Your Field",
-      "event": "Testing Institute of America 2014 Annual Conference",
-      "date": "2014-03-01",
-      "location": "Los Angeles, CA, USA",
-      "description": ""
+      "name": "Junior Research Fellowship (JRF) Award",
+      "event": "University Grants Commission (UGC) of India"
     }
   ],
-  "teaching": [
+  "industrialWorkExperience": {
+    "researchAssistant": [
+      {
+        "project": "Ministry of Tourism, India’s ‘Incredible India Tourist Facilitator Certification (IITFC)’ Program.",
+        "duration": "Six months"
+      }
+    ],
+    "onJobTraining": [
+      {
+        "role": "Assistant Hotel Manager",
+        "hotel": "the Winterfell Lodge, Old Manali.",
+        "duration": "Six months",
+        "comments": "This was immediately after the completion of MBA degree."
+      }
+    ],
+    "internships": [
+      {
+        "role": "Outbound Sales Executive",
+        "company": "Travel Karo",
+        "duration": "Two months",
+        "location": "Goa, India",
+        "market": "South East Asia and mainly Thailand.",
+        "comments": "It was during MBA degree"
+      },
+      {
+        "role": "Travel Agent",
+        "company": "Northland Adventures Pvt. Ltd.",
+        "duration": "One Month",
+        "location": "Old Manali, India",
+        "comments": "It was during Undergraduate Degree (UG)."
+      }
+    ],
+    "partTime": [
+      "Local Tourist Guide in Kullu-Manali.",
+      "Trekking Guide and Trek Leader in the mountains around Kullu-Manali.",
+      "Tour Escort for Jaipur, Rajasthan.",
+      "Travel Agency Startup during Bachelor’s, named ‘Kulantpita Adventure,’ that focused on Himachal Holiday Tours.",
+      "Helper to Cook and Food Servant at Family Functions."
+    ]
+  },
+  "individualCertificates": [
     {
-      "course": "Teaching experience 1",
-      "institution": "University 1, Department",
-      "date": "2014-01-01",
-      "role": "Undergraduate course",
-      "description": ""
+      "name": "GitHub Foundations",
+      "issuer": "Data Camp",
+      "date": "May 2025"
     },
     {
-      "course": "Teaching experience 2",
-      "institution": "University 1, Department",
-      "date": "2015-01-01",
-      "role": "Workshop",
-      "description": ""
+      "name": "Data Science Ethics",
+      "issuer": "University of Michigan",
+      "date": "June 2023"
+    },
+    {
+      "name": "Good Citation Behaviour",
+      "issuer": "Web of Science Academy",
+      "date": "December 2022"
+    },
+    {
+      "name": "Spatial Data Science- The New Frontier in Analytics",
+      "issuer": "Esri",
+      "date": "Nov 2022"
+    },
+    {
+      "name": "Aussie Specialist Agent",
+      "issuer": "Tourism Australia",
+      "date": "Jan 2022"
+    },
+    {
+      "name": "Destination Germany Tourism Certification Program",
+      "issuer": "German National Tourist Board",
+      "date": "Jan 2022"
+    },
+    {
+      "name": "Research Collaborations course",
+      "issuer": "Elsevier Researcher Academy"
+    },
+    {
+      "name": "Research Data Management course",
+      "issuer": "Elsevier Researcher Academy"
+    },
+    {
+      "name": "Research Funding course",
+      "issuer": "Elsevier Researcher Academy"
+    },
+    {
+      "name": "Understanding Research Methods",
+      "issuer": "University of London"
+    },
+    {
+      "name": "Writing in the Sciences course",
+      "issuer": "Stanford University"
+    },
+    {
+      "name": "Peer Reviewer Course",
+      "issuer": "Publons Academy"
+    },
+    {
+      "name": "Focus on Peer Review course",
+      "issuer": "Springer nature"
+    },
+    {
+      "name": "The Neuromarketing Toolbox course on tools & techniques used in Neuromarketing Research",
+      "issuer": "Copenhagen Business School"
+    },
+    {
+      "name": "Critical Thinking course",
+      "issuer": "LinkedIn Learning"
+    },
+    {
+      "name": "Being a researcher (in Information Science and Technology) course",
+      "issuer": "Coursera"
     }
   ],
-  "portfolio": [
+  "workshops": [
     {
-      "name": "Portfolio item number 1",
-      "category": "portfolio",
-      "date": "",
-      "url": "",
-      "description": "Short description of portfolio item number 1<br/><img src='/images/500x300.png'>"
+      "name": "Discovering Development: Examining AMRUT’s footprint in Shimla and Kullu cities of Himachal Pradesh",
+      "organizer": "Institute of Vocational Studies, Himachal Pradesh University",
+      "date": "March 2024"
+    },
+    {
+      "name": "Mining Quality Prediction using Machine & Deep Learning",
+      "organizer": "Coursera",
+      "date": "Oct 2022"
+    },
+    {
+      "name": "Marketing Analytics (FDP)",
+      "organizer": "Biju Patnaik University, Odisha",
+      "date": "Jul 2022"
+    },
+    {
+      "name": "Emerging Trends in Teaching Learning and Research (FDP)",
+      "organizer": "Baba Gulam Badshah University, Srinagar",
+      "date": "May 2022"
+    },
+    {
+      "name": "3rd International Conference on Tourism, Hospitality and Sustainable Development Goals",
+      "organizer": "National Institute of Tourism and Hospitality Management, India",
+      "date": "Feb 2022"
+    },
+    {
+      "name": "Research Methodology Workshop for 1st year PhD Students",
+      "organizer": "Garden City University, Bangalore",
+      "date": "Feb 2022"
+    },
+    {
+      "name": "Basic course in Statistical Analysis",
+      "organizer": "Commonwealth Educational Media Center for Asis (Cemca)",
+      "date": "Jan 2022"
+    },
+    {
+      "name": "Inferential Statistics using R Programming language",
+      "organizer": "Data Camp"
+    },
+    {
+      "name": "Basic Statistics using R Programming language",
+      "organizer": "Data Camp"
+    },
+    {
+      "name": "One Week Online Training Program on Statistical Analysis using SPSS Software",
+      "organizer": "‘Science and Tech Institute.’"
+    },
+    {
+      "name": "The Complete Guide to Research Paper Writing",
+      "organizer": "‘Research Graduate Company.’"
+    },
+    {
+      "name": "I built a Face Recognition App using Python",
+      "organizer": "‘GUVI’ Geek Networks, IIT Madras Research Park"
+    },
+    {
+      "name": "Increase visibility and impact of your Research",
+      "organizer": "‘EURAXESS."
+    },
+    {
+      "name": "CRiT Summer School on Tourism and SDGs",
+      "organizer": "Taylor’s University"
     }
-  ]
+  ],
+  "adventureSportsAndDisasterManagement": [
+    {
+      "name": "Search & Rescue Course (Disaster Management)",
+      "issuer": "‘Atal Bihari Vajpayee Institute of Mountaineering & Allied Sports’ (ABVIMAS), Government of Himachal Pradesh."
+    },
+    {
+      "name": "Elementary Water Safety and Rescue Course (Disaster Management)",
+      "issuer": "‘Atal Bihari Vajpayee Institute of Mountaineering & Allied Sports’ (ABVIMAS), Government of Himachal Pradesh."
+    },
+    {
+      "name": "Basic Course (Snow Skiing)",
+      "issuer": "‘Atal Bihari Vajpayee Institute of Mountaineering & Allied Sports’ (ABVIMAS), Government of Himachal Pradesh."
+    },
+    {
+      "name": "Intermediate Course (Snow Skiing)",
+      "issuer": "‘Atal Bihari Vajpayee Institute of Mountaineering & Allied Sports’ (ABVIMAS), Government of Himachal Pradesh."
+    },
+    {
+      "name": "Seven Days Adventure Program – as an IITTM Student (Study Tour)",
+      "issuer": "‘Atal Bihari Vajpayee Institute of Mountaineering & Allied Sports’ (ABVIMAS), Government of Himachal Pradesh."
+    }
+  ],
+  "cocurricularActivities": [
+    {
+      "name": "Head of Overall Supervision and Technical Committee, Week-long Tourism Week Celebrations",
+      "organizer": "IVS, HPU",
+      "date": "September 2024"
+    },
+    {
+      "name": "Head of Technical Committee, One Day Industry Academia Meet",
+      "organizer": "IVS, HPU",
+      "date": "March 2024"
+    },
+    {
+      "name": "Organized and accompanied study tour, for HPU MTTM students in 2023 to South India",
+      "date": "Jan 10 to Jan 28"
+    },
+    {
+      "name": "Co-head of Cultural Committee, World Tourism Day 2022 (Week Long Celebrations)",
+      "organizer": "HPU",
+      "date": "Sept. 2022"
+    },
+    {
+      "name": "Head of Technical Committee, World Tourism Day 2022 (Week Long Celebrations)",
+      "organizer": "HPU",
+      "date": "Sept. 2022"
+    },
+    {
+      "name": "Team member, Tourism Conclave 2021 - a roadmap for developing tourism in Himachal",
+      "organizer": "Himachal Pradesh University",
+      "date": "Dec. 2021"
+    },
+    {
+      "name": "First Prize in the Brochure Making Competition",
+      "event": "DISHA Event at IITTM, Gwalior."
+    },
+    {
+      "name": "Certificate of Participation in the Itinerary Competition",
+      "event": "DISHA Event at IITTM, Gwalior."
+    },
+    {
+      "name": "Certificate of Honour – College trekking to Chandratal Lake",
+      "issuer": "Government Degree College Kullu."
+    },
+    {
+      "name": "Awareness Training and Capacity Building Programme of VDMC’s and NGOs",
+      "organizer": "‘Nature & Life Savers Association’, Kullu."
+    },
+    {
+      "name": "Typing Certificate for typing in English with speed 49 wpm and accuracy of 96.6%",
+      "issuer": "Rata type."
+    }
+  ],
+  "miscellaneous": {
+    "webinars": [
+      {
+        "title": "JHTR: Exploring New Horizons in Hospitality and Tourism Experience Design",
+        "organizer": "Journal of Hospitality and Tourism Research",
+        "date": "February 2025"
+      },
+      {
+        "title": "Why Data-Engineering is critical to Data-centric AI",
+        "organizer": "Andrew Ng, LinkedIn Live",
+        "date": "September 2024"
+      },
+      {
+        "title": "Generative AI use in the Research Workflow",
+        "organizer": "Elsevier Researcher Academy",
+        "date": "August 2024"
+      },
+      {
+        "title": "What Constitutes Theoretical Contributions",
+        "organizer": "Tourism Management Journal",
+        "date": "June 2024"
+      },
+      {
+        "title": "The Need for Theorizing in Tourism Research: What Theory Is and Is Not",
+        "organizer": "Tourism Management Journal",
+        "date": "April 2024"
+      },
+      {
+        "title": "Experience sharing by early career researchers: navigating the academic journal landscape",
+        "organizer": "Tourism Management Journal",
+        "date": "December 2023"
+      },
+      {
+        "title": "Writing High-Quality Manuscripts and Publishing Your Research",
+        "organizer": "Emerald Publishing",
+        "date": "November 2023"
+      }
+    ],
+    "professionalSkills": {
+      "programmingLanguages": ["R", "Python", "SQL"],
+      "softwares": ["MS Word", "PowerPoint", "NVivo", "MaxQDA", "GIS", "Tableau", "Mendeley"]
+    },
+    "generalLanguages": [
+      { "language": "Hindi", "fluency": "Native Speaker" },
+      { "language": "English", "fluency": "Fluent" },
+      { "language": "French Language", "fluency": "Beginner" },
+      { "language": "Kullu Dialect", "fluency": "Mother Tongue" },
+      { "language": "Sanskrit", "fluency": "Beginner" }
+    ],
+    "hobbies": [
+      "Cooking",
+      "Workout",
+      "Reading",
+      "Listening and Playing Music",
+      "Gardening",
+      "Meditation and Spirituality."
+    ]
+  },
+  "personalDetails": {
+    "dateOfBirth": "27/04/1995",
+    "permanentAddress": "S/O Shri. Diwan Chand, Village Trambli, PO Bari, Tehsil & District Kullu, Himachal Pradesh, India (Pin Code 175101).",
+    "familyMembers": "Father, Mother, and an elder sister (Married).",
+    "lastUpdate": "03-December-2024"
+  }
 }
