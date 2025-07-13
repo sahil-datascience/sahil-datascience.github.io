@@ -7,7 +7,7 @@ date: 2025-01-02
 venue: "Routledge Handbook of Mobile Technology, Social Media and the Outdoors, Routledge"
 paperurl: "https://www.routledge.com/Routledge-Handbook-of-Mobile-Technology-Social-Media-and-the-Outdoors/Beames-Maher/p/book/9781032201792"
 citation: "Sharma, S. (2025). Big Data in Adventure Travel. In Routledge Handbook of Mobile Technology, Social Media and the Outdoors (pp. 307-320). Routledge."
-researchgateurl: "https://www.researchgate.net/publication/373529972_Big_Data_in_Adventure_Travel"
+googlescholarurl: "https://scholar.google.com/scholar?q=Big+Data+in+Adventure+Travel" # Placeholder: Update with actual Google Scholar link if a direct page exists
 ---
 **Abstract**
 

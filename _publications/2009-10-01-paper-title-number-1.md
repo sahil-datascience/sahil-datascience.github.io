@@ -9,6 +9,7 @@ venue: 'Journal 1'
 slidesurl: 'http://academicpages.github.io/files/slides1.pdf'
 paperurl: 'http://academicpages.github.io/files/paper1.pdf'
 bibtexurl: 'http://academicpages.github.io/files/bibtex1.bib'
+googlescholarurl: 'https://scholar.google.com/scholar?q=Paper+Title+Number+1' # Placeholder: Update with actual Google Scholar link
 citation: 'Your Name, You. (2009). &quot;Paper Title Number 1.&quot; <i>Journal 1</i>. 1(1).'
 published: false
 ---
