@@ -50,3 +50,37 @@ Overall structure of the website?
 
 
   Just tell me what you'd like to accomplish, and I can guide you through the steps or perform them for you.
+
+---
+
+## Gemini Workflow Notes
+
+**Git Commit Workflow:**
+
+The `run_shell_command` tool has issues with `git commit -m "..."` on this Windows system due to quote handling. To commit changes successfully, use the following file-based method:
+
+1.  **Stage Files:** Use `git add .` or `git add <file1> <file2>...` to stage all necessary changes.
+2.  **Write Commit Message:** Create a temporary file with the commit message.
+    ```
+    [tool_code]
+    write_file('commit_message.txt', 'feat: A descriptive commit message')
+    [/tool_code]
+    ```
+3.  **Commit from File:** Use the `-F` flag to commit using the message from the file.
+    ```
+    [tool_code]
+    run_shell_command('git commit -F commit_message.txt')
+    [/tool_code]
+    ```
+4.  **Clean Up:** Delete the temporary file. Since the OS is Windows, use `del`.
+    ```
+    [tool_code]
+    run_shell_command('del commit_message.txt')
+    [/tool_code]
+    ```
+5.  **Push:** Push the changes to the remote repository.
+    ```
+    [tool_code]
+    run_shell_command('git push')
+    [/tool_code]
+    ```
