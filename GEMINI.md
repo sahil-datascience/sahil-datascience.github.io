@@ -89,3 +89,12 @@ When performing changes that require a commit and push, the agent will adhere to
 3.  **Commit Changes:** Execute `git commit -m "Your commit message"` or `git commit -F commit_message.txt`.
 4.  **Verify Commit:** Run `git status` to confirm the commit was successful and the working directory is clean.
 5.  **Push Changes:** Only push to the remote repository when explicitly instructed by the user, using `git push`.
+
+### Local Testing and Verification
+
+Before pushing changes online, it is crucial to test them locally to ensure the website runs properly and all modifications are rendered as expected. Follow these steps:
+
+1.  **Start Jekyll Server:** Run the command `bundle exec jekyll serve` in the project root directory. This will build the site and start a local server, typically accessible at `http://localhost:4000`.
+    *   **Note:** This command will keep running and serving the site. It will not get stuck, but it will occupy the terminal.
+2.  **Verify Changes:** Open your web browser and navigate to the local server address (e.g., `http://localhost:4000`). Check all affected pages and functionalities to confirm that your changes have been applied correctly and the website is functioning as intended.
+3.  **Stop Jekyll Server:** Once you have finished testing, return to the terminal where the Jekyll server is running and press `Ctrl + C` to stop the process.
