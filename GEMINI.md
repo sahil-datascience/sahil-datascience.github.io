@@ -56,7 +56,7 @@ When performing changes that require a commit and push, adhere to the following 
     *   Draft a clear, concise, and descriptive commit message.
     *   Focus on the "why" behind the change, not just the "what."
     *   Adhere to the project's existing commit message style (e.g., "type: Subject line").
-    *   If the commit message contains special characters or spaces that might be misinterpreted by the shell, write the message to a temporary file (e.g., `commit_message.txt`) and use `git commit -F commit_message.txt`.
+    *   **Windows Users:** If the commit message contains special characters or spaces that might be misinterpreted by the shell, write the message to a temporary file (e.g., `commit_message.txt`) and use `git commit -F commit_message.txt`. This is often more reliable than `git commit -m "..."`.
 3.  **Commit Changes:** Execute `git commit -m "Your commit message"` or `git commit -F commit_message.txt`.
 4.  **Verify Commit:** Run `git status` to confirm the commit was successful and the working directory is clean.
 5.  **Push Changes:** Only push to the remote repository when explicitly instructed by the user, using `git push`.
@@ -102,3 +102,4 @@ After completing a task, especially if new challenges were encountered or novel 
 *   **Operating System:** win32
 *   **Current Working Directory:** E:\sahil-datascience.github.io
 *   **Jekyll Build Command:** `bundle exec jekyll build` (often requires `git clean -fdx` beforehand for full cache clearing)
+*   **Windows Shell Commands:** Use `del` instead of `rm` for deleting files.

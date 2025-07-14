@@ -30,3 +30,22 @@ Updated CV data (`_data/cv.json`) and its rendering template (`_includes/cv-temp
 ## Future Considerations
 *   When updating CV or similar data-driven pages, always perform a `git clean -fdx` before `bundle exec jekyll build`.
 *   If rendering issues persist, verify Liquid logic directly within the layout file and ensure data access paths are correct.
+
+---
+## CV Link Addition (July 2025)
+
+### Task Overview
+Added a prominent link to an external Google Doc CV at the top of the CV page.
+
+### Key Challenges & Solutions
+1.  **Git Commit on Windows:**
+    *   **Problem:** The `git commit -m "message"` command failed due to shell interpretation of quotes on Windows.
+    *   **Solution:** Wrote the commit message to a temporary file (`commit_message.txt`) and used `git commit -F commit_message.txt`. This avoided shell escaping issues.
+    *   **Insight:** For complex commit messages or when facing shell issues on Windows, using `git commit -F` is a more robust method.
+
+2.  **File Deletion on Windows:**
+    *   **Problem:** The `rm` command is not available on Windows.
+    *   **Solution:** Used the `del` command to remove the temporary `commit_message.txt` file.
+
+### Relevant Files
+*   `_layouts/cv-layout.html` (Modified to add the link)
