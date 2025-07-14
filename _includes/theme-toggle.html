@@ -1,0 +1,236 @@
+<!-- Theme Toggle Functionality - Enhanced -->
+<script>
+(function() {
+    'use strict';
+    
+    // Wait for DOM to be fully loaded
+    function initThemeToggle() {
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeToggleLink = themeToggle ? themeToggle.querySelector('a') : null;
+        const themeIcon = document.getElementById('theme-icon');
+        const body = document.body;
+        const html = document.documentElement;
+        
+        console.log('Theme toggle elements:', { themeToggle, themeToggleLink, themeIcon }); // Debug log
+        
+        // Get current theme from localStorage or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Apply theme on page load
+        function applyTheme(theme) {
+            html.setAttribute('data-theme', theme);
+            body.setAttribute('data-theme', theme);
+            
+            if (themeIcon) {
+                if (theme === 'dark') {
+                    themeIcon.className = 'fa-solid fa-moon';
+                    themeIcon.setAttribute('title', 'Switch to Light Mode');
+                } else {
+                    themeIcon.className = 'fa-solid fa-sun';
+                    themeIcon.setAttribute('title', 'Switch to Dark Mode');
+                }
+            }
+            
+            // Store theme preference
+            localStorage.setItem('theme', theme);
+            
+            console.log('Theme applied:', theme); // Debug log
+            
+            // Dispatch event for other components
+            window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+        }
+        
+        // Initialize theme
+        applyTheme(currentTheme);
+        
+        // Theme toggle functionality - Multiple event targets for reliability
+        function toggleTheme(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            console.log('Toggling theme from', currentTheme, 'to', newTheme); // Debug log
+            
+            applyTheme(newTheme);
+            
+            // Mark as manually set
+            localStorage.setItem('theme-manual', 'true');
+        }
+        
+        // Attach event listeners to multiple elements for reliability
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+        }
+        
+        if (themeToggleLink) {
+            themeToggleLink.addEventListener('click', toggleTheme);
+        }
+        
+        if (themeIcon) {
+            themeIcon.addEventListener('click', toggleTheme);
+        }
+        
+        // Keyboard accessibility
+        [themeToggle, themeToggleLink, themeIcon].forEach(element => {
+            if (element) {
+                element.addEventListener('keydown', function(e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        toggleTheme(e);
+                    }
+                });
+            }
+        });
+        
+        // Listen for system theme changes
+        if (window.matchMedia) {
+            const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            function handleSystemThemeChange(e) {
+                // Only auto-switch if user hasn't manually set a preference
+                if (!localStorage.getItem('theme-manual')) {
+                    applyTheme(e.matches ? 'dark' : 'light');
+                }
+            }
+            
+            mediaQuery.addEventListener('change', handleSystemThemeChange);
+        }
+        
+        // Accessibility: Update aria-label
+        function updateAriaLabel() {
+            const currentTheme = html.getAttribute('data-theme') || 'light';
+            const label = currentTheme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode';
+            
+            [themeToggle, themeToggleLink].forEach(element => {
+                if (element) {
+                    element.setAttribute('aria-label', label);
+                }
+            });
+        }
+        
+        updateAriaLabel();
+        window.addEventListener('themeChanged', updateAriaLabel);
+        
+        console.log('Theme toggle initialized successfully'); // Debug log
+    }
+    
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initThemeToggle);
+    } else {
+        initThemeToggle();
+    }
+    
+    // Also try to initialize after a short delay to ensure all elements are loaded
+    setTimeout(initThemeToggle, 100);
+    
+})();
+</script>
+
+<!-- Theme Transition CSS -->
+<style>
+.theme-transition,
+.theme-transition *,
+.theme-transition *:before,
+.theme-transition *:after {
+    transition: all 0.3s ease !important;
+}
+
+/* Ensure smooth transitions for theme changes */
+html[data-theme="dark"] {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme toggle button styling - Enhanced for better functionality */
+#theme-toggle {
+    position: relative;
+    cursor: pointer;
+    
+    a {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 50% !important;
+        transition: all 0.3s ease !important;
+        cursor: pointer !important;
+        text-decoration: none !important;
+        
+        &:hover {
+            background: rgba(255, 255, 255, 0.2) !important;
+            transform: scale(1.1) !important;
+        }
+        
+        &:focus {
+            outline: 2px solid rgba(255, 255, 255, 0.5) !important;
+            outline-offset: 2px !important;
+        }
+        
+        i {
+            font-size: 1.2rem !important;
+            color: white !important;
+            transition: all 0.3s ease !important;
+            cursor: pointer !important;
+            pointer-events: auto !important;
+        }
+    }
+    
+    /* Ensure the entire area is clickable */
+    &::before {
+        content: '';
+        position: absolute;
+        top: -5px;
+        left: -5px;
+        right: -5px;
+        bottom: -5px;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    
+    /* Add a subtle glow effect */
+    &:hover a {
+        box-shadow: 0 0 15px rgba(255, 255, 255, 0.3) !important;
+    }
+    
+    /* Active state */
+    &:active a {
+        transform: scale(0.95) !important;
+    }
+}
+
+/* Dark mode specific adjustments for floating elements */
+[data-theme="dark"] .floating-actions .fab {
+    background: linear-gradient(135deg, #5a67d8 0%, #667eea 100%) !important;
+    box-shadow: 0 4px 20px rgba(90, 103, 216, 0.3) !important;
+}
+
+[data-theme="dark"] .search-overlay {
+    background: rgba(26, 32, 44, 0.95) !important;
+    
+    .search-container {
+        background: var(--dark-bg-secondary) !important;
+        border: 1px solid var(--dark-border-color) !important;
+        
+        .search-input {
+            background: var(--dark-bg-primary) !important;
+            color: var(--dark-text-primary) !important;
+            border-color: var(--dark-border-color) !important;
+            
+            &:focus {
+                border-color: var(--dark-accent-color) !important;
+            }
+            
+            &::placeholder {
+                color: var(--dark-text-muted) !important;
+            }
+        }
+    }
+}
+</style>

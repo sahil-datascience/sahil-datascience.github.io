@@ -1,0 +1,132 @@
+<!-- Floating Action Buttons - Enhanced with fallbacks -->
+<div class="floating-actions">
+  <!-- Back to Top Button -->
+  <button class="fab back-to-top" id="backToTop" title="Back to Top" aria-label="Back to Top">
+    <i class="fas fa-chevron-up" aria-hidden="true">↑</i>
+  </button>
+  
+  <!-- Search Button (if search is enabled) -->
+  {% if site.search == true %}
+  <button class="fab fab-search" id="searchToggle" title="Search" aria-label="Search">
+    <i class="fas fa-search" aria-hidden="true">🔍</i>
+  </button>
+  {% endif %}
+</div>
+
+<!-- Enhanced Search Overlay -->
+{% if site.search == true %}
+<div class="search-overlay" id="searchOverlay">
+  <div class="search-container">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h3 style="margin: 0; color: var(--modern-text-primary);">
+        <i class="fas fa-search" style="margin-right: 10px; color: #667eea;"></i>
+        Search
+      </h3>
+      <button class="fab" id="searchClose" style="width: 35px; height: 35px; background: #f8f9fa; color: #6c757d;">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <input type="text" class="search-input" placeholder="Search articles, publications, talks..." id="searchInput">
+    <div id="searchResults" style="margin-top: 20px; max-height: 300px; overflow-y: auto;"></div>
+  </div>
+</div>
+{% endif %}
+
+<script>
+(function() {
+  // Back to Top functionality
+  const backToTopBtn = document.getElementById('backToTop');
+  
+  if (backToTopBtn) {
+    // Show/hide back to top button based on scroll position
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+    
+    // Smooth scroll to top
+    backToTopBtn.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+  
+  // Search functionality
+  const searchToggle = document.getElementById('searchToggle');
+  const searchOverlay = document.getElementById('searchOverlay');
+  const searchClose = document.getElementById('searchClose');
+  const searchInput = document.getElementById('searchInput');
+  
+  if (searchToggle && searchOverlay) {
+    searchToggle.addEventListener('click', function() {
+      searchOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => searchInput.focus(), 100);
+    });
+    
+    function closeSearch() {
+      searchOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+      searchInput.value = '';
+    }
+    
+    if (searchClose) {
+      searchClose.addEventListener('click', closeSearch);
+    }
+    
+    searchOverlay.addEventListener('click', function(e) {
+      if (e.target === searchOverlay) {
+        closeSearch();
+      }
+    });
+    
+    // Close search on Escape
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+        closeSearch();
+      }
+    });
+  }
+  
+  // Add smooth scrolling to all anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+  
+  // Add loading animations to images
+  document.querySelectorAll('img').forEach(img => {
+    if (!img.complete) {
+      img.style.opacity = '0';
+      img.addEventListener('load', function() {
+        this.style.transition = 'opacity 0.3s ease';
+        this.style.opacity = '1';
+      });
+    }
+  });
+  
+  // Add hover effects to cards
+  document.querySelectorAll('.modern-card, .cv-item, .archive__item').forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transform = 'translateY(-2px)';
+    });
+    
+    card.addEventListener('mouseleave', function() {
+      this.style.transform = '';
+    });
+  });
+})();
+</script>

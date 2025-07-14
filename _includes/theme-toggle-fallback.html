@@ -1,0 +1,53 @@
+<!-- Simplified Theme Toggle Script -->
+<script>
+(function() {
+    function initTheme() {
+        const themeButton = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        
+        if (!themeButton || !themeIcon) {
+            setTimeout(initTheme, 100);
+            return;
+        }
+        
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            document.body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+            
+            if (theme === 'dark') {
+                themeIcon.className = 'fa-solid fa-moon';
+            } else {
+                themeIcon.className = 'fa-solid fa-sun';
+            }
+        }
+        
+        setTheme(currentTheme);
+        
+        themeButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            currentTheme = (currentTheme === 'light') ? 'dark' : 'light';
+            setTheme(currentTheme);
+        });
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initTheme);
+    } else {
+        initTheme();
+    }
+})();
+</script>
+
+<style>
+#theme-toggle {
+    box-sizing: border-box !important;
+    position: relative !important;
+}
+
+#theme-icon {
+    pointer-events: none !important;
+}
+</style>

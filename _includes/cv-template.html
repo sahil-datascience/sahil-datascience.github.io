@@ -1,11 +1,586 @@
 {% assign cv = site.data.cv %}
-{{ cv | inspect }}
+
+<style>
+/* Modern CV Styling */
+.cv-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #ffffff;
+  box-shadow: 0 0 30px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Header styling */
+.cv-section.cv-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 40px 30px;
+  margin: 0;
+}
+
+.cv-section.cv-header h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.cv-section.cv-header h2 {
+  font-size: 1.3rem;
+  font-weight: 400;
+  margin: 0 0 8px 0;
+  opacity: 0.9;
+}
+
+.cv-section.cv-header h3 {
+  font-size: 1.1rem;
+  font-weight: 300;
+  margin: 0 0 25px 0;
+  opacity: 0.8;
+}
+
+/* Contact items styling */
+.cv-contact {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.cv-contact-item {
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.1);
+  padding: 12px 16px;
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.cv-contact-item:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateY(-2px);
+}
+
+.cv-contact-item i {
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.cv-contact-item a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255,255,255,0.3);
+  transition: border-color 0.3s;
+}
+
+.cv-contact-item a:hover {
+  border-color: white;
+}
+
+/* Profile links styling */
+.cv-profiles {
+  margin-top: 25px !important;
+}
+
+.cv-profile-link {
+  display: inline-block !important;
+  margin: 6px 12px 6px 0 !important;
+  padding: 10px 16px !important;
+  background: rgba(255,255,255,0.15) !important;
+  border: 1px solid rgba(255,255,255,0.3) !important;
+  border-radius: 25px !important;
+  text-decoration: none !important;
+  color: white !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.cv-profile-link:hover {
+  background: rgba(255,255,255,0.25) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2) !important;
+}
+
+/* Action links styling */
+.cv-action-links {
+  margin-top: 30px !important;
+  padding-top: 25px !important;
+  border-top: 1px solid rgba(255,255,255,0.2) !important;
+  text-align: center;
+}
+
+.cv-action-links a,
+.cv-action-links button {
+  display: inline-block !important;
+  margin: 8px 10px !important;
+  padding: 12px 24px !important;
+  border-radius: 25px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  transition: all 0.3s ease !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+}
+
+.cv-action-links a {
+  background: linear-gradient(135deg, #28a745, #20c997) !important;
+  color: white !important;
+}
+
+.cv-action-links button {
+  background: linear-gradient(135deg, #007bff, #0056b3) !important;
+  color: white !important;
+}
+
+.cv-action-links a:hover,
+.cv-action-links button:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+}
+
+/* Section styling */
+.cv-section {
+  padding: 35px 30px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.cv-section:last-child {
+  border-bottom: none;
+}
+
+.cv-section h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0 0 25px 0;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #667eea;
+  position: relative;
+}
+
+.cv-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.cv-section h3 {
+  color: #495057;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 30px 0 18px 0;
+  padding-left: 15px;
+  border-left: 4px solid #667eea;
+}
+
+/* List styling */
+.cv-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cv-item {
+  background: #f8f9fa;
+  margin-bottom: 20px;
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 5px solid #667eea;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.cv-item:hover {
+  background: #e9ecef;
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Education item specific styling */
+.cv-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.cv-item-title {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.cv-item-date {
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 0.95rem;
+  background: #dee2e6;
+  padding: 4px 12px;
+  border-radius: 15px;
+}
+
+.cv-item-subtitle {
+  color: #495057;
+  font-style: italic;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.cv-item-detail {
+  color: #6c757d;
+  font-size: 0.95rem;
+}
+
+/* Links in content */
+.cv-item a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.cv-item a:hover {
+  color: #764ba2;
+  border-bottom-color: #764ba2;
+}
+
+/* Nested lists */
+.cv-item ul {
+  margin-top: 15px;
+  padding-left: 20px;
+}
+
+.cv-item ul li {
+  background: none;
+  padding: 8px 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+  color: #495057;
+  font-size: 0.95rem;
+  position: relative;
+  padding-left: 20px;
+}
+
+.cv-item ul li:before {
+  content: '▸';
+  color: #667eea;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
+.cv-item ul li:hover {
+  background: none;
+  transform: none;
+  color: #2c3e50;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .cv-container {
+    margin: 0;
+    border-radius: 0;
+  }
+  
+  .cv-section.cv-header {
+    padding: 25px 20px;
+  }
+  
+  .cv-section.cv-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .cv-section {
+    padding: 25px 20px;
+  }
+  
+  .cv-contact {
+    grid-template-columns: 1fr;
+  }
+  
+  .cv-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .cv-item-date {
+    margin-top: 8px;
+  }
+}
+
+@media print {
+  /* Hide elements that shouldn't appear in PDF */
+  .cv-section.cv-header p,
+  .cv-action-links {
+    display: none !important;
+  }
+  
+  /* Reset all styling for clean print */
+  * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: none !important;
+    text-shadow: none !important;
+    background-image: none !important;
+  }
+  
+  /* Basic page setup */
+  body {
+    font-family: 'Times New Roman', Times, serif !important;
+    font-size: 12pt !important;
+    line-height: 1.4 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Container styling */
+  .cv-container {
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 20px !important;
+    background: white !important;
+  }
+  
+  /* Header section */
+  .cv-section.cv-header {
+    background: white !important;
+    color: black !important;
+    padding: 0 0 20px 0 !important;
+    margin: 0 0 30px 0 !important;
+    border-bottom: 2px solid black !important;
+  }
+  
+  .cv-section.cv-header h1 {
+    font-size: 24pt !important;
+    font-weight: bold !important;
+    margin: 0 0 10px 0 !important;
+    text-align: center !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+  }
+  
+  .cv-section.cv-header h2 {
+    font-size: 14pt !important;
+    font-weight: normal !important;
+    margin: 0 0 8px 0 !important;
+    text-align: center !important;
+    font-style: italic !important;
+  }
+  
+  .cv-section.cv-header h3 {
+    font-size: 12pt !important;
+    font-weight: normal !important;
+    margin: 0 0 15px 0 !important;
+    text-align: center !important;
+  }
+  
+  /* Contact information */
+  .cv-contact {
+    display: block !important;
+    text-align: center !important;
+    margin: 15px 0 !important;
+  }
+  
+  .cv-contact-item {
+    display: inline-block !important;
+    margin: 0 15px 5px 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    font-size: 11pt !important;
+  }
+  
+  .cv-contact-item i {
+    display: none !important;
+  }
+  
+  .cv-contact-item a {
+    color: black !important;
+    text-decoration: none !important;
+  }
+  
+  /* Profile links */
+  .cv-profiles {
+    text-align: center !important;
+    margin: 15px 0 !important;
+  }
+  
+  .cv-profiles a {
+    display: inline !important;
+    margin: 0 8px 0 0 !important;
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    font-size: 10pt !important;
+    color: black !important;
+    text-decoration: none !important;
+  }
+  
+  .cv-profiles a:after {
+    content: " | " !important;
+  }
+  
+  .cv-profiles a:last-child:after {
+    content: "" !important;
+  }
+  
+  /* Section styling */
+  .cv-section {
+    padding: 0 !important;
+    margin: 0 0 25px 0 !important;
+    border: none !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .cv-section h2 {
+    font-size: 16pt !important;
+    font-weight: bold !important;
+    margin: 20px 0 15px 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+  }
+  
+  .cv-section h2::after {
+    display: none !important;
+  }
+  
+  .cv-section h3 {
+    font-size: 14pt !important;
+    font-weight: bold !important;
+    margin: 15px 0 10px 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    text-decoration: underline !important;
+  }
+  
+  /* List styling */
+  .cv-list {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 0 15px 0 !important;
+  }
+  
+  .cv-item {
+    background: white !important;
+    margin: 0 0 15px 0 !important;
+    padding: 0 0 10px 20px !important;
+    border: none !important;
+    position: relative !important;
+  }
+  
+  .cv-item:before {
+    content: "• " !important;
+    position: absolute !important;
+    left: 0 !important;
+    font-weight: bold !important;
+  }
+  
+  /* Education and experience items */
+  .cv-item-header {
+    display: block !important;
+    margin: 0 0 5px 0 !important;
+  }
+  
+  .cv-item-title {
+    font-size: 12pt !important;
+    font-weight: bold !important;
+    margin: 0 0 3px 0 !important;
+    display: block !important;
+  }
+  
+  .cv-item-date {
+    font-size: 11pt !important;
+    font-style: italic !important;
+    margin: 0 0 5px 0 !important;
+    background: none !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+  
+  .cv-item-subtitle {
+    font-size: 11pt !important;
+    font-style: italic !important;
+    margin: 0 0 3px 0 !important;
+  }
+  
+  .cv-item-detail {
+    font-size: 11pt !important;
+    margin: 0 !important;
+  }
+  
+  /* Links in content */
+  .cv-item a {
+    color: black !important;
+    text-decoration: underline !important;
+    font-weight: normal !important;
+  }
+  
+  /* Nested lists */
+  .cv-item ul {
+    margin: 8px 0 0 15px !important;
+    padding: 0 !important;
+    list-style-type: none !important;
+  }
+  
+  .cv-item ul li {
+    background: none !important;
+    padding: 0 0 3px 15px !important;
+    margin: 0 !important;
+    border: none !important;
+    font-size: 10pt !important;
+    position: relative !important;
+    line-height: 1.3 !important;
+  }
+  
+  .cv-item ul li:before {
+    content: "○ " !important;
+    position: absolute !important;
+    left: 0 !important;
+    font-weight: normal !important;
+  }
+  
+  /* Page breaks */
+  .cv-section {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+  
+  /* Ensure good spacing */
+  p, div {
+    margin: 0 0 5px 0 !important;
+    padding: 0 !important;
+  }
+  
+  /* Remove all hover effects */
+  *:hover {
+    background: white !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+</style>
+
 <div class="cv-container">
-  <div class="cv-section cv-header">
-    <p>
-      <a href="https://docs.google.com/document/d/e/2PACX-1vQtyfL2IAeHgHvuoQw_dSQiE0Kf_rJ1JZdc-kc_vsZ1-hhUfxkMap27GPbkFJh6Pj7STVmWpgVUBcdj/pub" target="_blank">View Latest CV</a>
-    </p>
-  </div>
   <!-- Basic Information -->
   <div class="cv-section cv-header">
     <h1>{{ cv.basics.name }}</h1>
@@ -28,11 +603,13 @@
       </div>
       {% endif %}
       
+      {% comment %}
       {% if cv.basics.phone %}
       <div class="cv-contact-item">
         <i class="fas fa-phone"></i> {{ cv.basics.phone }}
       </div>
       {% endif %}
+      {% endcomment %}
       
       {% if cv.basics.website %}
       <div class="cv-contact-item">
@@ -42,14 +619,26 @@
     </div>
     
     {% if cv.basics.profiles.size > 0 %}
-    <div class="cv-profiles">
+    <div class="cv-profiles" style="margin-top: 15px;">
       {% for profile in cv.basics.profiles %}
-      <a href="{{ profile.url }}" target="_blank" class="cv-profile-link">
+      <a href="{{ profile.url }}" target="_blank" class="cv-profile-link" style="display: inline-block; margin: 5px 10px 5px 0; padding: 8px 12px; background-color: #f8f9fa; border: 1px solid #dee2e6; border-radius: 6px; text-decoration: none; color: #495057; font-size: 14px; transition: all 0.2s;">
         {{ profile.network }}
       </a>
       {% endfor %}
     </div>
     {% endif %}
+    
+    <!-- CV Action Links -->
+    <div class="cv-action-links" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid #dee2e6;">
+      {% comment %}
+      <a href="https://docs.google.com/document/d/e/2PACX-1vQtyfL2IAeHgHvuoQw_dSQiE0Kf_rJ1JZdc-kc_vsZ1-hhUfxkMap27GPbkFJh6Pj7STVmWpgVUBcdj/pub" target="_blank" style="display: inline-block; margin-right: 15px; padding: 10px 16px; background-color: #28a745; color: white; text-decoration: none; border-radius: 5px; font-size: 14px; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">
+        <i class="fas fa-external-link-alt" style="margin-right: 5px;"></i>View Latest CV
+      </a>
+      {% endcomment %}
+      <button onclick="window.print()" style="padding: 10px 16px; background-color: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 14px; transition: background-color 0.2s;" onmouseover="this.style.backgroundColor='#0056b3'" onmouseout="this.style.backgroundColor='#007bff'">
+        <i class="fas fa-download" style="margin-right: 5px;"></i>Download as PDF
+      </button>
+    </div>
   </div>
   
   <!-- Educational Qualifications -->
@@ -84,8 +673,8 @@
       {% for item in cv.researchPortfolio.articles %}
       <li class="cv-item">
         {{ item.authors }}. ({{ item.year }}). {{ item.title }} {{ item.journal }}
-        {% if item.url %}<a href="{{ item.url }}" target="_blank">{{ item.url }}</a>{% endif %}
-        {% if item.notes %}{{ item.notes }}{% endif %}
+        {% if item.url %}<br><a href="{{ item.url }}" target="_blank">{{ item.url }}</a>{% endif %}
+        {% if item.notes %}<br>{{ item.notes }}{% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -97,8 +686,8 @@
       {% for item in cv.researchPortfolio.chapters %}
       <li class="cv-item">
         {{ item.authors }}. ({{ item.year }}). {{ item.title }} In: {{ item.book }}
-        {% if item.url %}<a href="{{ item.url }}" target="_blank">{{ item.url }}</a>{% endif %}
-        {% if item.notes %}{{ item.notes }}{% endif %}
+        {% if item.url %}<br><a href="{{ item.url }}" target="_blank">{{ item.url }}</a>{% endif %}
+        {% if item.notes %}<br>{{ item.notes }}{% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -110,7 +699,7 @@
       {% for item in cv.researchPortfolio.conferencePapers %}
       <li class="cv-item">
         {{ item.authors }} ({{ item.year }}) {{ item.title }} In: {{ item.conference }}
-        {% if item.url %}<a href="{{ item.url }}" target="_blank">{{ item.url }}</a>{% endif %}
+        {% if item.url %}<br><a href="{{ item.url }}" target="_blank">{{ item.url }}</a>{% endif %}
       </li>
       {% endfor %}
     </ul>

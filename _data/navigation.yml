@@ -9,13 +9,16 @@
 
 main:
 
-  - title: "Blog Posts"
-    url: /year-archive/
+  - title: "Home"
+    url: /
 
   - title: "Publications"
     url: /publications/
 
-  #- title: "Presentations"
+  - title: "Blog Posts"
+    url: /year-archive/
+
+  #- title: "Presentations"Ok
   #  url: /presentations/
 
   #- title: "Talks"
@@ -29,9 +32,6 @@ main:
         
   - title: "CV"
     url: /cv/
-    
-  #- title: "CV"
-  #  url: /cv-json/
     
   #- title: "Guide"
   #  url: /markdown/

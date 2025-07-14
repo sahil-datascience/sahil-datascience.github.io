@@ -1,0 +1,319 @@
+/* ==========================================================================
+   MODERN THEME FIXES
+   ========================================================================== */
+
+/* Ensure proper styling inheritance and overrides */
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+/* Fix body padding for modern themes to accommodate fixed header */
+body {
+    padding-top: 80px !important; /* Match masthead height */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #2c3e50;
+}
+
+/* Ensure main content is properly spaced */
+#main {
+    margin-top: 0;
+    padding-top: 20px;
+}
+
+/* Fix for collapsible sidebar when using modern theme */
+.layout--single-modern #main,
+.layout--archive-modern #main {
+    margin-left: 0;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/* Modern masthead override - ensure it's always visible */
+.masthead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    z-index: 1000 !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    border-bottom: none !important;
+    height: 80px !important;
+}
+
+.masthead::after {
+    display: none !important;
+}
+
+.masthead__inner-wrap {
+    padding: 15px 30px !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    max-width: 100% !important;
+    height: 80px !important;
+}
+
+/* Navigation fixes */
+.greedy-nav {
+    background: transparent !important;
+}
+
+.greedy-nav a {
+    color: white !important;
+}
+
+.greedy-nav .visible-links a {
+    color: white !important;
+    padding: 10px 15px !important;
+    border-radius: 8px !important;
+    transition: all 0.3s ease !important;
+}
+
+.greedy-nav .visible-links a:hover {
+    background: rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+}
+
+/* Site title styling */
+.masthead__menu-item--lg a {
+    color: white !important;
+    font-size: 1.6rem !important;
+    font-weight: 700 !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+}
+
+.masthead__menu-item--lg a:hover {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border: 2px solid rgba(255, 255, 255, 0.2) !important;
+    color: white !important;
+    border-radius: 50% !important;
+    width: 44px !important;
+    height: 44px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.3s ease !important;
+}
+
+#theme-toggle:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: scale(1.05) !important;
+}
+
+/* Hide hamburger menu completely */
+.greedy-nav__toggle {
+    display: none !important;
+}
+
+.greedy-nav .hidden-links {
+    display: none !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px !important;
+    }
+    
+    .masthead {
+        height: 70px !important;
+    }
+    
+    .masthead__inner-wrap {
+        padding: 12px 15px !important;
+        height: 70px !important;
+        flex-direction: column !important;
+        gap: 5px !important;
+    }
+    
+    .masthead__menu-item--lg a {
+        font-size: 1.3rem !important;
+    }
+    
+    .greedy-nav .visible-links {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+    }
+    
+    .greedy-nav .visible-links a {
+        padding: 6px 10px !important;
+        font-size: 0.9rem !important;
+    }
+}
+
+/* Modern page content styling */
+.page__content {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    color: #2c3e50;
+}
+
+.page__content h1,
+.page__content h2,
+.page__content h3,
+.page__content h4,
+.page__content h5,
+.page__content h6 {
+    color: #667eea;
+    font-weight: 700;
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+}
+
+.page__content p {
+    margin-bottom: 1.2em;
+}
+
+/* Archive page improvements */
+.archive__item {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.archive__item:last-child {
+    border-bottom: none;
+}
+
+.archive__item-title {
+    color: #667eea !important;
+    font-weight: 600;
+}
+
+.archive__item-title:hover {
+    color: #764ba2 !important;
+}
+
+/* Author sidebar enhancements */
+.author__avatar img {
+    border-radius: 50%;
+    border: 3px solid #667eea;
+}
+
+.author__content .author__name {
+    color: #667eea;
+    font-weight: 700;
+}
+
+.author__urls {
+    font-size: 0.9rem;
+}
+
+.author__urls a {
+    color: #6c757d;
+    transition: color 0.3s ease;
+}
+
+.author__urls a:hover {
+    color: #667eea;
+}
+
+/* Publication list styling */
+.list__item {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.list__item:last-child {
+    border-bottom: none;
+}
+
+.archive__item-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+.archive__item-excerpt {
+    color: #6c757d;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* Modern button styling */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-transform: none;
+}
+
+.btn--primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+/* Dark theme support */
+[data-theme="dark"] {
+    --global-bg-color: #1a1a1a;
+    --global-text-color: #e0e0e0;
+    --global-border-color: #333;
+}
+
+[data-theme="dark"] body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .page__content {
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .modern-card {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+
+[data-theme="dark"] .author__avatar img {
+    border-color: #667eea;
+}
+
+/* Ensure images are responsive */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Fix for any layout issues */
+.layout--single,
+.layout--single-modern {
+    .page {
+        padding-top: 0;
+    }
+}
+
+/* Ensure proper spacing in content */
+.page__inner-wrap {
+    margin-top: 1rem;
+}
+
+/* Fix for any sidebar issues */
+.sidebar {
+    padding-top: 1rem;
+}
+
+.sidebar.sticky {
+    top: calc(80px + 1rem); /* Account for fixed header */
+}
+
+@media (max-width: 768px) {
+    .sidebar.sticky {
+        top: calc(70px + 1rem);
+    }
+}

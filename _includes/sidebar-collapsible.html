@@ -1,0 +1,237 @@
+{% include base_path %}
+
+{% if page.author and site.data.authors[page.author] %}
+  {% assign author = site.data.authors[page.author] %}{% else %}{% assign author = site.author %}
+{% endif %}
+
+<!-- Sidebar Toggle Button -->
+<button class="sidebar-toggle" id="sidebarToggle" aria-label="Toggle Sidebar">
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</button>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Modern Collapsible Sidebar -->
+<div class="sidebar-modern" id="sidebarModern">
+  <!-- Sidebar Header -->
+  <div class="sidebar-header">
+    <button class="close-btn" id="sidebarClose" aria-label="Close Sidebar">
+      <i class="fas fa-times"></i>
+    </button>
+    <h3>{{ author.name }}</h3>
+    {% if author.bio %}<p>{{ author.bio | truncatewords: 8 }}</p>{% endif %}
+  </div>
+  
+  <!-- Sidebar Content -->
+  <div class="sidebar-content">
+    <!-- Author Profile -->
+    <div class="sidebar-author-profile">
+      <div class="author-avatar">
+        {% if author.avatar contains "://" %}
+          <img src="{{ author.avatar }}" alt="{{ author.name }}">
+        {% else %}
+          <img src="{{ author.avatar | prepend: "/images/" | prepend: base_path }}" alt="{{ author.name }}">
+        {% endif %}
+      </div>
+      
+      <div class="author-name">{{ author.name }}</div>
+      {% if author.pronouns %}<div class="author-title">{{ author.pronouns }}</div>{% endif %}
+      {% if author.employer %}<div class="author-title">{{ author.employer }}</div>{% endif %}
+      {% if author.location %}<div class="author-title"><i class="fas fa-map-marker-alt"></i> {{ author.location }}</div>{% endif %}
+    </div>
+    
+    <!-- Navigation Menu -->
+    <nav class="sidebar-nav">
+      <div class="nav-title"><i class="fas fa-compass"></i> Navigation</div>
+      <ul class="nav-list">
+        <li><a href="{{ base_path }}/" class="{% if page.url == '/' %}active{% endif %}">
+          <i class="fas fa-home"></i> Home
+        </a></li>
+        
+        <li><a href="{{ base_path }}/cv/" class="{% if page.url contains '/cv' %}active{% endif %}">
+          <i class="fas fa-file-alt"></i> CV
+        </a></li>
+        
+        <li><a href="{{ base_path }}/publications/" class="{% if page.url contains '/publications' %}active{% endif %}">
+          <i class="fas fa-book"></i> Publications
+        </a></li>
+        
+        <li><a href="{{ base_path }}/talks/" class="{% if page.url contains '/talks' %}active{% endif %}">
+          <i class="fas fa-microphone"></i> Talks
+        </a></li>
+        
+        <li><a href="{{ base_path }}/teaching/" class="{% if page.url contains '/teaching' %}active{% endif %}">
+          <i class="fas fa-chalkboard-teacher"></i> Teaching
+        </a></li>
+        
+        <li><a href="{{ base_path }}/portfolio/" class="{% if page.url contains '/portfolio' %}active{% endif %}">
+          <i class="fas fa-briefcase"></i> Portfolio
+        </a></li>
+        
+        {% if site.data.navigation.main %}
+          {% for nav in site.data.navigation.main %}
+            {% unless nav.url == '/' or nav.url contains '/cv' or nav.url contains '/publications' or nav.url contains '/talks' or nav.url contains '/teaching' or nav.url contains '/portfolio' %}
+              <li><a href="{{ nav.url | prepend: base_path }}">
+                <i class="fas fa-link"></i> {{ nav.title }}
+              </a></li>
+            {% endunless %}
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </nav>
+    
+    <!-- Social Links -->
+    {% if author.uri or author.email or author.googlescholar or author.github or author.linkedin or author.twitter %}
+    <div class="sidebar-social">
+      <div class="social-title"><i class="fas fa-share-alt"></i> Connect</div>
+      <div class="social-links">
+        {% if author.uri %}
+          <a href="{{ author.uri }}" target="_blank" title="Website">
+            <i class="fas fa-globe"></i>
+          </a>
+        {% endif %}
+        
+        {% if author.email %}
+          <a href="mailto:{{ author.email }}" title="Email">
+            <i class="fas fa-envelope"></i>
+          </a>
+        {% endif %}
+        
+        {% if author.googlescholar %}
+          <a href="{{ author.googlescholar }}" target="_blank" title="Google Scholar">
+            <i class="ai ai-google-scholar"></i>
+          </a>
+        {% endif %}
+        
+        {% if author.github %}
+          <a href="https://github.com/{{ author.github }}" target="_blank" title="GitHub">
+            <i class="fab fa-github"></i>
+          </a>
+        {% endif %}
+        
+        {% if author.linkedin %}
+          <a href="https://linkedin.com/in/{{ author.linkedin }}" target="_blank" title="LinkedIn">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        {% endif %}
+        
+        {% if author.twitter %}
+          <a href="https://twitter.com/{{ author.twitter }}" target="_blank" title="Twitter">
+            <i class="fab fa-twitter"></i>
+          </a>
+        {% endif %}
+        
+        {% if author.orcid %}
+          <a href="{{ author.orcid }}" target="_blank" title="ORCID">
+            <i class="ai ai-orcid"></i>
+          </a>
+        {% endif %}
+        
+        {% if author.researchgate %}
+          <a href="{{ author.researchgate }}" target="_blank" title="ResearchGate">
+            <i class="ai ai-researchgate"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+    {% endif %}
+    
+    <!-- Contact Information -->
+    <div class="sidebar-contact">
+      <div class="contact-title"><i class="fas fa-address-card"></i> Contact</div>
+      
+      {% if author.location %}
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span>{{ author.location }}</span>
+        </div>
+      {% endif %}
+      
+      {% if author.email %}
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:{{ author.email }}">{{ author.email }}</a>
+        </div>
+      {% endif %}
+      
+      {% if author.uri %}
+        <div class="contact-item">
+          <i class="fas fa-globe"></i>
+          <a href="{{ author.uri }}" target="_blank">{{ author.uri | replace: "https://", "" | replace: "http://", "" }}</a>
+        </div>
+      {% endif %}
+      
+      {% if author.phone %}
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <a href="tel:{{ author.phone }}">{{ author.phone }}</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+<!-- JavaScript for Sidebar Functionality -->
+<script>
+(function() {
+  const toggleBtn = document.getElementById('sidebarToggle');
+  const closeBtn = document.getElementById('sidebarClose');
+  const overlay = document.getElementById('sidebarOverlay');
+  const sidebar = document.getElementById('sidebarModern');
+  
+  function openSidebar() {
+    sidebar.classList.add('active');
+    overlay.classList.add('active');
+    toggleBtn.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeSidebar() {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+    toggleBtn.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  // Toggle sidebar
+  toggleBtn.addEventListener('click', function() {
+    if (sidebar.classList.contains('active')) {
+      closeSidebar();
+    } else {
+      openSidebar();
+    }
+  });
+  
+  // Close sidebar
+  closeBtn.addEventListener('click', closeSidebar);
+  overlay.addEventListener('click', closeSidebar);
+  
+  // Close sidebar on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && sidebar.classList.contains('active')) {
+      closeSidebar();
+    }
+  });
+  
+  // Auto-close sidebar when clicking on navigation links
+  const navLinks = sidebar.querySelectorAll('.nav-list a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      // Add small delay to allow navigation to start
+      setTimeout(closeSidebar, 100);
+    });
+  });
+  
+  // Handle window resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768 && sidebar.classList.contains('active')) {
+      closeSidebar();
+    }
+  });
+})();
+</script>

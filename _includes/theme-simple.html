@@ -1,0 +1,64 @@
+<!-- Enhanced Theme Toggle with Sidebar Support -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('theme-toggle');
+    const icon = document.getElementById('theme-icon');
+    const sidebar = document.getElementById('sidebarModern');
+    const sidebarToggle = document.getElementById('sidebarToggle');
+    const sidebarOverlay = document.getElementById('sidebarOverlay');
+    
+    if (!button || !icon) return;
+    
+    let theme = localStorage.getItem('theme') || 'light';
+    
+    function updateTheme() {
+        // Apply theme to main elements
+        document.documentElement.setAttribute('data-theme', theme);
+        document.body.setAttribute('data-theme', theme);
+        
+        // Apply theme to sidebar elements specifically
+        if (sidebar) sidebar.setAttribute('data-theme', theme);
+        if (sidebarToggle) sidebarToggle.setAttribute('data-theme', theme);
+        if (sidebarOverlay) sidebarOverlay.setAttribute('data-theme', theme);
+        
+        // Store theme preference
+        localStorage.setItem('theme', theme);
+        
+        // Update icon
+        icon.className = theme === 'dark' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+        
+        // Add transition class for smooth theme switching
+        document.body.classList.add('theme-transitioning');
+        setTimeout(() => {
+            document.body.classList.remove('theme-transitioning');
+        }, 300);
+    }
+    
+    // Initialize theme
+    updateTheme();
+    
+    // Theme toggle click handler
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        theme = theme === 'light' ? 'dark' : 'light';
+        updateTheme();
+    });
+    
+    // Apply theme when sidebar is toggled to ensure consistency
+    if (sidebarToggle) {
+        sidebarToggle.addEventListener('click', function() {
+            setTimeout(updateTheme, 10); // Small delay to ensure sidebar is rendered
+        });
+    }
+});
+</script>
+
+<style>
+/* Enhanced theme transition for sidebar */
+.theme-transitioning,
+.theme-transitioning *,
+.theme-transitioning .sidebar-modern,
+.theme-transitioning .sidebar-toggle {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease !important;
+}
+</style>

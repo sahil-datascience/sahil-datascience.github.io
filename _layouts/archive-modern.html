@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
+  {% include page__hero.html %}
+{% elsif page.title %}
+<div class="page__hero">
+  <div class="wrapper">
+    <h1 class="page__title">{{ page.title }}</h1>
+    {% if page.excerpt %}
+    <p class="page__lead">{{ page.excerpt | markdownify | strip_html }}</p>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+{% endif %}
+
+<div id="main" role="main">
+  <div class="archive">
+    {% unless page.header.overlay_color or page.header.overlay_image or page.title %}
+      <h1 class="page__title">{{ page.title }}</h1>
+    {% endunless %}
+    
+    <div class="modern-grid">
+      {{ content }}
+    </div>
+  </div>
+</div>

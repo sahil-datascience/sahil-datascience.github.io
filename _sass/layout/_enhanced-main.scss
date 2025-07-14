@@ -1,0 +1,392 @@
+/* ==========================================================================
+   ENHANCED MAIN CONTENT LAYOUT (No Fixed Sidebar)
+   ========================================================================== */
+
+/* Enhanced main content without sidebar - Full Width */
+#main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    
+    .page__content,
+    .archive {
+        width: 100%;
+        max-width: 100%;
+        padding: var(--modern-spacing-lg);
+        margin: 0;
+        
+        @media (max-width: 768px) {
+            padding: var(--modern-spacing-md);
+        }
+    }
+}
+
+/* Remove any default container constraints */
+.initial-content,
+.layout--single,
+.layout--archive {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Full-width container for content */
+.page,
+.archive {
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Modern content grid for better organization */
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--modern-spacing-lg);
+    
+    @media (min-width: 1200px) {
+        grid-template-columns: 2fr 1fr;
+    }
+}
+
+.content-main {
+    min-width: 0; /* Prevent grid overflow */
+}
+
+.content-aside {
+    @media (max-width: 1199px) {
+        display: none; /* Hide on smaller screens since we have collapsible sidebar */
+    }
+}
+
+/* Enhanced typography for full-width content */
+.page__content {
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: var(--modern-spacing-lg);
+        
+        @media (max-width: 768px) {
+            font-size: 2rem;
+        }
+    }
+    
+    h2 {
+        font-size: 2rem;
+        
+        @media (max-width: 768px) {
+            font-size: 1.6rem;
+        }
+    }
+    
+    h3 {
+        font-size: 1.5rem;
+        
+        @media (max-width: 768px) {
+            font-size: 1.3rem;
+        }
+    }
+}
+
+/* Modern table of contents for pages (when needed) */
+.page-toc {
+    background: var(--modern-card-bg);
+    border-radius: $modern-border-radius;
+    padding: var(--modern-spacing-md);
+    margin-bottom: var(--modern-spacing-lg);
+    border-left: 4px solid $modern-primary-start;
+    
+    .toc-title {
+        font-weight: 600;
+        color: var(--modern-text-primary);
+        margin-bottom: var(--modern-spacing-sm);
+        display: flex;
+        align-items: center;
+        
+        i {
+            margin-right: var(--modern-spacing-xs);
+            color: $modern-primary-start;
+        }
+    }
+    
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        
+        li {
+            margin-bottom: var(--modern-spacing-xs);
+            
+            a {
+                color: var(--modern-text-secondary);
+                text-decoration: none;
+                padding: var(--modern-spacing-xs) var(--modern-spacing-sm);
+                border-radius: $modern-border-radius-sm;
+                display: block;
+                transition: var(--modern-transition-fast);
+                font-size: 0.9rem;
+                
+                &:hover {
+                    background: $modern-primary-start;
+                    color: white;
+                }
+            }
+            
+            ul {
+                margin-top: var(--modern-spacing-xs);
+                padding-left: var(--modern-spacing-md);
+                
+                a {
+                    font-size: 0.85rem;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+/* Floating action buttons - Enhanced for better rendering */
+.floating-actions {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1001; /* Higher than sidebar */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: none; /* Allow clicks to pass through container */
+    
+    .fab {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        pointer-events: all; /* Enable clicks on buttons */
+        position: relative;
+        overflow: hidden;
+        
+        /* Material Design ripple effect */
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: width 0.3s, height 0.3s, top 0.3s, left 0.3s;
+            transform: translate(-50%, -50%);
+        }
+        
+        &:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+            color: white;
+            
+            &::before {
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        &:active {
+            transform: translateY(-2px) scale(0.98);
+        }
+        
+        i {
+            font-size: 1.3rem;
+            z-index: 1;
+            position: relative;
+            
+            /* Fallback for when FontAwesome doesn't load */
+            &:not([class*="fa-"]) {
+                font-family: system-ui, -apple-system, sans-serif;
+                font-size: 1.5rem;
+                font-style: normal;
+            }
+        }
+        
+        /* Alternative: Use CSS content for icons if FontAwesome fails */
+        &.back-to-top i:not([class*="fa-"]):empty::before {
+            content: "↑";
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        &.fab-search i:not([class*="fa-"]):empty::before {
+            content: "🔍";
+            font-family: system-ui, -apple-system, sans-serif;
+            font-size: 1.3rem;
+        }
+        
+        /* Ensure proper font loading */
+        &.fontawesome-i2svg-active i,
+        &.fontawesome-i2svg-complete i {
+            display: inline-block;
+        }
+        
+        /* Debug: Add a subtle background to ensure visibility */
+        &::before {
+            content: '';
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 66px;
+            height: auto;
+            min-height: 66px;
+            background: rgba(0, 0, 0, 0.02);
+            border-radius: 35px;
+            z-index: 1000;
+            pointer-events: none;
+        }
+        
+        /* Ensure buttons are always on top */
+        .fab {
+            /* Force visibility and proper rendering */
+            opacity: 1 !important;
+            display: flex !important;
+            
+            /* Better contrast and visibility */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+            
+            /* Ensure text/icons are visible */
+            color: white !important;
+            
+            /* Add a subtle border for better definition */
+            border: 2px solid rgba(255, 255, 255, 0.2) !important;
+            
+            /* Enhanced shadow for better visibility */
+            box-shadow: 
+                0 4px 20px rgba(102, 126, 234, 0.3),
+                0 2px 8px rgba(0, 0, 0, 0.15) !important;
+        }
+    }
+    
+    @media (max-width: 768px) {
+        bottom: 20px;
+        right: 20px;
+        gap: 10px;
+        
+        .fab {
+            width: 50px;
+            height: 50px;
+            
+            i {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}
+
+/* Back to top button - Enhanced visibility */
+.back-to-top {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(20px);
+    
+    &.visible {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    /* Ensure it's always clickable when visible */
+    &.visible {
+        pointer-events: all !important;
+    }
+}
+
+/* Enhanced search overlay (if needed) */
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1002;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--modern-transition-smooth);
+    
+    &.active {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .search-container {
+        background: white;
+        border-radius: $modern-border-radius;
+        padding: var(--modern-spacing-xl);
+        box-shadow: var(--modern-shadow-medium);
+        max-width: 600px;
+        width: 90%;
+        
+        .search-input {
+            width: 100%;
+            padding: var(--modern-spacing-md);
+            border: 2px solid var(--modern-border-color);
+            border-radius: $modern-border-radius-sm;
+            font-size: 1.1rem;
+            transition: var(--modern-transition-fast);
+            
+            &:focus {
+                border-color: $modern-primary-start;
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+                outline: none;
+            }
+        }
+    }
+}
+
+/* Modern breadcrumbs styling */
+.breadcrumbs {
+    background: var(--modern-card-bg);
+    padding: var(--modern-spacing-sm) var(--modern-spacing-md);
+    border-radius: $modern-border-radius-sm;
+    margin-bottom: var(--modern-spacing-md);
+    
+    ol {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        
+        li {
+            display: flex;
+            align-items: center;
+            
+            &:not(:last-child)::after {
+                content: '→';
+                margin: 0 var(--modern-spacing-xs);
+                color: $modern-primary-start;
+                font-weight: bold;
+            }
+        }
+    }
+    
+    a {
+        color: $modern-primary-start;
+        text-decoration: none;
+        transition: var(--modern-transition-fast);
+        
+        &:hover {
+            color: $modern-primary-end;
+        }
+    }
+}

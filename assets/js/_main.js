@@ -3,6 +3,11 @@
    ========================================================================== */
 
 $(document).ready(function () {
+  // Force navigation visibility
+  $('.masthead').show();
+  $('.visible-links').show();
+  $('.masthead__menu-item').show();
+  
   // detect OS/browser preference
   const browserPref = window.matchMedia('(prefers-color-scheme: dark)').matches
     ? 'dark'

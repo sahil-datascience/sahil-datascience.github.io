@@ -1,0 +1,260 @@
+/* ==========================================================================
+   MODERN SIDEBAR ENHANCEMENTS
+   ========================================================================== */
+
+/* Modern author profile */
+.sidebar .author__avatar {
+    display: table-cell;
+    vertical-align: top;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: var(--modern-shadow-medium);
+    border: 4px solid white;
+    position: relative;
+    
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--modern-transition-smooth);
+        
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+    
+    &:after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border-radius: 50%;
+        background: var(--modern-primary-gradient);
+        z-index: -1;
+    }
+}
+
+.sidebar .author__content {
+    display: table-cell;
+    vertical-align: top;
+    padding-left: var(--modern-spacing-md);
+    padding-right: var(--modern-spacing-sm);
+    
+    .author__name {
+        color: var(--modern-text-primary);
+        font-family: $modern-font-family;
+        font-weight: $modern-header-font-weight;
+        font-size: 1.3rem;
+        margin: 0 0 var(--modern-spacing-xs) 0;
+    }
+    
+    .author__pronouns {
+        color: var(--modern-text-secondary);
+        font-size: 0.9rem;
+        font-style: italic;
+        margin: 0 0 var(--modern-spacing-xs) 0;
+    }
+    
+    .author__bio {
+        color: var(--modern-text-secondary);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin: 0;
+    }
+}
+
+/* Modern author URLs wrapper */
+.sidebar .author__urls-wrapper {
+    display: block;
+    position: relative;
+    margin-top: var(--modern-spacing-md);
+    
+    .btn--inverse {
+        background: var(--modern-primary-gradient);
+        color: white;
+        border: none;
+        border-radius: $modern-border-radius-lg;
+        padding: var(--modern-spacing-sm) var(--modern-spacing-md);
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: var(--modern-transition-smooth);
+        box-shadow: var(--modern-shadow-light);
+        
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--modern-shadow-medium);
+            color: white;
+        }
+        
+        &:before {
+            content: none;
+        }
+    }
+}
+
+/* Modern social icons */
+.sidebar .author__urls {
+    background: var(--modern-card-bg);
+    border-radius: $modern-border-radius;
+    padding: var(--modern-spacing-md);
+    margin-top: var(--modern-spacing-sm);
+    box-shadow: var(--modern-shadow-light);
+    
+    li {
+        white-space: nowrap;
+        margin-bottom: var(--modern-spacing-xs);
+        
+        &:last-child {
+            margin-bottom: 0;
+        }
+        
+        a {
+            display: flex;
+            align-items: center;
+            color: var(--modern-text-secondary);
+            text-decoration: none;
+            padding: var(--modern-spacing-xs) var(--modern-spacing-sm);
+            border-radius: $modern-border-radius-sm;
+            transition: var(--modern-transition-fast);
+            font-size: 0.9rem;
+            
+            &:hover {
+                background: $modern-primary-start;
+                color: white;
+                transform: translateX(3px);
+            }
+            
+            i {
+                color: $modern-primary-start;
+                margin-right: var(--modern-spacing-xs);
+                width: 18px;
+                text-align: center;
+                transition: var(--modern-transition-fast);
+            }
+            
+            &:hover i {
+                color: white;
+            }
+        }
+        
+        /* Desktop only items */
+        &.author__desktop {
+            display: flex;
+            align-items: center;
+            color: var(--modern-text-secondary);
+            padding: var(--modern-spacing-xs) var(--modern-spacing-sm);
+            font-size: 0.9rem;
+            
+            i {
+                color: $modern-primary-start;
+                margin-right: var(--modern-spacing-xs);
+                width: 18px;
+                text-align: center;
+            }
+        }
+    }
+}
+
+/* Modern sidebar styling */
+.sidebar {
+    background: white;
+    border-radius: $modern-border-radius;
+    padding: var(--modern-spacing-lg);
+    box-shadow: var(--modern-shadow-light);
+    margin-bottom: var(--modern-spacing-lg);
+    
+    .sidebar__right {
+        background: transparent;
+        border: none;
+        padding: 0;
+    }
+}
+
+/* Modern table of contents */
+.sidebar .toc {
+    background: var(--modern-card-bg);
+    border-radius: $modern-border-radius;
+    padding: var(--modern-spacing-md);
+    margin-bottom: var(--modern-spacing-md);
+    
+    .toc__title {
+        color: var(--modern-text-primary);
+        font-family: $modern-font-family;
+        font-weight: $modern-header-font-weight;
+        font-size: 1.1rem;
+        margin-bottom: var(--modern-spacing-sm);
+        padding-bottom: var(--modern-spacing-xs);
+        border-bottom: 2px solid $modern-primary-start;
+    }
+    
+    .toc__menu {
+        a {
+            color: var(--modern-text-secondary);
+            text-decoration: none;
+            padding: var(--modern-spacing-xs) var(--modern-spacing-sm);
+            border-radius: $modern-border-radius-sm;
+            display: block;
+            transition: var(--modern-transition-fast);
+            
+            &:hover,
+            &.active {
+                background: $modern-primary-start;
+                color: white;
+            }
+        }
+        
+        ul {
+            padding-left: var(--modern-spacing-md);
+            
+            a {
+                font-size: 0.9rem;
+                opacity: 0.8;
+            }
+        }
+    }
+}
+
+/* Responsive design for sidebar */
+@media (max-width: 1024px) {
+    .sidebar {
+        padding: var(--modern-spacing-md);
+    }
+    
+    .sidebar .author__avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .sidebar .author__content {
+        .author__name {
+            font-size: 1.2rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        margin-bottom: var(--modern-spacing-md);
+    }
+    
+    .sidebar .author__avatar {
+        display: block;
+        margin: 0 auto var(--modern-spacing-md) auto;
+        width: 120px;
+        height: 120px;
+    }
+    
+    .sidebar .author__content {
+        display: block;
+        text-align: center;
+        padding: 0;
+        
+        .author__name {
+            font-size: 1.4rem;
+        }
+    }
+}
