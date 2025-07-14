@@ -49,3 +49,15 @@ Added a prominent link to an external Google Doc CV at the top of the CV page.
 
 ### Relevant Files
 *   `_layouts/cv-layout.html` (Modified to add the link)
+
+---
+## CV Rendering Issue (July 2025)
+
+### Task Overview
+The live CV page was showing an old version despite recent updates being pushed to the repository.
+
+### Key Challenges & Solutions
+1.  **Incorrect File Content:**
+    *   **Problem:** The `_pages/cv.md` file contained a redundant `{% include cv-template.html %}` tag, which was causing an old, incorrect version of the CV to be rendered. This was a regression of a previously solved issue.
+    *   **Solution:** Removed the include tag from `_pages/cv.md`.
+    *   **Insight:** This incident highlights the critical importance of verifying file contents against the project's memory files (`GEMINI/CV.md` in this case), especially when encountering recurring or familiar problems. A quick check of the memory file would have immediately pointed to the likely cause.
