@@ -1,0 +1,131 @@
+/* Modern Navigation Tab Enhancements */
+
+/* Add glass-morphism effect to navigation tabs */
+.masthead .greedy-nav .visible-links .masthead__menu-item a {
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+    
+    /* Add subtle gradient overlay */
+    background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.15), 
+                rgba(255, 255, 255, 0.05)) !important;
+}
+
+/* Enhanced hover effects */
+.masthead .greedy-nav .visible-links .masthead__menu-item a:hover {
+    background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.25), 
+                rgba(255, 255, 255, 0.15)) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2), 
+                0 0 30px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Active/current page enhanced styling */
+.masthead .greedy-nav .visible-links .masthead__menu-item.current-page a,
+.masthead .greedy-nav .visible-links .masthead__menu-item a.current {
+    background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.3), 
+                rgba(255, 255, 255, 0.2)) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), 
+                inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                0 0 25px rgba(255, 255, 255, 0.3) !important;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Site title enhanced styling */
+.masthead .greedy-nav .visible-links .masthead__menu-item--lg a {
+    background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.2), 
+                rgba(255, 255, 255, 0.1)) !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+    font-weight: 800 !important;
+    letter-spacing: 0.5px !important;
+}
+
+.masthead .greedy-nav .visible-links .masthead__menu-item--lg a:hover {
+    background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.35), 
+                rgba(255, 255, 255, 0.25)) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.25), 
+                0 0 35px rgba(255, 255, 255, 0.25) !important;
+}
+
+/* Theme toggle button enhanced styling */
+.masthead .greedy-nav #theme-toggle {
+    background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.15), 
+                rgba(255, 255, 255, 0.05)) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+}
+
+.masthead .greedy-nav #theme-toggle:hover {
+    background: linear-gradient(145deg, 
+                rgba(255, 255, 255, 0.3), 
+                rgba(255, 255, 255, 0.2)) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25), 
+                0 0 30px rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Add pulse animation for active tab */
+@keyframes activePulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), 
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                    0 0 25px rgba(255, 255, 255, 0.3);
+    }
+    50% {
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25), 
+                    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+                    0 0 35px rgba(255, 255, 255, 0.4);
+    }
+}
+
+.masthead .greedy-nav .visible-links .masthead__menu-item.current-page a {
+    animation: activePulse 3s ease-in-out infinite;
+}
+
+/* Improve loading state */
+.masthead {
+    opacity: 0;
+    animation: fadeInMasthead 0.8s ease-out 0.2s forwards;
+}
+
+@keyframes fadeInMasthead {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Add smooth scroll behavior when clicking navigation links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure text remains readable on all devices */
+@media (max-width: 480px) {
+    .masthead .greedy-nav .visible-links .masthead__menu-item a {
+        font-size: 0.8rem !important;
+        padding: 5px 10px !important;
+        letter-spacing: 0 !important;
+    }
+    
+    .masthead .greedy-nav .visible-links .masthead__menu-item--lg a {
+        font-size: 1.1rem !important;
+        padding: 8px 16px !important;
+    }
+}
