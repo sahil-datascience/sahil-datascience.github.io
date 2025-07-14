@@ -47,6 +47,9 @@ $(document).ready(function () {
     const new_theme = current_theme === "dark" ? "light" : "dark";
     localStorage.setItem("theme", new_theme);
     setTheme(new_theme);
+    
+    // Add interacted class to stop animation
+    $('#theme-toggle').addClass('interacted');
   };
 
   $('#theme-toggle').on('click', toggleTheme);

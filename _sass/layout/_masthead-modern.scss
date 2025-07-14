@@ -73,14 +73,21 @@
     .visible-links {
         display: flex !important;
         flex-wrap: wrap;
-        justify-content: flex-end;
+        justify-content: center; /* Center the navigation items */
         align-items: center;
         gap: 8px;
         width: 100%;
+        padding-right: 80px; /* Leave space for theme toggle */
         
         @media (max-width: 768px) {
             justify-content: center;
             gap: 5px;
+            padding-right: 60px; /* Adjust for smaller screens */
+        }
+        
+        @media (max-width: 480px) {
+            padding-right: 50px;
+            gap: 3px;
         }
         
         li {
@@ -91,50 +98,43 @@
             display: block !important;
             
             a {
-                color: white !important;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                font-weight: 500;
-                padding: 10px 16px;
-                border-radius: 8px;
+                color: rgba(255, 255, 255, 0.9) !important;
                 text-decoration: none;
+                padding: 15px 30px;
+                font-weight: 500;
+                font-size: 1rem;
                 transition: all 0.3s ease;
                 position: relative;
-                white-space: nowrap;
-                display: block !important;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-                min-width: 60px;
-                text-align: center;
+                background: transparent;
+                border: none;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                letter-spacing: 0.5px;
+                display: block;
                 
-                &:hover {
-                    background: rgba(255, 255, 255, 0.2) !important;
-                    color: white !important;
-                    transform: translateY(-1px);
-                }
-                
-                &:visited {
-                    color: white !important;
-                }
-                
-                &:focus {
-                    color: white !important;
-                    background: rgba(255, 255, 255, 0.15) !important;
-                    outline: 2px solid rgba(255, 255, 255, 0.5);
-                }
-                
-                &:before {
+                /* Clean underline effect */
+                &::after {
                     content: '';
                     position: absolute;
-                    bottom: -2px;
+                    bottom: 8px;
                     left: 50%;
-                    transform: translateX(-50%);
                     width: 0;
                     height: 2px;
-                    background: white;
+                    background: rgba(255, 255, 255, 0.9);
                     transition: all 0.3s ease;
+                    transform: translateX(-50%);
+                    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
                 }
                 
-                &:hover:before {
-                    width: 80%;
+                &:hover {
+                    color: white !important;
+                    background: rgba(255, 255, 255, 0.15);
+                    backdrop-filter: blur(10px);
+                    -webkit-backdrop-filter: blur(10px);
+                    border-radius: 8px;
+                    
+                    &::after {
+                        width: 70%;
+                    }
                 }
             }
         }
@@ -514,50 +514,94 @@
     .masthead__menu-item--theme {
         position: absolute !important;
         top: 50% !important;
-        right: 20px !important;
+        right: 25px !important;
         transform: translateY(-50%) !important;
+        z-index: 1002 !important; /* Higher than sidebar */
         
-        #theme_toggle {
-            background: rgba(255, 255, 255, 0.1) !important;
-            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        #theme-toggle {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
             color: white !important;
             cursor: pointer !important;
             padding: 0 !important;
             border-radius: 50% !important;
-            width: 40px !important;
-            height: 40px !important;
+            width: 48px !important;
+            height: 48px !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
             transition: all 0.3s ease !important;
+            backdrop-filter: blur(15px) !important;
+            -webkit-backdrop-filter: blur(15px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            outline: none !important;
+            
+            /* Add a subtle glow effect */
+            &::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+                border-radius: 50%;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                z-index: -1;
+            }
             
             &:hover {
-                background: rgba(255, 255, 255, 0.2) !important;
-                border-color: rgba(255, 255, 255, 0.3) !important;
-                transform: scale(1.05) !important;
+                background: rgba(255, 255, 255, 0.3) !important;
+                border-color: rgba(255, 255, 255, 0.5) !important;
+                transform: scale(1.1) !important;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+                
+                &::before {
+                    opacity: 1;
+                }
+            }
+            
+            &:active {
+                transform: scale(0.95) !important;
+            }
+            
+            &:focus {
+                box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
             }
             
             i {
-                font-size: 1rem !important;
+                font-size: 1.2rem !important;
                 pointer-events: none !important;
+                transition: all 0.3s ease !important;
+                font-weight: 900 !important;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
             }
         }
         
         @media (max-width: 768px) {
-            right: 15px !important;
+            right: 20px !important;
             
-            #theme_toggle {
-                width: 38px !important;
-                height: 38px !important;
+            #theme-toggle {
+                width: 44px !important;
+                height: 44px !important;
+                
+                i {
+                    font-size: 1.1rem !important;
+                }
             }
         }
         
         @media (max-width: 600px) {
-            right: 10px !important;
+            right: 15px !important;
             
             #theme_toggle {
-                width: 36px !important;
-                height: 36px !important;
+                width: 40px !important;
+                height: 40px !important;
+                
+                i {
+                    font-size: 1rem !important;
+                }
             }
         }
     }
@@ -651,4 +695,118 @@
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+/* ==========================================================================
+   DARK MODE SUPPORT FOR MASTHEAD
+   ========================================================================== */
+
+/* Dark mode navigation background */
+[data-theme="dark"] .masthead {
+    background: linear-gradient(135deg, rgba(20, 25, 36, 0.9) 0%, rgba(35, 42, 58, 0.9) 100%) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Dark mode navigation links */
+[data-theme="dark"] .greedy-nav .visible-links .masthead__menu-item a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    
+    &:hover {
+        color: white !important;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 8px;
+        
+        &::after {
+            width: 70%;
+        }
+    }
+    
+    &:visited {
+        color: rgba(255, 255, 255, 0.9) !important;
+    }
+}
+
+/* Dark mode active page styling */
+[data-theme="dark"] .greedy-nav .visible-links .masthead__menu-item.current a {
+    color: white !important;
+    background: rgba(255, 255, 255, 0.2) !important;
+    
+    &::after {
+        background: rgba(255, 255, 255, 1);
+    }
+}
+
+/* Dark mode theme toggle button styling */
+[data-theme="dark"] .masthead__menu-item--theme #theme-toggle {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffd700 !important; /* Golden color for moon icon */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    
+    /* Add a subtle golden glow in dark mode */
+    &::before {
+        background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 237, 78, 0.1));
+    }
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.25) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+        color: #ffed4e !important; /* Brighter gold on hover */
+        transform: scale(1.1) !important;
+        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+        
+        &::before {
+            opacity: 1;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 237, 78, 0.2));
+        }
+    }
+}
+
+/* Ensure proper icon colors for dark mode */
+[data-theme="dark"] #theme-icon.fa-moon {
+    color: #ffd700 !important;
+}
+
+[data-theme="dark"] #theme-icon.fa-sun {
+    color: #ffed4e !important;
+}
+
+/* Add a subtle animation to draw attention to the theme toggle */
+.masthead__menu-item--theme #theme-toggle {
+    /* Subtle pulsing animation when page loads */
+    animation: themeTogglePulse 3s ease-in-out;
+}
+
+@keyframes themeTogglePulse {
+    0%, 100% { 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    50% { 
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* Dark mode animation */
+[data-theme="dark"] .masthead__menu-item--theme #theme-toggle {
+    animation: themeTogglePulseDark 3s ease-in-out;
+}
+
+@keyframes themeTogglePulseDark {
+    0%, 100% { 
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+    50% { 
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+}
+
+/* Stop animation after first interaction */
+.masthead__menu-item--theme #theme-toggle.interacted {
+    animation: none !important;
 }

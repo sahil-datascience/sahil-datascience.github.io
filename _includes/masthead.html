@@ -17,13 +17,6 @@
             {% endif %}
             <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
           {% endfor %}
-          <li class="masthead__menu-item masthead__menu-item--theme">
-            <button id="theme-toggle" type="button" 
-                    title="Toggle Dark/Light Mode"
-                    aria-label="Toggle Dark/Light Mode">
-              <i id="theme-icon" class="fa-solid fa-sun"></i>
-            </button>
-          </li>
         </ul>
         <ul class="hidden-links hidden">
           {% for link in site.data.navigation.main %}
@@ -36,6 +29,14 @@
           {% endfor %}
         </ul>
       </nav>
+    </div>
+    <!-- Theme toggle positioned outside navigation flow -->
+    <div class="masthead__theme-toggle">
+      <button id="theme-toggle" type="button" 
+              title="Toggle Dark/Light Mode"
+              aria-label="Toggle Dark/Light Mode">
+        <i id="theme-icon" class="fa-solid fa-sun"></i>
+      </button>
     </div>
   </div>
 </div>
