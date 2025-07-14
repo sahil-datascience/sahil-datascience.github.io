@@ -1,19 +1,12 @@
-# Modern navigation tabs - organized for better clarity
-# Keep only the most essential navigation items to avoid clutter
+# Clean, minimal navigation - essential pages only
 
 main:
 
   - title: "Home"
     url: /
 
-  - title: "About"
-    url: /about/
-
   - title: "Publications"
     url: /publications/
-
-  - title: "Research"
-    url: /portfolio/
 
   - title: "CV"
     url: /cv/

@@ -1,0 +1,219 @@
+/* ==========================================================================
+   GLOBAL CENTER ALIGNMENT SYSTEM
+   ========================================================================== */
+
+/* Center all main page content across the website */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 70px; /* Account for fixed header */
+}
+
+/* Main content container centering */
+#main {
+    width: 100%;
+    max-width: 1200px; /* Maximum width for readability */
+    margin: 0 auto !important;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Page content centering */
+.page__content,
+.page {
+    width: 100%;
+    max-width: 900px; /* Optimal reading width */
+    margin: 0 auto !important;
+    text-align: left; /* Keep text left-aligned for readability */
+}
+
+/* Archive pages centering */
+.archive {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto !important;
+}
+
+/* Archive items centering */
+.archive__item {
+    margin: 0 auto;
+}
+
+/* List pages centering */
+.list__item {
+    margin: 0 auto;
+}
+
+/* Publication pages centering */
+.publications {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto !important;
+}
+
+/* CV page centering */
+.cv-section {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto !important;
+}
+
+/* Contact page centering */
+.contact-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto !important;
+}
+
+/* Grid layouts centering */
+.modern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto !important;
+    justify-items: center;
+}
+
+/* Card containers centering */
+.modern-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto 20px auto;
+}
+
+/* Hero sections centering */
+.page__hero {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    .wrapper {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+}
+
+/* Navigation breadcrumbs centering */
+.breadcrumbs {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto !important;
+    padding: 0 20px;
+}
+
+/* Footer centering */
+.page__footer {
+    width: 100%;
+    margin-top: auto;
+    
+    footer {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto !important;
+        padding: 0 20px;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    #main {
+        max-width: 95%;
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 65px;
+    }
+    
+    #main {
+        padding: 0 10px;
+    }
+    
+    .page__content,
+    .page {
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    
+    .modern-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+        padding: 0 10px;
+    }
+    
+    .page__hero .wrapper {
+        padding: 0 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-top: 60px;
+    }
+    
+    #main {
+        padding: 0 5px;
+    }
+    
+    .page__content,
+    .page {
+        padding: 0 5px;
+    }
+    
+    .modern-grid {
+        padding: 0 5px;
+    }
+}
+
+/* Ensure text content remains readable with proper line length */
+.page__content p,
+.page__content li,
+.archive__item-excerpt {
+    max-width: 70ch; /* Optimal reading line length */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Center alignment for specific content types */
+.text-center {
+    text-align: center !important;
+}
+
+.content-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Ensure images are responsive and centered */
+.page__content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}
+
+/* Center tables */
+.page__content table {
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+/* Center code blocks */
+.page__content pre {
+    margin: 20px auto;
+    max-width: 100%;
+}
