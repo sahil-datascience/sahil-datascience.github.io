@@ -21,15 +21,29 @@ $(document).ready(function () {
       $("html").attr("data-theme") ||
       browserPref;
 
+    console.log("Setting theme to:", use_theme); // Debug log
+
     if (use_theme === "dark") {
       $("html").attr("data-theme", "dark");
       $("#theme-icon").removeClass("fa-sun").addClass("fa-moon");
-    } else if (use_theme === "light") {
+      localStorage.setItem("theme", "dark");
+    } else {
       $("html").removeAttr("data-theme");
       $("#theme-icon").removeClass("fa-moon").addClass("fa-sun");
+      localStorage.setItem("theme", "light");
+    }
+    
+    // Force a style recalculation for local development
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      setTimeout(function() {
+        document.body.style.display = 'none';
+        document.body.offsetHeight; // Trigger reflow
+        document.body.style.display = '';
+      }, 10);
     }
   };
 
+  // Initialize theme immediately
   setTheme();
 
   // if user hasn't chosen a theme, follow OS changes
@@ -42,17 +56,56 @@ $(document).ready(function () {
     });
 
   // Toggle the theme manually
-  var toggleTheme = function () {
-    const current_theme = $("html").attr("data-theme");
-    const new_theme = current_theme === "dark" ? "light" : "dark";
-    localStorage.setItem("theme", new_theme);
+  var toggleTheme = function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    // Check current theme more reliably
+    const htmlElement = document.documentElement;
+    const current_theme = htmlElement.getAttribute("data-theme");
+    const stored_theme = localStorage.getItem("theme");
+    
+    console.log("Current theme from HTML:", current_theme); // Debug log
+    console.log("Stored theme:", stored_theme); // Debug log
+    
+    // Determine new theme - if no data-theme attribute, it's light mode
+    let new_theme;
+    if (current_theme === "dark") {
+      new_theme = "light";
+    } else {
+      new_theme = "dark";
+    }
+    
+    console.log("Switching to:", new_theme); // Debug log
+    
+    // Apply theme change immediately
     setTheme(new_theme);
     
     // Add interacted class to stop animation
     $('#theme-toggle').addClass('interacted');
   };
 
-  $('#theme-toggle').on('click', toggleTheme);
+  // Multiple event bindings for better compatibility in local development
+  $(document).ready(function() {
+    console.log("Document ready - initializing theme"); // Debug log
+    
+    // Ensure theme is set correctly on page load
+    setTheme();
+    
+    // Remove any existing event handlers first
+    $('#theme-toggle').off('click.themeToggle');
+    
+    // Bind click event
+    $('#theme-toggle').on('click.themeToggle', toggleTheme);
+    
+    console.log("Theme toggle button bound"); // Debug log
+  });
+  
+  // Additional binding when DOM is fully loaded
+  $(window).on('load', function() {
+    console.log("Window loaded - ensuring theme is set"); // Debug log
+    setTheme();
+  });
 
   // These should be the same as the settings in _variables.scss
   const scssLarge = 925; // pixels
@@ -148,4 +201,54 @@ $(document).ready(function () {
     midClick: true // allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source.
   });
 
+  // Vanilla JS fallback for theme toggle (more reliable)
+  document.addEventListener('DOMContentLoaded', function() {
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    if (themeToggle) {
+      // Remove any existing listeners
+      themeToggle.removeEventListener('click', vanillaToggleTheme);
+      
+      // Add new listener
+      themeToggle.addEventListener('click', vanillaToggleTheme);
+      
+      console.log("Vanilla JS theme toggle bound");
+    }
+  });
+  
+  function vanillaToggleTheme(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const htmlElement = document.documentElement;
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const themeIcon = document.getElementById('theme-icon');
+    
+    console.log("Vanilla toggle - current theme:", currentTheme);
+    
+    if (currentTheme === 'dark') {
+      // Switch to light
+      htmlElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+      if (themeIcon) {
+        themeIcon.className = 'fa-solid fa-sun';
+      }
+      console.log("Switched to light mode");
+    } else {
+      // Switch to dark
+      htmlElement.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+      if (themeIcon) {
+        themeIcon.className = 'fa-solid fa-moon';
+      }
+      console.log("Switched to dark mode");
+    }
+    
+    // Force style recalculation
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      document.body.style.display = 'none';
+      document.body.offsetHeight;
+      document.body.style.display = '';
+    }
+  }
 });

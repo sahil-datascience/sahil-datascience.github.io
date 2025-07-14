@@ -394,36 +394,82 @@
         }
         
         /* Theme toggle styling - Simplified */
-        .theme-toggle-container {
-            margin-left: 10px;
+    /* Theme toggle positioned outside navigation flow */
+    .masthead__theme-toggle {
+        position: absolute !important;
+        top: 50% !important;
+        right: 25px !important;
+        transform: translateY(-50%) !important;
+        z-index: 1002 !important; /* Higher than sidebar */
+        
+        #theme-toggle {
+            background: rgba(255, 255, 255, 0.2) !important;
+            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            color: white !important;
+            cursor: pointer !important;
+            padding: 0 !important;
+            border-radius: 50% !important;
+            width: 48px !important;
+            height: 48px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            transition: all 0.3s ease !important;
+            backdrop-filter: blur(15px) !important;
+            -webkit-backdrop-filter: blur(15px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            outline: none !important;
+            
+            &:hover {
+                background: rgba(255, 255, 255, 0.3) !important;
+                border-color: rgba(255, 255, 255, 0.5) !important;
+                transform: scale(1.1) !important;
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            }
+            
+            &:active {
+                transform: scale(0.95) !important;
+            }
+            
+            &:focus {
+                box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+            }
+            
+            i {
+                font-size: 1.2rem !important;
+                pointer-events: none !important;
+                transition: all 0.3s ease !important;
+                font-weight: 900 !important;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            right: 20px !important;
             
             #theme-toggle {
-                background: rgba(255, 255, 255, 0.1);
-                border: 2px solid rgba(255, 255, 255, 0.2);
-                color: white;
-                padding: 0;
-                border-radius: 50%;
-                width: 44px;
-                height: 44px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                
-                &:hover {
-                    background: rgba(255, 255, 255, 0.25);
-                    border-color: rgba(255, 255, 255, 0.4);
-                    transform: scale(1.05);
-                }
+                width: 44px !important;
+                height: 44px !important;
                 
                 i {
-                    color: white;
-                    font-size: 1.2rem;
-                    pointer-events: none;
+                    font-size: 1.1rem !important;
                 }
             }
         }
+        
+        @media (max-width: 600px) {
+            right: 15px !important;
+            
+            #theme-toggle {
+                width: 40px !important;
+                height: 40px !important;
+                
+                i {
+                    font-size: 1rem !important;
+                }
+            }
+        }
+    }
     }
     
     /* Hide hidden links completely */
@@ -743,16 +789,11 @@
 }
 
 /* Dark mode theme toggle button styling */
-[data-theme="dark"] .masthead__menu-item--theme #theme-toggle {
+[data-theme="dark"] .masthead__theme-toggle #theme-toggle {
     background: rgba(255, 255, 255, 0.15) !important;
     border: 2px solid rgba(255, 255, 255, 0.25) !important;
     color: #ffd700 !important; /* Golden color for moon icon */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    
-    /* Add a subtle golden glow in dark mode */
-    &::before {
-        background: linear-gradient(135deg, rgba(255, 215, 0, 0.2), rgba(255, 237, 78, 0.1));
-    }
     
     &:hover {
         background: rgba(255, 255, 255, 0.25) !important;
@@ -760,11 +801,6 @@
         color: #ffed4e !important; /* Brighter gold on hover */
         transform: scale(1.1) !important;
         box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
-        
-        &::before {
-            opacity: 1;
-            background: linear-gradient(135deg, rgba(255, 215, 0, 0.3), rgba(255, 237, 78, 0.2));
-        }
     }
 }
 
@@ -777,36 +813,26 @@
     color: #ffed4e !important;
 }
 
-/* Add a subtle animation to draw attention to the theme toggle */
-.masthead__menu-item--theme #theme-toggle {
-    /* Subtle pulsing animation when page loads */
-    animation: themeTogglePulse 3s ease-in-out;
+/* Local development theme switching fixes */
+.theme-switching {
+    transition: none !important;
 }
 
-@keyframes themeTogglePulse {
-    0%, 100% { 
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-    }
-    50% { 
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2), 0 0 15px rgba(255, 255, 255, 0.3);
-    }
+/* Force immediate style recalculation */
+[data-theme] * {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
-/* Dark mode animation */
-[data-theme="dark"] .masthead__menu-item--theme #theme-toggle {
-    animation: themeTogglePulseDark 3s ease-in-out;
+/* Ensure theme changes are immediate in local development */
+body {
+    transition: background-color 0.1s ease, color 0.1s ease;
 }
 
-@keyframes themeTogglePulseDark {
-    0%, 100% { 
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    }
-    50% { 
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 215, 0, 0.3);
-    }
+html[data-theme="dark"] {
+    transition: none;
 }
 
-/* Stop animation after first interaction */
-.masthead__menu-item--theme #theme-toggle.interacted {
-    animation: none !important;
+html:not([data-theme]) {
+    transition: none;
 }
