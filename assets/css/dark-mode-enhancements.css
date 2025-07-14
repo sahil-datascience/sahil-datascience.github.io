@@ -1,0 +1,275 @@
+/* ==========================================================================
+   COMPREHENSIVE DARK MODE ENHANCEMENTS
+   ========================================================================== */
+
+/* Base dark mode styling */
+[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+/* Body and main content */
+[data-theme="dark"] body {
+    background: linear-gradient(135deg, #1a202c 0%, #2d3748 100%) !important;
+    color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .page {
+    background: transparent !important;
+    color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .page__content {
+    background: rgba(26, 32, 44, 0.8) !important;
+    color: #e2e8f0 !important;
+    padding: 2rem !important;
+    border-radius: 12px !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Headings */
+[data-theme="dark"] h1,
+[data-theme="dark"] h2,
+[data-theme="dark"] h3,
+[data-theme="dark"] h4,
+[data-theme="dark"] h5,
+[data-theme="dark"] h6 {
+    color: #f7fafc !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .page__title {
+    color: #f7fafc !important;
+}
+
+/* Paragraphs and text content */
+[data-theme="dark"] p,
+[data-theme="dark"] .page__content p,
+[data-theme="dark"] .page__content div,
+[data-theme="dark"] .page__content span,
+[data-theme="dark"] li,
+[data-theme="dark"] td,
+[data-theme="dark"] th {
+    color: #e2e8f0 !important;
+}
+
+/* Links */
+[data-theme="dark"] a {
+    color: #90cdf4 !important;
+    text-decoration: none !important;
+}
+
+[data-theme="dark"] a:hover {
+    color: #63b3ed !important;
+    text-decoration: underline !important;
+}
+
+[data-theme="dark"] a:visited {
+    color: #b794f6 !important;
+}
+
+/* CV specific styling */
+[data-theme="dark"] .cv h1,
+[data-theme="dark"] .cv h2,
+[data-theme="dark"] .cv h3 {
+    color: #f7fafc !important;
+    border-bottom-color: #4a5568 !important;
+}
+
+[data-theme="dark"] .cv .work-experience h3,
+[data-theme="dark"] .cv .education h3,
+[data-theme="dark"] .cv .skills h3 {
+    color: #90cdf4 !important;
+}
+
+[data-theme="dark"] .cv .job-title,
+[data-theme="dark"] .cv .degree,
+[data-theme="dark"] .cv .institution {
+    color: #cbd5e0 !important;
+}
+
+[data-theme="dark"] .cv .date,
+[data-theme="dark"] .cv .location {
+    color: #a0aec0 !important;
+}
+
+[data-theme="dark"] .cv ul li,
+[data-theme="dark"] .cv ol li {
+    color: #e2e8f0 !important;
+}
+
+/* Archive and listings */
+[data-theme="dark"] .archive h1,
+[data-theme="dark"] .archive h2,
+[data-theme="dark"] .archive h3 {
+    color: #f7fafc !important;
+}
+
+[data-theme="dark"] .archive .archive__item {
+    background: rgba(45, 55, 72, 0.6) !important;
+    border: 1px solid #4a5568 !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+[data-theme="dark"] .archive__item-title {
+    color: #90cdf4 !important;
+}
+
+[data-theme="dark"] .archive__item-excerpt {
+    color: #cbd5e0 !important;
+}
+
+/* Publications and posts */
+[data-theme="dark"] .list__item {
+    background: rgba(45, 55, 72, 0.6) !important;
+    border: 1px solid #4a5568 !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+[data-theme="dark"] .list__item h2,
+[data-theme="dark"] .list__item h3 {
+    color: #90cdf4 !important;
+}
+
+[data-theme="dark"] .list__item p {
+    color: #e2e8f0 !important;
+}
+
+/* Tables */
+[data-theme="dark"] table {
+    background: rgba(45, 55, 72, 0.8) !important;
+    border: 1px solid #4a5568 !important;
+    border-radius: 8px !important;
+}
+
+[data-theme="dark"] th {
+    background: rgba(74, 85, 104, 0.8) !important;
+    color: #f7fafc !important;
+    border-bottom: 2px solid #2d3748 !important;
+}
+
+[data-theme="dark"] td {
+    color: #e2e8f0 !important;
+    border-bottom: 1px solid #4a5568 !important;
+}
+
+/* Code blocks */
+[data-theme="dark"] pre,
+[data-theme="dark"] code {
+    background: rgba(26, 32, 44, 0.9) !important;
+    color: #e6fffa !important;
+    border: 1px solid #4a5568 !important;
+}
+
+[data-theme="dark"] .highlight {
+    background: rgba(26, 32, 44, 0.9) !important;
+    border-radius: 8px !important;
+    padding: 1rem !important;
+}
+
+/* Blockquotes */
+[data-theme="dark"] blockquote {
+    background: rgba(45, 55, 72, 0.6) !important;
+    border-left: 4px solid #90cdf4 !important;
+    color: #cbd5e0 !important;
+    padding: 1rem !important;
+    border-radius: 0 8px 8px 0 !important;
+}
+
+/* Form elements */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+    background: rgba(45, 55, 72, 0.8) !important;
+    border: 1px solid #4a5568 !important;
+    color: #e2e8f0 !important;
+    border-radius: 6px !important;
+}
+
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus,
+[data-theme="dark"] select:focus {
+    border-color: #90cdf4 !important;
+    box-shadow: 0 0 0 3px rgba(144, 205, 244, 0.1) !important;
+}
+
+/* Breadcrumbs */
+[data-theme="dark"] .breadcrumbs {
+    background: rgba(45, 55, 72, 0.6) !important;
+    color: #cbd5e0 !important;
+}
+
+[data-theme="dark"] .breadcrumbs a {
+    color: #90cdf4 !important;
+}
+
+/* Footer */
+[data-theme="dark"] .page__footer {
+    background: rgba(26, 32, 44, 0.9) !important;
+    color: #cbd5e0 !important;
+    border-top: 1px solid #4a5568 !important;
+}
+
+[data-theme="dark"] .page__footer a {
+    color: #90cdf4 !important;
+}
+
+/* Ensure strong contrast for important text */
+[data-theme="dark"] strong,
+[data-theme="dark"] b {
+    color: #f7fafc !important;
+    font-weight: 700 !important;
+}
+
+[data-theme="dark"] em,
+[data-theme="dark"] i {
+    color: #cbd5e0 !important;
+}
+
+/* Fix any remaining low contrast text */
+[data-theme="dark"] .text-muted,
+[data-theme="dark"] .muted {
+    color: #a0aec0 !important;
+}
+
+[data-theme="dark"] .small,
+[data-theme="dark"] small {
+    color: #a0aec0 !important;
+}
+
+/* Ensure proper contrast for all content areas */
+[data-theme="dark"] .content,
+[data-theme="dark"] .main-content,
+[data-theme="dark"] article,
+[data-theme="dark"] section {
+    color: #e2e8f0 !important;
+}
+
+/* Special handling for markdown content */
+[data-theme="dark"] .page__content .markdown-body,
+[data-theme="dark"] .page__content .post-content {
+    color: #e2e8f0 !important;
+}
+
+/* Improve readability for all text elements */
+[data-theme="dark"] * {
+    color: inherit !important;
+}
+
+[data-theme="dark"] body * {
+    color: #e2e8f0;
+}
+
+[data-theme="dark"] h1 *,
+[data-theme="dark"] h2 *,
+[data-theme="dark"] h3 *,
+[data-theme="dark"] h4 *,
+[data-theme="dark"] h5 *,
+[data-theme="dark"] h6 * {
+    color: #f7fafc !important;
+}

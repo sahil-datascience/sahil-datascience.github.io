@@ -396,15 +396,14 @@
         /* Theme toggle styling - Simplified */
     /* Theme toggle positioned outside navigation flow */
     .masthead__theme-toggle {
-        position: absolute !important;
-        top: 50% !important;
-        right: 25px !important;
-        transform: translateY(-50%) !important;
-        z-index: 1002 !important; /* Higher than sidebar */
+        position: fixed !important; /* Fixed to viewport, not relative to parent */
+        top: 20px !important; /* Same top position as sidebar button */
+        right: 20px !important; /* Right side, mirroring sidebar's left position */
+        z-index: 1002 !important; /* Higher than sidebar (1001) */
         
         #theme-toggle {
-            background: rgba(255, 255, 255, 0.2) !important;
-            border: 2px solid rgba(255, 255, 255, 0.3) !important;
+            background: rgba(102, 126, 234, 0.9) !important; /* Purple gradient background for visibility */
+            border: 2px solid rgba(102, 126, 234, 1) !important; /* Solid purple border */
             color: white !important;
             cursor: pointer !important;
             padding: 0 !important;
@@ -417,14 +416,14 @@
             transition: all 0.3s ease !important;
             backdrop-filter: blur(15px) !important;
             -webkit-backdrop-filter: blur(15px) !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
             outline: none !important;
             
             &:hover {
-                background: rgba(255, 255, 255, 0.3) !important;
-                border-color: rgba(255, 255, 255, 0.5) !important;
+                background: rgba(118, 75, 162, 0.9) !important; /* Darker purple on hover */
+                border-color: rgba(118, 75, 162, 1) !important;
                 transform: scale(1.1) !important;
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+                box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
             }
             
             &:active {
@@ -432,7 +431,7 @@
             }
             
             &:focus {
-                box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3), 0 4px 12px rgba(102, 126, 234, 0.2);
             }
             
             i {
@@ -440,12 +439,14 @@
                 pointer-events: none !important;
                 transition: all 0.3s ease !important;
                 font-weight: 900 !important;
+                color: white !important;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
             }
         }
         
         @media (max-width: 768px) {
-            right: 20px !important;
+            top: 15px !important;
+            right: 15px !important;
             
             #theme-toggle {
                 width: 44px !important;
@@ -458,7 +459,8 @@
         }
         
         @media (max-width: 600px) {
-            right: 15px !important;
+            top: 12px !important;
+            right: 12px !important;
             
             #theme-toggle {
                 width: 40px !important;
@@ -500,16 +502,16 @@
             margin: 0;
             
             a {
-                color: rgba(255, 255, 255, 0.9) !important;
+                color: rgba(255, 255, 255, 0.95) !important; /* Bright white text */
                 text-decoration: none;
                 padding: 15px 30px;
                 font-weight: 500;
                 font-size: 1rem;
                 transition: all 0.3s ease;
                 position: relative;
-                background: transparent;
+                background: transparent !important; /* Completely transparent background */
                 border: none;
-                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Strong shadow for readability */
                 letter-spacing: 0.5px;
                 display: block;
                 
@@ -529,14 +531,19 @@
                 
                 &:hover {
                     color: white !important;
-                    background: rgba(255, 255, 255, 0.15);
+                    background: rgba(0, 0, 0, 0.15) !important; /* Dark semi-transparent on hover */
                     backdrop-filter: blur(10px);
                     -webkit-backdrop-filter: blur(10px);
                     border-radius: 8px;
+                    text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7); /* Stronger shadow on hover */
                     
                     &::after {
                         width: 70%;
                     }
+                }
+                
+                &:visited {
+                    color: rgba(255, 255, 255, 0.95) !important;
                 }
             }
             
@@ -544,8 +551,10 @@
             &.current-page a,
             a.current {
                 color: white !important;
-                background: rgba(255, 255, 255, 0.15) !important;
+                background: rgba(0, 0, 0, 0.25) !important; /* Dark semi-transparent for active */
                 font-weight: 600;
+                text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8); /* Strong shadow for active state */
+                border-radius: 8px;
                 
                 &::after {
                     width: 80%;
@@ -555,104 +564,9 @@
             }
         }
     }
-    
-    /* Theme toggle button positioned absolutely to avoid affecting center alignment */
-    .masthead__menu-item--theme {
-        position: absolute !important;
-        top: 50% !important;
-        right: 25px !important;
-        transform: translateY(-50%) !important;
-        z-index: 1002 !important; /* Higher than sidebar */
-        
-        #theme-toggle {
-            background: rgba(255, 255, 255, 0.2) !important;
-            border: 2px solid rgba(255, 255, 255, 0.3) !important;
-            color: white !important;
-            cursor: pointer !important;
-            padding: 0 !important;
-            border-radius: 50% !important;
-            width: 48px !important;
-            height: 48px !important;
-            display: flex !important;
-            align-items: center !important;
-            justify-content: center !important;
-            transition: all 0.3s ease !important;
-            backdrop-filter: blur(15px) !important;
-            -webkit-backdrop-filter: blur(15px) !important;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            outline: none !important;
-            
-            /* Add a subtle glow effect */
-            &::before {
-                content: '';
-                position: absolute;
-                top: -2px;
-                left: -2px;
-                right: -2px;
-                bottom: -2px;
-                background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-                border-radius: 50%;
-                opacity: 0;
-                transition: opacity 0.3s ease;
-                z-index: -1;
-            }
-            
-            &:hover {
-                background: rgba(255, 255, 255, 0.3) !important;
-                border-color: rgba(255, 255, 255, 0.5) !important;
-                transform: scale(1.1) !important;
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-                
-                &::before {
-                    opacity: 1;
-                }
-            }
-            
-            &:active {
-                transform: scale(0.95) !important;
-            }
-            
-            &:focus {
-                box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3), 0 4px 12px rgba(0, 0, 0, 0.2);
-            }
-            
-            i {
-                font-size: 1.2rem !important;
-                pointer-events: none !important;
-                transition: all 0.3s ease !important;
-                font-weight: 900 !important;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-            }
-        }
-        
-        @media (max-width: 768px) {
-            right: 20px !important;
-            
-            #theme-toggle {
-                width: 44px !important;
-                height: 44px !important;
-                
-                i {
-                    font-size: 1.1rem !important;
-                }
-            }
-        }
-        
-        @media (max-width: 600px) {
-            right: 15px !important;
-            
-            #theme_toggle {
-                width: 40px !important;
-                height: 40px !important;
-                
-                i {
-                    font-size: 1rem !important;
-                }
-            }
-        }
-    }
 }
 
+/* Mobile navigation improvements */
 /* Mobile navigation improvements */
 @media (max-width: 768px) {
     .greedy-nav {
@@ -758,15 +672,17 @@
 
 /* Dark mode navigation links */
 [data-theme="dark"] .greedy-nav .visible-links .masthead__menu-item a {
-    color: rgba(255, 255, 255, 0.9) !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: rgba(255, 255, 255, 0.95) !important; /* Bright white in dark mode */
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.7); /* Strong shadow for dark backgrounds */
+    background: transparent !important;
     
     &:hover {
         color: white !important;
-        background: rgba(255, 255, 255, 0.15);
+        background: rgba(255, 255, 255, 0.1) !important; /* Light semi-transparent hover */
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
         border-radius: 8px;
+        text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
         
         &::after {
             width: 70%;
@@ -774,7 +690,7 @@
     }
     
     &:visited {
-        color: rgba(255, 255, 255, 0.9) !important;
+        color: rgba(255, 255, 255, 0.95) !important;
     }
 }
 
@@ -790,17 +706,26 @@
 
 /* Dark mode theme toggle button styling */
 [data-theme="dark"] .masthead__theme-toggle #theme-toggle {
-    background: rgba(255, 255, 255, 0.15) !important;
-    border: 2px solid rgba(255, 255, 255, 0.25) !important;
+    background: rgba(26, 32, 44, 0.9) !important; /* Dark background */
+    border: 2px solid rgba(144, 205, 244, 0.6) !important; /* Light blue border */
     color: #ffd700 !important; /* Golden color for moon icon */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     
     &:hover {
-        background: rgba(255, 255, 255, 0.25) !important;
-        border-color: rgba(255, 255, 255, 0.4) !important;
+        background: rgba(45, 55, 72, 0.9) !important;
+        border-color: rgba(144, 205, 244, 1) !important; /* Brighter blue border */
         color: #ffed4e !important; /* Brighter gold on hover */
         transform: scale(1.1) !important;
         box-shadow: 0 6px 25px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 215, 0, 0.2);
+    }
+    
+    i {
+        color: #ffd700 !important;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+    }
+    
+    &:hover i {
+        color: #ffed4e !important;
     }
 }
 
