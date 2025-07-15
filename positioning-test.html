@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed vs Relative Positioning Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            line-height: 1.6;
+        }
+        
+        /* Light mode header - relative positioning */
+        .masthead-light {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: relative; /* Flows with content */
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* Dark mode header - fixed positioning */
+        .masthead-dark {
+            background: linear-gradient(135deg, rgba(20, 25, 36, 0.9) 0%, rgba(35, 42, 58, 0.9) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: fixed; /* Sticks to top */
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .nav-items {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .nav-item {
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .masthead-light .nav-item {
+            color: #2c3e50;
+            background: rgba(102, 126, 234, 0.4);
+            border: 2px solid rgba(102, 126, 234, 0.7);
+        }
+        
+        .masthead-light .nav-item:hover {
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+        }
+        
+        .masthead-dark .nav-item {
+            color: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .masthead-dark .nav-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            color: white;
+        }
+        
+        .content {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        
+        .toggle-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 2000;
+        }
+        
+        .mode-toggle {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .mode-toggle:hover {
+            background: #5a6fd8;
+        }
+        
+        /* When dark mode is active */
+        .dark-mode .masthead-light {
+            display: none;
+        }
+        
+        .dark-mode .content {
+            padding-top: 120px; /* Account for fixed header */
+        }
+        
+        /* When light mode is active */
+        .light-mode .masthead-dark {
+            display: none;
+        }
+        
+        .alert {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .alert.success {
+            background: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+    </style>
+</head>
+<body class="light-mode">
+    <div class="toggle-container">
+        <button class="mode-toggle" onclick="toggleMode()">Switch to Dark Mode</button>
+    </div>
+
+    <!-- Light Mode Header (Relative) -->
+    <header class="masthead-light">
+        <nav class="nav-items">
+            <a href="#" class="nav-item">Home</a>
+            <a href="#" class="nav-item">Publications</a>
+            <a href="#" class="nav-item">CV</a>
+            <a href="#" class="nav-item">Contact</a>
+        </nav>
+    </header>
+    
+    <!-- Dark Mode Header (Fixed) -->
+    <header class="masthead-dark">
+        <nav class="nav-items">
+            <a href="#" class="nav-item">Home</a>
+            <a href="#" class="nav-item">Publications</a>
+            <a href="#" class="nav-item">CV</a>
+            <a href="#" class="nav-item">Contact</a>
+        </nav>
+    </header>
+
+    <main class="content">
+        <div class="alert">
+            <strong>Light Mode:</strong> Notice how the header flows naturally with the content - no obstruction!
+        </div>
+        
+        <div class="content-section">
+            <h2>Positioning Demonstration</h2>
+            <p><strong>Light Mode (Current):</strong> Uses <code>position: relative</code> - the header flows naturally with the page content and doesn't obstruct anything below it.</p>
+            <p><strong>Dark Mode:</strong> Uses <code>position: fixed</code> - the header sticks to the top and content needs top padding to avoid being hidden.</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>The Problem</h2>
+            <p>When using <code>position: fixed</code> in light mode, the header "floats" above the content and can obstruct the view of important information at the top of the page.</p>
+            <p>This is especially problematic for academic websites where the first section often contains crucial information about research focus or publications.</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>The Solution</h2>
+            <p>By using <code>position: relative</code> in light mode, the header becomes part of the document flow and content naturally appears below it without any obstruction.</p>
+            <p>This provides a cleaner, more accessible user experience while maintaining the modern aesthetic.</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>Research Focus</h2>
+            <p>This content would typically be at the very top of an academic website and needs to be immediately visible without being hidden behind a fixed header.</p>
+            <p>With relative positioning, users can see all content immediately upon page load.</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>Publications</h2>
+            <p>Academic publications and research highlights are often the most important content on these sites.</p>
+            <p>Ensuring they're immediately visible (not obstructed) is crucial for user experience and accessibility.</p>
+        </div>
+    </main>
+
+    <script>
+        function toggleMode() {
+            const body = document.body;
+            const button = document.querySelector('.mode-toggle');
+            const alert = document.querySelector('.alert');
+            
+            if (body.classList.contains('light-mode')) {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                button.textContent = 'Switch to Light Mode';
+                alert.className = 'alert success';
+                alert.innerHTML = '<strong>Dark Mode:</strong> Notice how the content needs top padding to avoid being hidden behind the fixed header.';
+            } else {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                button.textContent = 'Switch to Dark Mode';
+                alert.className = 'alert';
+                alert.innerHTML = '<strong>Light Mode:</strong> Notice how the header flows naturally with the content - no obstruction!';
+            }
+        }
+    </script>
+</body>
+</html>

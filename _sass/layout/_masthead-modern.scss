@@ -10,28 +10,25 @@
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
     width: 100%;
-    position: fixed !important;
-    top: 0;
-    left: 0; /* Ensure it starts from the left edge */
-    right: 0; /* Ensure it extends to the right edge */
-    z-index: 1000;
+    /* Default to relative positioning for better content flow */
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: auto !important;
     display: block !important;
     visibility: visible !important;
     height: auto !important;
     min-height: 60px; /* Minimum height for mobile */
     
-    /* Mobile-first approach - use relative positioning on mobile */
-    @media (max-width: 768px) {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-        z-index: auto !important;
-        margin-bottom: 0 !important;
-        
-        .site-title {
-            font-size: 1.4rem !important;
-            text-align: center;
+    /* Only use fixed positioning in dark mode on desktop */
+    [data-theme="dark"] & {
+        @media (min-width: 769px) {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            z-index: 1000 !important;
         }
     }
     
@@ -79,6 +76,15 @@
         text-decoration: none;
         transition: all 0.3s ease;
         text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        
+        @media (max-width: 768px) {
+            font-size: 1.4rem !important;
+            text-align: center;
+        }
+        
+        @media (max-width: 480px) {
+            font-size: 1.3rem !important;
+        }
         
         &:hover {
             color: rgba(255, 255, 255, 0.9) !important;
@@ -410,10 +416,18 @@
         
     /* Theme toggle positioned outside navigation flow */
     .masthead__theme-toggle {
-        position: fixed !important; /* Fixed to viewport, not relative to parent */
+        position: absolute !important; /* Use absolute positioning relative to masthead */
         top: 25px !important; /* Increased top position for more spacing */
         right: 25px !important; /* Increased right position for more spacing */
-        z-index: 1002 !important; /* Higher than sidebar (1001) */
+        z-index: 10 !important; /* Lower z-index since masthead is relative */
+        
+        /* Only use fixed positioning in dark mode on desktop */
+        [data-theme="dark"] & {
+            @media (min-width: 769px) {
+                position: fixed !important;
+                z-index: 1002 !important;
+            }
+        }
         
         @media (max-width: 768px) {
             position: absolute !important; /* Change to absolute positioning on mobile */
@@ -795,6 +809,13 @@ html:not([data-theme="dark"]) {
         background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%) !important;
         border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
         box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        
+        /* Use relative positioning in light mode to prevent obstruction */
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        z-index: auto !important;
     }
     
     .greedy-nav .visible-links .masthead__menu-item a {
@@ -884,6 +905,29 @@ html:not([data-theme="dark"]) {
         
         &:hover i {
             color: white !important;
+        }
+    }
+    
+    /* Adjust theme toggle positioning for light mode relative layout */
+    .masthead__theme-toggle {
+        position: absolute !important; /* Use absolute positioning relative to masthead */
+        top: 25px !important;
+        right: 25px !important;
+        z-index: 10 !important; /* Lower z-index since masthead is relative */
+        
+        @media (max-width: 768px) {
+            top: 15px !important;
+            right: 15px !important;
+        }
+        
+        @media (max-width: 600px) {
+            top: 12px !important;
+            right: 12px !important;
+        }
+        
+        @media (max-width: 480px) {
+            top: 10px !important;
+            right: 10px !important;
         }
     }
 }
