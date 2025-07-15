@@ -3,244 +3,139 @@ layout: archive-modern
 title: "Publications"
 permalink: /publications/
 author_profile: true
-excerpt: "A comprehensive list of my research publications, articles, and academic contributions organized by publication type."
+excerpt: "A comprehensive list of my research publications and academic contributions."
 ---
 
-<div class="publications-intro">
-  {% if site.author.googlescholar %}
-    <div class="scholar-link">
-      <p><i class="fas fa-graduation-cap"></i> You can also find my articles on <a href="{{site.author.googlescholar}}" target="_blank">my Google Scholar profile</a>.</p>
-    </div>
-  {% endif %}
-  
-  <div class="publication-stats">
-    <div class="stats-grid">
-      {% assign total_pubs = site.publications | size %}
-      {% assign journal_count = site.publications | where: "category", "manuscripts" | size %}
-      {% assign book_chapter_count = site.publications | where: "category", "book_chapters" | size %}
-      {% assign conference_count = site.publications | where: "category", "conferences" | size %}
-      {% assign book_count = site.publications | where: "category", "books" | size %}
-      
-      <div class="stat-item">
-        <span class="stat-number">{{ total_pubs }}</span>
-        <span class="stat-label">Total Publications</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">{{ journal_count }}</span>
-        <span class="stat-label">Journal Articles</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">{{ book_chapter_count }}</span>
-        <span class="stat-label">Book Chapters</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">{{ conference_count }}</span>
-        <span class="stat-label">Conference Papers</span>
-      </div>
-    </div>
-  </div>
+{% if site.author.googlescholar %}
+<div class="scholar-note">
+  <p><i class="fas fa-graduation-cap"></i> You can also find my articles on <a href="{{site.author.googlescholar}}" target="_blank">my Google Scholar profile</a>.</p>
 </div>
+{% endif %}
 
 {% include base_path %}
 
-<!-- Enhanced categorized publication display -->
-{% if site.publication_category %}
-  {% for category in site.publication_category %}
-    {% assign category_posts = site.publications | where: "category", category[0] | sort: "date" | reverse %}
-    {% if category_posts.size > 0 %}
-      <div class="publication-category">
-        <h2 class="category-title">
-          <i class="fas fa-{% if category[0] == 'manuscripts' %}file-alt{% elsif category[0] == 'book_chapters' %}book-open{% elsif category[0] == 'conferences' %}users{% elsif category[0] == 'books' %}book{% else %}file{% endif %}"></i>
-          {{ category[1].title }}
-          <span class="category-count">({{ category_posts.size }})</span>
-        </h2>
-        <hr class="category-divider" />
-        
-        <div class="publications-list">
-          {% for post in category_posts %}
-            {% include archive-single.html %}
-          {% endfor %}
-        </div>
-      </div>
-    {% endif %}
-  {% endfor %}
-{% else %}
-  <!-- Fallback: display all publications without categories -->
-  <div class="publication-category">
-    <h2 class="category-title">All Publications</h2>
-    <hr class="category-divider" />
-    <div class="publications-list">
-      {% for post in site.publications reversed %}
-        {% include archive-single.html %}
-      {% endfor %}
-    </div>
-  </div>
+<!-- Journal Articles -->
+{% assign journal_articles = site.publications | where: "category", "manuscripts" | sort: "date" | reverse %}
+{% if journal_articles.size > 0 %}
+<h2>Journal Articles</h2>
+<hr class="section-divider" />
+{% for post in journal_articles %}
+  {% include archive-single.html %}
+{% endfor %}
+{% endif %}
+
+<!-- Book Chapters -->
+{% assign book_chapters = site.publications | where: "category", "book_chapters" | sort: "date" | reverse %}
+{% if book_chapters.size > 0 %}
+<h2>Book Chapters</h2>
+<hr class="section-divider" />
+{% for post in book_chapters %}
+  {% include archive-single.html %}
+{% endfor %}
+{% endif %}
+
+<!-- Conference Papers -->
+{% assign conference_papers = site.publications | where: "category", "conferences" | sort: "date" | reverse %}
+{% if conference_papers.size > 0 %}
+<h2>Conference Papers</h2>
+<hr class="section-divider" />
+{% for post in conference_papers %}
+  {% include archive-single.html %}
+{% endfor %}
+{% endif %}
+
+<!-- Books -->
+{% assign books = site.publications | where: "category", "books" | sort: "date" | reverse %}
+{% if books.size > 0 %}
+<h2>Books</h2>
+<hr class="section-divider" />
+{% for post in books %}
+  {% include archive-single.html %}
+{% endfor %}
+{% endif %}
+
+<!-- Fallback for uncategorized publications -->
+{% assign uncategorized = site.publications | where: "category", nil | sort: "date" | reverse %}
+{% if uncategorized.size > 0 %}
+<h2>Other Publications</h2>
+<hr class="section-divider" />
+{% for post in uncategorized %}
+  {% include archive-single.html %}
+{% endfor %}
 {% endif %}
 
 <style>
-.publications-intro {
+.scholar-note {
   margin-bottom: 2rem;
-}
-
-.scholar-link {
   text-align: center;
-  margin-bottom: 1.5rem;
   padding: 1rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
-  border-radius: 12px;
-  border: 1px solid rgba(102, 126, 234, 0.2);
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
 }
 
-.scholar-link p {
+.scholar-note p {
   margin: 0;
-  font-size: 1.1rem;
+  color: #666;
 }
 
-.scholar-link i {
+.scholar-note i {
   color: #667eea;
   margin-right: 0.5rem;
 }
 
-.publication-stats {
-  margin-bottom: 2rem;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 1.5rem 1rem;
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(102, 126, 234, 0.1);
-  transition: all 0.3s ease;
-}
-
-.stat-item:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  border-color: rgba(102, 126, 234, 0.3);
-}
-
-.stat-number {
-  display: block;
-  font-size: 2rem;
-  font-weight: 700;
+.scholar-note a {
   color: #667eea;
-  margin-bottom: 0.5rem;
-}
-
-.stat-label {
-  display: block;
-  font-size: 0.9rem;
-  color: #666;
+  text-decoration: none;
   font-weight: 500;
 }
 
-.publication-category {
-  margin-bottom: 3rem;
+.scholar-note a:hover {
+  text-decoration: underline;
 }
 
-.category-title {
+h2 {
   color: #2c3e50;
-  font-size: 1.8rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem 0;
+  padding-top: 1rem;
 }
 
-.category-title i {
-  color: #667eea;
-  font-size: 1.5rem;
+h2:first-of-type {
+  margin-top: 1rem;
 }
 
-.category-count {
-  font-size: 1.2rem;
-  color: #666;
-  font-weight: 500;
-  margin-left: 0.5rem;
-}
-
-.category-divider {
+.section-divider {
   border: none;
-  height: 3px;
+  height: 2px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  border-radius: 2px;
-  margin-bottom: 2rem;
-}
-
-.publications-list {
-  display: grid;
-  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 1px;
 }
 
 /* Dark mode adjustments */
-[data-theme="dark"] .scholar-link {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
-  border-color: rgba(102, 126, 234, 0.3);
+[data-theme="dark"] .scholar-note {
+  background: rgba(102, 126, 234, 0.1);
+  border-left-color: #667eea;
 }
 
-[data-theme="dark"] .stat-item {
-  background: rgba(26, 32, 44, 0.8);
-  border-color: rgba(102, 126, 234, 0.2);
-}
-
-[data-theme="dark"] .stat-item:hover {
-  border-color: rgba(102, 126, 234, 0.4);
-}
-
-[data-theme="dark"] .stat-label {
+[data-theme="dark"] .scholar-note p {
   color: #a0aec0;
 }
 
-[data-theme="dark"] .category-title {
+[data-theme="dark"] h2 {
   color: #e2e8f0;
-}
-
-[data-theme="dark"] .category-count {
-  color: #a0aec0;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
+  h2 {
+    font-size: 1.4rem;
   }
   
-  .stat-item {
-    padding: 1rem 0.5rem;
-  }
-  
-  .stat-number {
-    font-size: 1.5rem;
-  }
-  
-  .category-title {
-    font-size: 1.5rem;
-  }
-  
-  .category-title i {
-    font-size: 1.2rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .stats-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .category-title {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
+  .scholar-note {
+    padding: 0.75rem;
   }
 }
 </style>
