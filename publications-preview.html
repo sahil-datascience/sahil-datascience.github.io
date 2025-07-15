@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications Preview - Sahil Sharma</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f8fafc;
+            color: #2d3748;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .publications-intro {
+            margin-bottom: 2rem;
+        }
+        
+        .scholar-link {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border-radius: 12px;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .scholar-link p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+        
+        .scholar-link i {
+            color: #667eea;
+            margin-right: 0.5rem;
+        }
+        
+        .publication-stats {
+            margin-bottom: 2rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .stat-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .publication-category {
+            margin-bottom: 3rem;
+        }
+        
+        .category-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .category-title i {
+            color: #667eea;
+            font-size: 1.5rem;
+        }
+        
+        .category-count {
+            font-size: 1.2rem;
+            color: #666;
+            font-weight: 500;
+            margin-left: 0.5rem;
+        }
+        
+        .category-divider {
+            border: none;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+            margin-bottom: 2rem;
+        }
+        
+        .publications-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .publication-item {
+            padding: 1.5rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+        
+        .publication-item:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .publication-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-venue {
+            color: #667eea;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-date {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .stat-item {
+                padding: 1rem 0.5rem;
+            }
+            
+            .stat-number {
+                font-size: 1.5rem;
+            }
+            
+            .category-title {
+                font-size: 1.5rem;
+            }
+            
+            .category-title i {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-title {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.25rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Publications</h1>
+        
+        <div class="publications-intro">
+            <div class="scholar-link">
+                <p><i class="fas fa-graduation-cap"></i> You can also find my articles on <a href="#" target="_blank">my Google Scholar profile</a>.</p>
+            </div>
+            
+            <div class="publication-stats">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">10</span>
+                        <span class="stat-label">Total Publications</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Journal Articles</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Book Chapters</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2</span>
+                        <span class="stat-label">Conference Papers</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Journal Articles -->
+        <div class="publication-category">
+            <h2 class="category-title">
+                <i class="fas fa-file-alt"></i>
+                Journal Articles
+                <span class="category-count">(2)</span>
+            </h2>
+            <hr class="category-divider" />
+            
+            <div class="publications-list">
+                <div class="publication-item">
+                    <div class="publication-title">Destination resilience and transformations in the tourism sector: new tendencies in destination development and management</div>
+                    <div class="publication-venue">Tourism & Management Studies, 2024</div>
+                    <div class="publication-date">Published in 2024</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Smart Tourism- A Solution for Tourism Challenges in Himachal</div>
+                    <div class="publication-venue">Journal of Smart Tourism, 2022</div>
+                    <div class="publication-date">Published in 2022</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Book Chapters -->
+        <div class="publication-category">
+            <h2 class="category-title">
+                <i class="fas fa-book-open"></i>
+                Book Chapters
+                <span class="category-count">(5)</span>
+            </h2>
+            <hr class="category-divider" />
+            
+            <div class="publications-list">
+                <div class="publication-item">
+                    <div class="publication-title">Ethical challenges of big data in tourism</div>
+                    <div class="publication-venue">Handbook on Big Data Marketing and Management in Tourism and Hospitality, Edward Elgar Publishing</div>
+                    <div class="publication-date">Published in 2025</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Big Data in Adventure Travel</div>
+                    <div class="publication-venue">Routledge Handbook of Mobile Technology, Social Media and the Outdoors, Routledge</div>
+                    <div class="publication-date">Published in 2025</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Data Scientist in Tourism: Needs, Skills, and Scope</div>
+                    <div class="publication-venue">International Handbook of Skill, Education, Learning, and Research Development in Tourism and Hospitality, Springer</div>
+                    <div class="publication-date">Published in 2024</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Rise of Big Data in Tourism: Perspectives and Applications</div>
+                    <div class="publication-venue">Tourism Book Chapter Example</div>
+                    <div class="publication-date">Published in 2023</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Managing Festivals with Smart Technology</div>
+                    <div class="publication-venue">Smart Tourism Book Chapter</div>
+                    <div class="publication-date">Published in 2023</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Conference Papers -->
+        <div class="publication-category">
+            <h2 class="category-title">
+                <i class="fas fa-users"></i>
+                Conference Papers
+                <span class="category-count">(2)</span>
+            </h2>
+            <hr class="category-divider" />
+            
+            <div class="publications-list">
+                <div class="publication-item">
+                    <div class="publication-title">Linguistic Features and Predictive Analysis of Customer Reviews</div>
+                    <div class="publication-venue">Conference on Linguistics and Data Analysis</div>
+                    <div class="publication-date">Published in 2025</div>
+                </div>
+                
+                <div class="publication-item">
+                    <div class="publication-title">Inputs for Effective Marketing of Hospitality in Ranchi</div>
+                    <div class="publication-venue">Promotion and Advertising of Leisure Activities for Sustainability of Hospitality (PALASH)</div>
+                    <div class="publication-date">Published in 2022</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

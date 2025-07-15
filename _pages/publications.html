@@ -3,35 +3,247 @@ layout: archive-modern
 title: "Publications"
 permalink: /publications/
 author_profile: true
-excerpt: "A comprehensive list of my research publications, articles, and academic contributions."
+excerpt: "A comprehensive list of my research publications, articles, and academic contributions organized by publication type."
 ---
 
-{% if site.author.googlescholar %}
-  <div class="wordwrap">You can also find my articles on <a href="{{site.author.googlescholar}}">my Google Scholar profile</a>.</div>
-{% endif %}
+<div class="publications-intro">
+  {% if site.author.googlescholar %}
+    <div class="scholar-link">
+      <p><i class="fas fa-graduation-cap"></i> You can also find my articles on <a href="{{site.author.googlescholar}}" target="_blank">my Google Scholar profile</a>.</p>
+    </div>
+  {% endif %}
+  
+  <div class="publication-stats">
+    <div class="stats-grid">
+      {% assign total_pubs = site.publications | size %}
+      {% assign journal_count = site.publications | where: "category", "manuscripts" | size %}
+      {% assign book_chapter_count = site.publications | where: "category", "book_chapters" | size %}
+      {% assign conference_count = site.publications | where: "category", "conferences" | size %}
+      {% assign book_count = site.publications | where: "category", "books" | size %}
+      
+      <div class="stat-item">
+        <span class="stat-number">{{ total_pubs }}</span>
+        <span class="stat-label">Total Publications</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ journal_count }}</span>
+        <span class="stat-label">Journal Articles</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ book_chapter_count }}</span>
+        <span class="stat-label">Book Chapters</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">{{ conference_count }}</span>
+        <span class="stat-label">Conference Papers</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% include base_path %}
 
-<!-- New style rendering if publication categories are defined -->
+<!-- Enhanced categorized publication display -->
 {% if site.publication_category %}
-  {% for category in site.publication_category  %}
-    {% assign title_shown = false %}
-    {% for post in site.publications reversed %}
-      {% if post.category != category[0] %}
-        {% continue %}
-      {% endif %}
-      {% unless title_shown %}
-        <h2>{{ category[1].title }}</h2><hr />
-        {% assign title_shown = true %}
-      {% endunless %}
-      {% include archive-single.html %}
-    {% endfor %}
+  {% for category in site.publication_category %}
+    {% assign category_posts = site.publications | where: "category", category[0] | sort: "date" | reverse %}
+    {% if category_posts.size > 0 %}
+      <div class="publication-category">
+        <h2 class="category-title">
+          <i class="fas fa-{% if category[0] == 'manuscripts' %}file-alt{% elsif category[0] == 'book_chapters' %}book-open{% elsif category[0] == 'conferences' %}users{% elsif category[0] == 'books' %}book{% else %}file{% endif %}"></i>
+          {{ category[1].title }}
+          <span class="category-count">({{ category_posts.size }})</span>
+        </h2>
+        <hr class="category-divider" />
+        
+        <div class="publications-list">
+          {% for post in category_posts %}
+            {% include archive-single.html %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
   {% endfor %}
 {% else %}
-  {% for post in site.publications reversed %}
-    {% include archive-single.html %}
-  {% endfor %}
+  <!-- Fallback: display all publications without categories -->
+  <div class="publication-category">
+    <h2 class="category-title">All Publications</h2>
+    <hr class="category-divider" />
+    <div class="publications-list">
+      {% for post in site.publications reversed %}
+        {% include archive-single.html %}
+      {% endfor %}
+    </div>
+  </div>
 {% endif %}
+
+<style>
+.publications-intro {
+  margin-bottom: 2rem;
+}
+
+.scholar-link {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-radius: 12px;
+  border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.scholar-link p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.scholar-link i {
+  color: #667eea;
+  margin-right: 0.5rem;
+}
+
+.publication-stats {
+  margin-bottom: 2rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1.5rem 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.publication-category {
+  margin-bottom: 3rem;
+}
+
+.category-title {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.category-title i {
+  color: #667eea;
+  font-size: 1.5rem;
+}
+
+.category-count {
+  font-size: 1.2rem;
+  color: #666;
+  font-weight: 500;
+  margin-left: 0.5rem;
+}
+
+.category-divider {
+  border: none;
+  height: 3px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 2px;
+  margin-bottom: 2rem;
+}
+
+.publications-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+/* Dark mode adjustments */
+[data-theme="dark"] .scholar-link {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.2) 0%, rgba(118, 75, 162, 0.2) 100%);
+  border-color: rgba(102, 126, 234, 0.3);
+}
+
+[data-theme="dark"] .stat-item {
+  background: rgba(26, 32, 44, 0.8);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+[data-theme="dark"] .stat-item:hover {
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+[data-theme="dark"] .stat-label {
+  color: #a0aec0;
+}
+
+[data-theme="dark"] .category-title {
+  color: #e2e8f0;
+}
+
+[data-theme="dark"] .category-count {
+  color: #a0aec0;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stat-item {
+    padding: 1rem 0.5rem;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .category-title {
+    font-size: 1.5rem;
+  }
+  
+  .category-title i {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .category-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+</style>
 
 
 
