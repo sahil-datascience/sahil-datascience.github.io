@@ -58,7 +58,7 @@
         position: relative;
         
         @media (max-width: 768px) {
-            padding: 12px 15px;
+            padding: 12px 60px 12px 15px; /* Add right padding to avoid theme toggle overlap */
             flex-direction: column;
             gap: 10px;
             justify-content: flex-start !important;
@@ -66,7 +66,7 @@
         }
         
         @media (max-width: 600px) {
-            padding: 10px 12px;
+            padding: 10px 50px 10px 12px; /* Adjusted right padding for smaller screens */
             gap: 8px;
         }
     }
@@ -111,12 +111,14 @@
         @media (max-width: 768px) {
             justify-content: center;
             gap: 5px;
-            padding-right: 100px; /* Adjust for smaller screens */
+            padding-right: 0 !important; /* Remove right padding to avoid overlap */
+            max-width: calc(100% - 60px); /* Reserve space for theme toggle */
         }
         
         @media (max-width: 480px) {
-            padding-right: 80px;
+            padding-right: 0 !important;
             gap: 3px;
+            max-width: calc(100% - 50px); /* Reserve space for theme toggle on small screens */
         }
         
         li {
@@ -468,9 +470,25 @@
             }
         }
         
+        @media (max-width: 768px) {
+            position: absolute !important;
+            top: 15px !important;
+            right: 15px !important;
+            z-index: 10 !important;
+            
+            #theme-toggle {
+                width: 40px !important;
+                height: 40px !important;
+                
+                i {
+                    font-size: 1rem !important;
+                }
+            }
+        }
+        
         @media (max-width: 600px) {
-            top: 8px !important;
-            right: 8px !important;
+            top: 12px !important;
+            right: 12px !important;
             
             #theme-toggle {
                 width: 36px !important;
@@ -478,6 +496,20 @@
                 
                 i {
                     font-size: 0.9rem !important;
+                }
+            }
+        }
+        
+        @media (max-width: 480px) {
+            top: 10px !important;
+            right: 10px !important;
+            
+            #theme-toggle {
+                width: 32px !important;
+                height: 32px !important;
+                
+                i {
+                    font-size: 0.8rem !important;
                 }
             }
         }
@@ -561,13 +593,14 @@
         .visible-links {
             justify-content: center !important;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px; /* Reduced gap to fit more buttons */
             padding-right: 0 !important;
+            max-width: calc(100% - 60px); /* Reserve space for theme toggle */
             
             .masthead__menu-item {
                 a {
-                    padding: 10px 16px;
-                    font-size: 0.9rem;
+                    padding: 8px 14px; /* Reduced padding for better fit */
+                    font-size: 0.85rem; /* Smaller font for mobile */
                     white-space: nowrap;
                 }
             }
@@ -580,12 +613,13 @@
     .greedy-nav {
         .visible-links {
             justify-content: center !important;
-            gap: 6px;
+            gap: 4px; /* Even smaller gap */
+            max-width: calc(100% - 50px); /* Reserve space for smaller theme toggle */
             
             .masthead__menu-item {
                 a {
-                    padding: 8px 14px;
-                    font-size: 0.85rem;
+                    padding: 6px 10px; /* Smaller padding */
+                    font-size: 0.8rem; /* Smaller font */
                 }
             }
         }
@@ -597,12 +631,13 @@
     .greedy-nav {
         .visible-links {
             justify-content: center !important;
-            gap: 6px;
+            gap: 3px; /* Minimal gap for very small screens */
+            max-width: calc(100% - 45px); /* Reserve space for theme toggle */
             
             .masthead__menu-item {
                 a {
-                    padding: 8px 12px;
-                    font-size: 0.85rem;
+                    padding: 5px 8px; /* Very compact padding */
+                    font-size: 0.75rem; /* Smaller font for very small screens */
                     border-width: 1px !important;
                 }
             }

@@ -56,11 +56,18 @@
         
         @media (max-width: 768px) {
             .masthead__inner-wrap {
-                padding: 12px 15px;
+                padding: 12px 60px 12px 15px; /* Add right padding to avoid theme toggle overlap */
                 flex-direction: column;
                 gap: 10px;
                 justify-content: flex-start;
                 align-items: stretch;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .masthead__inner-wrap {
+                padding: 10px 50px 10px 12px; /* Adjusted right padding for smaller screens */
+                gap: 8px;
             }
         }
         
