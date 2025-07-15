@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Navigation Test</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .masthead {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 15px;
+            position: relative;
+            min-height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .site-title {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        
+        /* Desktop Navigation - Hidden on Mobile */
+        .visible-links {
+            display: flex;
+            list-style: none;
+            gap: 15px;
+        }
+        
+        .visible-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .visible-links a:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-1px);
+        }
+        
+        /* Hide desktop nav on mobile */
+        @media (max-width: 768px) {
+            .visible-links {
+                display: none !important;
+            }
+        }
+        
+        /* Hamburger Button */
+        .hamburger-btn {
+            display: none;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(102, 126, 234, 0.9);
+            border: 2px solid rgba(102, 126, 234, 1);
+            border-radius: 8px;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+        
+        .hamburger-btn:hover {
+            background: rgba(118, 75, 162, 0.9);
+            border-color: rgba(118, 75, 162, 1);
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        .hamburger-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+        
+        /* Show hamburger on mobile */
+        @media (max-width: 768px) {
+            .hamburger-btn {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        /* Hamburger Icon */
+        .navicon {
+            width: 20px;
+            height: 15px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .navicon span {
+            display: block;
+            background: white;
+            height: 2px;
+            width: 100%;
+            border-radius: 1px;
+            position: absolute;
+            transition: all 0.3s ease;
+        }
+        
+        .navicon span:nth-child(1) { top: 0; }
+        .navicon span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+        .navicon span:nth-child(3) { bottom: 0; }
+        
+        /* Hamburger Animation */
+        .hamburger-btn.active .navicon span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        
+        .hamburger-btn.active .navicon span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .hamburger-btn.active .navicon span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+        
+        /* Mobile Popup Menu */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu.show {
+            display: flex !important;
+            opacity: 1;
+            animation: fadeInMenu 0.3s ease-out;
+        }
+        
+        .mobile-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            background: rgba(102, 126, 234, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            min-width: 200px;
+            text-align: center;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideInItem 0.5s ease-out forwards;
+        }
+        
+        .mobile-menu a:nth-child(1) { animation-delay: 0.1s; }
+        .mobile-menu a:nth-child(2) { animation-delay: 0.2s; }
+        .mobile-menu a:nth-child(3) { animation-delay: 0.3s; }
+        .mobile-menu a:nth-child(4) { animation-delay: 0.4s; }
+        .mobile-menu a:nth-child(5) { animation-delay: 0.5s; }
+        
+        .mobile-menu a:hover {
+            background: rgba(102, 126, 234, 0.6);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Close Button */
+        .close-btn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+            transform: scale(1.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeInMenu {
+            from {
+                opacity: 0;
+                backdrop-filter: blur(0px);
+                -webkit-backdrop-filter: blur(0px);
+            }
+            to {
+                opacity: 1;
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+            }
+        }
+        
+        @keyframes slideInItem {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Content */
+        .content {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            color: white;
+        }
+        
+        .content h1 {
+            margin-bottom: 20px;
+        }
+        
+        .demo-note {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border-left: 4px solid rgba(102, 126, 234, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead">
+        <!-- Hamburger Button (Mobile Only) -->
+        <button class="hamburger-btn" id="hamburgerBtn">
+            <div class="navicon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        
+        <!-- Site Title -->
+        <a href="#" class="site-title">Your Site Name</a>
+        
+        <!-- Desktop Navigation -->
+        <ul class="visible-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Publications</a></li>
+            <li><a href="#">CV</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </header>
+    
+    <!-- Mobile Popup Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#">Home</a>
+        <a href="#">Publications</a>
+        <a href="#">CV</a>
+        <a href="#">Contact</a>
+        <div class="close-btn" id="closeBtn">&times;</div>
+    </div>
+    
+    <main class="content">
+        <div class="demo-note">
+            <h2>Mobile Navigation Demo</h2>
+            <p><strong>Desktop:</strong> You can see the navigation links in the header.</p>
+            <p><strong>Mobile:</strong> Click the hamburger menu (☰) to open the popup navigation.</p>
+            <p>Resize your browser window to test the responsive behavior!</p>
+        </div>
+        
+        <h1>Test Content</h1>
+        <p>This is a demo page to test the mobile navigation functionality. The hamburger menu should work seamlessly on mobile devices, providing a full-screen popup with navigation links.</p>
+        
+        <h2>Features:</h2>
+        <ul>
+            <li>Responsive hamburger menu for mobile devices</li>
+            <li>Smooth animations and transitions</li>
+            <li>Full-screen popup overlay</li>
+            <li>Easy-to-tap navigation buttons</li>
+            <li>Close button and escape key support</li>
+        </ul>
+    </main>
+
+    <script>
+        // Mobile Navigation JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const closeBtn = document.getElementById('closeBtn');
+            
+            // Open mobile menu
+            hamburgerBtn.addEventListener('click', function() {
+                console.log('Hamburger clicked'); // Debug log
+                hamburgerBtn.classList.add('active');
+                mobileMenu.classList.add('show');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Close mobile menu
+            function closeMobileMenu() {
+                console.log('Closing mobile menu'); // Debug log
+                hamburgerBtn.classList.remove('active');
+                mobileMenu.classList.remove('show');
+                document.body.style.overflow = '';
+            }
+            
+            // Close button
+            closeBtn.addEventListener('click', closeMobileMenu);
+            
+            // Close on background click
+            mobileMenu.addEventListener('click', function(e) {
+                if (e.target === mobileMenu) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Close on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && mobileMenu.classList.contains('show')) {
+                    closeMobileMenu();
+                }
+            });
+            
+            // Close menu when clicking navigation links
+            const mobileLinks = mobileMenu.querySelectorAll('a');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    closeMobileMenu();
+                });
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 768 && mobileMenu.classList.contains('show')) {
+                    closeMobileMenu();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
