@@ -105,8 +105,8 @@
                 font-size: 0.95rem;
                 transition: all 0.3s ease;
                 position: relative;
-                background: rgba(255, 255, 255, 0.1) !important;
-                border: 1px solid rgba(255, 255, 255, 0.2) !important;
+                background: rgba(255, 255, 255, 0.15) !important; /* More visible button background */
+                border: 1px solid rgba(255, 255, 255, 0.3) !important;
                 border-radius: 8px !important;
                 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
                 letter-spacing: 0.5px;
@@ -117,8 +117,8 @@
                 
                 &:hover {
                     color: white !important;
-                    background: rgba(255, 255, 255, 0.25) !important;
-                    border-color: rgba(255, 255, 255, 0.4) !important;
+                    background: rgba(255, 255, 255, 0.35) !important;
+                    border-color: rgba(255, 255, 255, 0.5) !important;
                     transform: translateY(-2px) !important;
                     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
                 }
@@ -749,8 +749,8 @@ html:not([data-theme="dark"]) {
         /* Dark text for better readability on light background */
         color: #2c3e50 !important;
         text-shadow: none !important; /* Remove text shadow for clean look */
-        background: rgba(102, 126, 234, 0.1) !important; /* Light button background */
-        border: 1px solid rgba(102, 126, 234, 0.3) !important;
+        background: rgba(102, 126, 234, 0.25) !important; /* More visible button background */
+        border: 1px solid rgba(102, 126, 234, 0.5) !important;
         border-radius: 8px !important;
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
@@ -786,9 +786,9 @@ html:not([data-theme="dark"]) {
     .greedy-nav .visible-links .masthead__menu-item.current-page a,
     .greedy-nav .visible-links .masthead__menu-item a.current {
         color: white !important;
-        background: rgba(102, 126, 234, 1) !important; /* Solid background for active */
+        background: rgba(102, 126, 234, 0.9) !important; /* More visible active background */
         border-color: rgba(102, 126, 234, 1) !important;
-        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4) !important;
+        box-shadow: 0 3px 12px rgba(102, 126, 234, 0.4) !important;
         
         &::after {
             display: none !important;
@@ -813,8 +813,8 @@ html:not([data-theme="dark"]) {
     
     /* Light mode theme toggle styling */
     .masthead__theme-toggle #theme-toggle {
-        background: rgba(102, 126, 234, 0.1) !important;
-        border: 2px solid rgba(102, 126, 234, 0.4) !important;
+        background: rgba(102, 126, 234, 0.2) !important;
+        border: 2px solid rgba(102, 126, 234, 0.6) !important;
         color: rgba(102, 126, 234, 0.9) !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
         
