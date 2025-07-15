@@ -14,61 +14,63 @@ excerpt: "A comprehensive list of my research publications and academic contribu
 
 {% include base_path %}
 
-<!-- Journal Articles -->
-{% assign journal_articles = site.publications | where: "category", "manuscripts" | sort: "date" | reverse %}
-{% if journal_articles.size > 0 %}
-<div class="publication-section">
-  <h2>Journal Articles</h2>
-  <hr class="section-divider" />
-  <div class="publications-list">
-    {% for post in journal_articles %}
-      {% include archive-single.html %}
-    {% endfor %}
+<div class="publications-grid">
+  <!-- Journal Articles -->
+  {% assign journal_articles = site.publications | where: "category", "manuscripts" | sort: "date" | reverse %}
+  {% if journal_articles.size > 0 %}
+  <div class="publication-column">
+    <h2>Journal Articles</h2>
+    <hr class="section-divider" />
+    <div class="publications-list">
+      {% for post in journal_articles %}
+        {% include archive-single.html %}
+      {% endfor %}
+    </div>
   </div>
-</div>
-{% endif %}
+  {% endif %}
 
-<!-- Book Chapters -->
-{% assign book_chapters = site.publications | where: "category", "book_chapters" | sort: "date" | reverse %}
-{% if book_chapters.size > 0 %}
-<div class="publication-section">
-  <h2>Book Chapters</h2>
-  <hr class="section-divider" />
-  <div class="publications-list">
-    {% for post in book_chapters %}
-      {% include archive-single.html %}
-    {% endfor %}
+  <!-- Book Chapters -->
+  {% assign book_chapters = site.publications | where: "category", "book_chapters" | sort: "date" | reverse %}
+  {% if book_chapters.size > 0 %}
+  <div class="publication-column">
+    <h2>Book Chapters</h2>
+    <hr class="section-divider" />
+    <div class="publications-list">
+      {% for post in book_chapters %}
+        {% include archive-single.html %}
+      {% endfor %}
+    </div>
   </div>
-</div>
-{% endif %}
+  {% endif %}
 
-<!-- Conference Papers -->
-{% assign conference_papers = site.publications | where: "category", "conferences" | sort: "date" | reverse %}
-{% if conference_papers.size > 0 %}
-<div class="publication-section">
-  <h2>Conference Papers</h2>
-  <hr class="section-divider" />
-  <div class="publications-list">
-    {% for post in conference_papers %}
-      {% include archive-single.html %}
-    {% endfor %}
+  <!-- Conference Papers -->
+  {% assign conference_papers = site.publications | where: "category", "conferences" | sort: "date" | reverse %}
+  {% if conference_papers.size > 0 %}
+  <div class="publication-column">
+    <h2>Conference Papers</h2>
+    <hr class="section-divider" />
+    <div class="publications-list">
+      {% for post in conference_papers %}
+        {% include archive-single.html %}
+      {% endfor %}
+    </div>
   </div>
-</div>
-{% endif %}
+  {% endif %}
 
-<!-- Books -->
-{% assign books = site.publications | where: "category", "books" | sort: "date" | reverse %}
-{% if books.size > 0 %}
-<div class="publication-section">
-  <h2>Books</h2>
-  <hr class="section-divider" />
-  <div class="publications-list">
-    {% for post in books %}
-      {% include archive-single.html %}
-    {% endfor %}
+  <!-- Books -->
+  {% assign books = site.publications | where: "category", "books" | sort: "date" | reverse %}
+  {% if books.size > 0 %}
+  <div class="publication-column">
+    <h2>Books</h2>
+    <hr class="section-divider" />
+    <div class="publications-list">
+      {% for post in books %}
+        {% include archive-single.html %}
+      {% endfor %}
+    </div>
   </div>
+  {% endif %}
 </div>
-{% endif %}
 
 <style>
 .scholar-note {
@@ -133,10 +135,28 @@ excerpt: "A comprehensive list of my research publications and academic contribu
   box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
 }
 
+/* Horizontal layout for publications within each category */
 .publications-list {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); /* Responsive horizontal grid */
   gap: 1.5rem; /* Spacing between individual publications */
+}
+
+/* Individual publication item styling */
+.publications-list .list__item {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(102, 126, 234, 0.1);
+  transition: all 0.3s ease;
+  height: fit-content; /* Ensure equal height cards */
+}
+
+.publications-list .list__item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  border-color: rgba(102, 126, 234, 0.3);
 }
 
 /* Dark mode adjustments */
@@ -157,6 +177,15 @@ excerpt: "A comprehensive list of my research publications and academic contribu
   color: #e2e8f0;
 }
 
+[data-theme="dark"] .publications-list .list__item {
+  background: rgba(26, 32, 44, 0.8);
+  border-color: rgba(102, 126, 234, 0.2);
+}
+
+[data-theme="dark"] .publications-list .list__item:hover {
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .publication-section {
@@ -173,7 +202,12 @@ excerpt: "A comprehensive list of my research publications and academic contribu
   }
   
   .publications-list {
+    grid-template-columns: 1fr; /* Single column on mobile */
     gap: 1rem;
+  }
+  
+  .publications-list .list__item {
+    padding: 1rem;
   }
 }
 
@@ -184,6 +218,24 @@ excerpt: "A comprehensive list of my research publications and academic contribu
   
   .publication-section h2 {
     font-size: 1.3rem;
+  }
+  
+  .publications-list .list__item {
+    padding: 0.75rem;
+  }
+}
+
+/* Tablet responsiveness */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .publications-list {
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Adjust for tablets */
+  }
+}
+
+/* Large screens */
+@media (min-width: 1400px) {
+  .publications-list {
+    grid-template-columns: repeat(auto-fit, minmax(500px, 1fr)); /* Larger cards on big screens */
   }
 }
 </style>
