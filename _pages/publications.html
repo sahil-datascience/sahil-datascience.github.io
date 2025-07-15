@@ -17,51 +17,57 @@ excerpt: "A comprehensive list of my research publications and academic contribu
 <!-- Journal Articles -->
 {% assign journal_articles = site.publications | where: "category", "manuscripts" | sort: "date" | reverse %}
 {% if journal_articles.size > 0 %}
-<h2>Journal Articles</h2>
-<hr class="section-divider" />
-{% for post in journal_articles %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="publication-section">
+  <h2>Journal Articles</h2>
+  <hr class="section-divider" />
+  <div class="publications-list">
+    {% for post in journal_articles %}
+      {% include archive-single.html %}
+    {% endfor %}
+  </div>
+</div>
 {% endif %}
 
 <!-- Book Chapters -->
 {% assign book_chapters = site.publications | where: "category", "book_chapters" | sort: "date" | reverse %}
 {% if book_chapters.size > 0 %}
-<h2>Book Chapters</h2>
-<hr class="section-divider" />
-{% for post in book_chapters %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="publication-section">
+  <h2>Book Chapters</h2>
+  <hr class="section-divider" />
+  <div class="publications-list">
+    {% for post in book_chapters %}
+      {% include archive-single.html %}
+    {% endfor %}
+  </div>
+</div>
 {% endif %}
 
 <!-- Conference Papers -->
 {% assign conference_papers = site.publications | where: "category", "conferences" | sort: "date" | reverse %}
 {% if conference_papers.size > 0 %}
-<h2>Conference Papers</h2>
-<hr class="section-divider" />
-{% for post in conference_papers %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="publication-section">
+  <h2>Conference Papers</h2>
+  <hr class="section-divider" />
+  <div class="publications-list">
+    {% for post in conference_papers %}
+      {% include archive-single.html %}
+    {% endfor %}
+  </div>
+</div>
 {% endif %}
 
 <!-- Books -->
 {% assign books = site.publications | where: "category", "books" | sort: "date" | reverse %}
 {% if books.size > 0 %}
-<h2>Books</h2>
-<hr class="section-divider" />
-{% for post in books %}
-  {% include archive-single.html %}
-{% endfor %}
-{% endif %}
-
-<!-- Fallback for uncategorized publications -->
-{% assign uncategorized = site.publications | where: "category", nil | sort: "date" | reverse %}
-{% if uncategorized.size > 0 %}
-<h2>Other Publications</h2>
-<hr class="section-divider" />
-{% for post in uncategorized %}
-  {% include archive-single.html %}
-{% endfor %}
+<div class="publication-section">
+  <h2>Books</h2>
+  <hr class="section-divider" />
+  <div class="publications-list">
+    {% for post in books %}
+      {% include archive-single.html %}
+    {% endfor %}
+  </div>
+</div>
 {% endif %}
 
 <style>
@@ -94,24 +100,43 @@ excerpt: "A comprehensive list of my research publications and academic contribu
   text-decoration: underline;
 }
 
-h2 {
-  color: #2c3e50;
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin: 2rem 0 1rem 0;
-  padding-top: 1rem;
+/* Publication sections with proper vertical spacing */
+.publication-section {
+  margin-bottom: 4rem; /* Large vertical spacing between categories */
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1); /* Subtle separator line */
 }
 
-h2:first-of-type {
-  margin-top: 1rem;
+.publication-section:last-child {
+  border-bottom: none; /* Remove border from last section */
+  margin-bottom: 2rem;
+}
+
+.publication-section h2 {
+  color: #2c3e50;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  padding-top: 0;
+}
+
+.publication-section:first-child h2 {
+  margin-top: 0;
 }
 
 .section-divider {
   border: none;
-  height: 2px;
+  height: 3px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  margin-bottom: 1.5rem;
-  border-radius: 1px;
+  margin-bottom: 2rem;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.2);
+}
+
+.publications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* Spacing between individual publications */
 }
 
 /* Dark mode adjustments */
@@ -124,18 +149,41 @@ h2:first-of-type {
   color: #a0aec0;
 }
 
-[data-theme="dark"] h2 {
+[data-theme="dark"] .publication-section {
+  border-bottom-color: rgba(102, 126, 234, 0.2);
+}
+
+[data-theme="dark"] .publication-section h2 {
   color: #e2e8f0;
 }
 
 /* Mobile responsiveness */
 @media (max-width: 768px) {
-  h2 {
-    font-size: 1.4rem;
+  .publication-section {
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .publication-section h2 {
+    font-size: 1.5rem;
   }
   
   .scholar-note {
     padding: 0.75rem;
+  }
+  
+  .publications-list {
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .publication-section {
+    margin-bottom: 2.5rem;
+  }
+  
+  .publication-section h2 {
+    font-size: 1.3rem;
   }
 }
 </style>
