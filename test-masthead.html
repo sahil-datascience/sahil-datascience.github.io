@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Masthead Test</title>
+    <style>
+        /* Basic reset and body styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding-top: 80px;
+        }
+        
+        /* Light mode masthead styles */
+        .masthead {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 250, 252, 0.95) 100%) !important;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+            height: auto;
+        }
+        
+        .masthead__inner-wrap {
+            padding: 15px 30px;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .site-title {
+            color: #2c3e50 !important;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            text-decoration: none;
+            margin-right: 40px;
+        }
+        
+        .site-title:hover {
+            color: rgba(102, 126, 234, 0.9) !important;
+            transform: scale(1.02);
+        }
+        
+        .greedy-nav {
+            background: transparent;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .visible-links {
+            display: flex;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .masthead__menu-item a {
+            color: #2c3e50 !important;
+            text-decoration: none;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            background: rgba(102, 126, 234, 0.1) !important;
+            border: 1px solid rgba(102, 126, 234, 0.3) !important;
+            border-radius: 8px;
+            display: block;
+        }
+        
+        .masthead__menu-item a:hover {
+            color: white !important;
+            background: rgba(102, 126, 234, 0.9) !important;
+            border-color: rgba(102, 126, 234, 1) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .masthead__menu-item.current a {
+            color: white !important;
+            background: rgba(102, 126, 234, 1) !important;
+            border-color: rgba(102, 126, 234, 1) !important;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Theme toggle */
+        .masthead__theme-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1002;
+        }
+        
+        #theme-toggle {
+            background: rgba(102, 126, 234, 0.1);
+            border: 2px solid rgba(102, 126, 234, 0.4);
+            color: rgba(102, 126, 234, 0.9);
+            cursor: pointer;
+            padding: 0;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        #theme-toggle:hover {
+            background: rgba(102, 126, 234, 0.9);
+            border-color: rgba(102, 126, 234, 1);
+            color: white;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .demo-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="masthead">
+        <div class="masthead__inner-wrap">
+            <a href="#" class="site-title">Your Name</a>
+            <nav class="greedy-nav">
+                <ul class="visible-links">
+                    <li class="masthead__menu-item"><a href="#">About</a></li>
+                    <li class="masthead__menu-item current"><a href="#">Publications</a></li>
+                    <li class="masthead__menu-item"><a href="#">Talks</a></li>
+                    <li class="masthead__menu-item"><a href="#">Teaching</a></li>
+                    <li class="masthead__menu-item"><a href="#">Portfolio</a></li>
+                    <li class="masthead__menu-item"><a href="#">Blog Posts</a></li>
+                    <li class="masthead__menu-item"><a href="#">CV</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+    <div class="masthead__theme-toggle">
+        <button id="theme-toggle">
+            <i class="fas fa-sun"></i>
+        </button>
+    </div>
+    
+    <div class="content">
+        <div class="demo-section">
+            <h1>Masthead Navigation Test</h1>
+            <p>This page demonstrates the new button-style navigation for light mode. Key improvements:</p>
+            <ul>
+                <li><strong>High Contrast:</strong> Dark text on light background ensures readability</li>
+                <li><strong>Button Styling:</strong> Each navigation item looks like a clickable button</li>
+                <li><strong>Hover Effects:</strong> Purple background with white text on hover</li>
+                <li><strong>Active State:</strong> Current page shown with solid purple background</li>
+                <li><strong>Clean Design:</strong> No underlines, just clean button-style navigation</li>
+            </ul>
+        </div>
+        
+        <div class="demo-section">
+            <h2>Navigation Features</h2>
+            <p>The masthead now features:</p>
+            <ul>
+                <li>White/light background with high contrast text</li>
+                <li>Button-style navigation items with clear borders</li>
+                <li>Smooth hover animations with color transitions</li>
+                <li>Accessible focus states</li>
+                <li>Responsive design for mobile devices</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script>
+        // Simple theme toggle for demo
+        document.getElementById('theme-toggle').addEventListener('click', function() {
+            document.body.style.background = document.body.style.background.includes('f5f7fa') 
+                ? 'linear-gradient(135deg, #1a202c 0%, #2d3748 100%)'
+                : 'linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%)';
+        });
+    </script>
+</body>
+</html>
