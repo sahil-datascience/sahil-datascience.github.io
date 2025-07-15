@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Masthead Test</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f7fa;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Mobile-first masthead */
+        .masthead {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.5) 0%, rgba(118, 75, 162, 0.5) 100%);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            min-height: 60px;
+        }
+        
+        @media (max-width: 768px) {
+            .masthead {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                z-index: auto !important;
+            }
+        }
+        
+        .masthead__inner-wrap {
+            padding: 15px 30px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        @media (max-width: 768px) {
+            .masthead__inner-wrap {
+                padding: 12px 15px;
+                flex-direction: column;
+                gap: 10px;
+                justify-content: flex-start;
+                align-items: stretch;
+            }
+        }
+        
+        .site-title {
+            color: white;
+            font-weight: 700;
+            font-size: 1.6rem;
+            text-decoration: none;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 1.4rem;
+                text-align: center;
+            }
+        }
+        
+        .greedy-nav {
+            width: 100%;
+            flex: 1;
+        }
+        
+        .visible-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        @media (max-width: 768px) {
+            .visible-links {
+                justify-content: center;
+                gap: 8px;
+                padding-right: 0;
+            }
+        }
+        
+        .masthead__menu-item a {
+            color: rgba(255, 255, 255, 0.95);
+            text-decoration: none;
+            padding: 12px 24px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            background: rgba(102, 126, 234, 0.4);
+            border: 2px solid rgba(102, 126, 234, 0.7);
+            border-radius: 8px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        @media (max-width: 768px) {
+            .masthead__menu-item a {
+                padding: 10px 16px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        .masthead__theme-toggle {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 1002;
+        }
+        
+        @media (max-width: 768px) {
+            .masthead__theme-toggle {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                z-index: 10;
+            }
+        }
+        
+        #theme-toggle {
+            background: rgba(102, 126, 234, 0.9);
+            border: 2px solid rgba(102, 126, 234, 1);
+            color: white;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            #theme-toggle {
+                width: 40px;
+                height: 40px;
+            }
+        }
+        
+        /* Main content */
+        .main-content {
+            padding: 40px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        @media (min-width: 769px) {
+            .main-content {
+                padding-top: 120px; /* Account for fixed header on desktop */
+            }
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+        
+        .content-section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <header class="masthead">
+        <div class="masthead__inner-wrap">
+            <a href="#" class="site-title">Sahil Sharma</a>
+            
+            <nav class="greedy-nav">
+                <ul class="visible-links">
+                    <li class="masthead__menu-item">
+                        <a href="#">About</a>
+                    </li>
+                    <li class="masthead__menu-item">
+                        <a href="#">Publications</a>
+                    </li>
+                    <li class="masthead__menu-item">
+                        <a href="#">CV</a>
+                    </li>
+                    <li class="masthead__menu-item">
+                        <a href="#">Contact</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="masthead__theme-toggle">
+                <button id="theme-toggle">
+                    <i class="fas fa-sun"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+    
+    <main class="main-content">
+        <section class="hero-section">
+            <h1>Sahil Sharma</h1>
+            <p>PhD Student Specialized in Big Data, Data Science and Artificial Intelligence (AI) Applications in Tourism</p>
+        </section>
+        
+        <section class="content-section">
+            <h2>Research Focus</h2>
+            <p>Sahil is a PhD student at the Institute of Vocational Studies (IVS), Himachal Pradesh University, Shimla, India. His research focuses on innovative applications of data science in tourism, exploring how data-driven insights can transform the hospitality and tourism industry.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2>Data Science in Tourism</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+        </section>
+        
+        <section class="content-section">
+            <h2>Publications</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </section>
+    </main>
+</body>
+</html>
