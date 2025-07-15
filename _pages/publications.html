@@ -6,16 +6,16 @@ author_profile: true
 excerpt: "A comprehensive list of my research publications and academic contributions."
 ---
 
- <!-- Google Scholar Profile -->
-{% if site.author.googlescholar %}
-<div class="scholar-note">
-  <p><i class="fas fa-graduation-cap"></i> You can also find my articles on <a href="{{site.author.googlescholar}}" target="_blank">my Google Scholar profile</a>.</p>
-</div>
-{% endif %}
 
-{% include base_path %}
 
 <div class="publications-grid">
+  {% if site.author.googlescholar %}
+  <div class="scholar-note">
+    <p><i class="fas fa-graduation-cap"></i> You can also find my articles on <a href="{{site.author.googlescholar}}" target="_blank">my Google Scholar profile</a>.</p>
+  </div>
+  {% endif %}
+
+  {% include base_path %}
   <!-- Journal Articles -->
   {% assign journal_articles = site.publications | where: "category", "manuscripts" | sort: "date" | reverse %}
   {% if journal_articles.size > 0 %}

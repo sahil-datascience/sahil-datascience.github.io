@@ -184,6 +184,13 @@
     .greedy-nav__toggle {
         display: none !important;
         
+        // Override any hidden classes on mobile
+        &.hidden {
+            @media (max-width: 768px) {
+                display: flex !important;
+            }
+        }
+        
         @media (max-width: 768px) {
             display: flex !important;
             background: rgba(102, 126, 234, 0.9) !important;

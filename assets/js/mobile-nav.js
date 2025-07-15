@@ -12,8 +12,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!hamburger) {
             hamburger = document.createElement('button');
             hamburger.className = 'greedy-nav__toggle';
-            hamburger.innerHTML = '<div class="navicon"></div>';
+            hamburger.type = 'button';
+            hamburger.innerHTML = `
+                <span class="visually-hidden">Toggle Menu</span>
+                <div class="navicon"></div>
+            `;
             greedy_nav.appendChild(hamburger);
+        }
+        
+        // Remove hidden class to ensure visibility on mobile
+        hamburger.classList.remove('hidden');
+        
+        // Force display on mobile
+        if (window.innerWidth <= 768) {
+            hamburger.style.display = 'flex';
         }
         
         // Create hidden links container if it doesn't exist
