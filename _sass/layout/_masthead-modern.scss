@@ -250,15 +250,22 @@
 /* Responsive design for masthead - Enhanced */
 @media (max-width: 768px) {
     .masthead {
+        position: relative !important; /* Change from fixed to relative on mobile */
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        min-height: auto !important;
+        
         .masthead__inner-wrap {
-            padding: 10px 15px;
+            padding: 15px 20px;
             flex-direction: column;
             gap: 15px; /* More space between title and nav */
         }
         
         .site-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             text-align: center;
+            margin-bottom: 5px;
         }
     }
     
@@ -270,12 +277,13 @@
             flex-wrap: wrap;
             width: 100%;
             padding-right: 0 !important; /* Remove right padding on mobile */
-            gap: 6px; /* Consistent gap between buttons */
+            gap: 8px; /* Consistent gap between buttons */
+            max-width: 100%;
             
             .masthead__menu-item {
                 a {
-                    padding: 8px 14px;
-                    font-size: 0.85rem;
+                    padding: 10px 16px;
+                    font-size: 0.9rem;
                     min-width: auto;
                     white-space: nowrap;
                 }
@@ -287,25 +295,27 @@
 /* Extra small screens - ensure all buttons are accessible */
 @media (max-width: 480px) {
     .masthead {
+        position: relative !important; /* Ensure relative positioning on small screens */
+        
         .masthead__inner-wrap {
-            padding: 8px 10px;
+            padding: 12px 15px;
             gap: 12px;
         }
         
         .site-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
     }
     
     .greedy-nav .visible-links {
         justify-content: center !important;
-        gap: 4px; /* Smaller gap for very small screens */
+        gap: 6px; /* Smaller gap for very small screens */
         padding-right: 0 !important;
         
         .masthead__menu-item {
             a {
-                padding: 6px 10px;
-                font-size: 0.8rem;
+                padding: 8px 12px;
+                font-size: 0.85rem;
                 min-width: auto;
                 border-width: 1px; /* Thinner borders on small screens */
             }
@@ -455,8 +465,9 @@
         }
         
         @media (max-width: 768px) {
-            top: 15px !important;
-            right: 15px !important;
+            position: absolute !important; /* Change to absolute positioning on mobile */
+            top: 10px !important;
+            right: 10px !important;
             
             #theme-toggle {
                 width: 40px !important;
@@ -469,8 +480,8 @@
         }
         
         @media (max-width: 600px) {
-            top: 12px !important;
-            right: 12px !important;
+            top: 8px !important;
+            right: 8px !important;
             
             #theme-toggle {
                 width: 36px !important;
@@ -561,13 +572,13 @@
         .visible-links {
             justify-content: center !important;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
             padding-right: 0 !important;
             
             .masthead__menu-item {
                 a {
-                    padding: 8px 14px;
-                    font-size: 0.85rem;
+                    padding: 10px 16px;
+                    font-size: 0.9rem;
                     white-space: nowrap;
                 }
             }
@@ -580,12 +591,12 @@
     .greedy-nav {
         .visible-links {
             justify-content: center !important;
-            gap: 5px;
+            gap: 6px;
             
             .masthead__menu-item {
                 a {
-                    padding: 7px 12px;
-                    font-size: 0.8rem;
+                    padding: 8px 14px;
+                    font-size: 0.85rem;
                 }
             }
         }
@@ -597,54 +608,60 @@
     .greedy-nav {
         .visible-links {
             justify-content: center !important;
-            gap: 4px;
+            gap: 6px;
             
             .masthead__menu-item {
                 a {
-                    padding: 6px 10px;
-                    font-size: 0.75rem;
+                    padding: 8px 12px;
+                    font-size: 0.85rem;
                     border-width: 1px !important;
                 }
             }
         }
     }
-}
-
-/* Mobile-specific light mode adjustments */
-@media (max-width: 768px) {
-    .greedy-nav .visible-links .masthead__menu-item a {
-        padding: 8px 14px !important;
-        font-size: 0.85rem !important;
-        background: rgba(102, 126, 234, 0.35) !important; /* Slightly more visible on mobile */
-        border: 1px solid rgba(102, 126, 234, 0.6) !important; /* Thinner border for mobile */
-    }
-    
-    .masthead .site-title {
-        font-size: 1.3rem !important;
-    }
-}
-
-@media (max-width: 480px) {
-    .greedy-nav .visible-links .masthead__menu-item a {
-        padding: 6px 10px !important;
-        font-size: 0.75rem !important;
-        background: rgba(102, 126, 234, 0.3) !important;
-        border: 1px solid rgba(102, 126, 234, 0.5) !important;
-    }
-    
-    .masthead .site-title {
-        font-size: 1.2rem !important;
-    }
-    
-    .masthead__theme-toggle #theme-toggle {
-        width: 36px !important;
-        height: 36px !important;
+}    /* Mobile-specific light mode adjustments */
+    @media (max-width: 768px) {
+        .masthead {
+            position: relative !important; /* Override fixed positioning on mobile */
+        }
         
-        i {
+        .greedy-nav .visible-links .masthead__menu-item a {
+            padding: 10px 16px !important;
             font-size: 0.9rem !important;
+            background: rgba(102, 126, 234, 0.35) !important; /* Slightly more visible on mobile */
+            border: 1px solid rgba(102, 126, 234, 0.6) !important; /* Thinner border for mobile */
+        }
+        
+        .masthead .site-title {
+            font-size: 1.4rem !important;
+        }
+        
+        .masthead__theme-toggle {
+            position: absolute !important; /* Absolute positioning relative to masthead */
         }
     }
-}
+    
+    @media (max-width: 480px) {
+        .greedy-nav .visible-links .masthead__menu-item a {
+            padding: 8px 12px !important;
+            font-size: 0.85rem !important;
+            background: rgba(102, 126, 234, 0.3) !important;
+            border: 1px solid rgba(102, 126, 234, 0.5) !important;
+        }
+        
+        .masthead .site-title {
+            font-size: 1.3rem !important;
+        }
+        
+        .masthead__theme-toggle #theme-toggle {
+            width: 36px !important;
+            height: 36px !important;
+            
+            i {
+                font-size: 0.9rem !important;
+            }
+        }
+    }
 
 /* Tab-like active state animation */
 .masthead__menu-item a::before {

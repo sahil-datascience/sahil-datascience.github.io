@@ -16,7 +16,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            padding-top: 100px; /* Increased for mobile spacing */
+            padding-top: 20px; /* Reduced since masthead is now relative on mobile */
             margin: 0;
         }
         
@@ -47,32 +47,45 @@
         }
         
         @media (max-width: 768px) {
+            body {
+                padding-top: 10px; /* Minimal padding for mobile */
+            }
+            
+            .masthead {
+                position: relative !important; /* Change from fixed to relative */
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+            }
+            
             .masthead__inner-wrap {
                 flex-direction: column;
                 gap: 15px;
-                padding: 10px 15px;
+                padding: 15px 20px;
             }
             
             .site-title {
-                font-size: 1.3rem !important;
+                font-size: 1.4rem !important;
                 text-align: center;
+                margin-bottom: 5px;
             }
             
             .visible-links {
-                gap: 6px !important;
+                gap: 8px !important;
                 flex-wrap: wrap;
             }
             
             .masthead__menu-item a {
-                padding: 8px 14px !important;
-                font-size: 0.85rem !important;
+                padding: 10px 16px !important;
+                font-size: 0.9rem !important;
                 background: rgba(102, 126, 234, 0.35) !important;
                 border: 1px solid rgba(102, 126, 234, 0.6) !important;
             }
             
             .masthead__theme-toggle {
-                top: 15px !important;
-                right: 15px !important;
+                position: absolute !important;
+                top: 10px !important;
+                right: 10px !important;
             }
             
             #theme-toggle {
@@ -83,28 +96,28 @@
         
         @media (max-width: 480px) {
             .masthead__inner-wrap {
-                padding: 8px 10px;
+                padding: 12px 15px;
                 gap: 12px;
             }
             
             .site-title {
-                font-size: 1.2rem !important;
+                font-size: 1.3rem !important;
             }
             
             .visible-links {
-                gap: 4px !important;
+                gap: 6px !important;
             }
             
             .masthead__menu-item a {
-                padding: 6px 10px !important;
-                font-size: 0.75rem !important;
+                padding: 8px 12px !important;
+                font-size: 0.85rem !important;
                 background: rgba(102, 126, 234, 0.3) !important;
                 border: 1px solid rgba(102, 126, 234, 0.5) !important;
             }
             
             .masthead__theme-toggle {
-                top: 12px !important;
-                right: 12px !important;
+                top: 8px !important;
+                right: 8px !important;
             }
             
             #theme-toggle {
