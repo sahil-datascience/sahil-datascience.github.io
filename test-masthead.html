@@ -16,7 +16,8 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            padding-top: 80px;
+            padding-top: 100px; /* Increased for mobile spacing */
+            margin: 0;
         }
         
         /* Light mode masthead styles */
@@ -29,8 +30,10 @@
             width: 100%;
             position: fixed;
             top: 0;
+            left: 0;
+            right: 0;
             z-index: 1000;
-            height: auto;
+            min-height: 60px;
         }
         
         .masthead__inner-wrap {
@@ -41,6 +44,73 @@
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+        
+        @media (max-width: 768px) {
+            .masthead__inner-wrap {
+                flex-direction: column;
+                gap: 15px;
+                padding: 10px 15px;
+            }
+            
+            .site-title {
+                font-size: 1.3rem !important;
+                text-align: center;
+            }
+            
+            .visible-links {
+                gap: 6px !important;
+                flex-wrap: wrap;
+            }
+            
+            .masthead__menu-item a {
+                padding: 8px 14px !important;
+                font-size: 0.85rem !important;
+                background: rgba(102, 126, 234, 0.35) !important;
+                border: 1px solid rgba(102, 126, 234, 0.6) !important;
+            }
+            
+            .masthead__theme-toggle {
+                top: 15px !important;
+                right: 15px !important;
+            }
+            
+            #theme-toggle {
+                width: 40px !important;
+                height: 40px !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .masthead__inner-wrap {
+                padding: 8px 10px;
+                gap: 12px;
+            }
+            
+            .site-title {
+                font-size: 1.2rem !important;
+            }
+            
+            .visible-links {
+                gap: 4px !important;
+            }
+            
+            .masthead__menu-item a {
+                padding: 6px 10px !important;
+                font-size: 0.75rem !important;
+                background: rgba(102, 126, 234, 0.3) !important;
+                border: 1px solid rgba(102, 126, 234, 0.5) !important;
+            }
+            
+            .masthead__theme-toggle {
+                top: 12px !important;
+                right: 12px !important;
+            }
+            
+            #theme-toggle {
+                width: 36px !important;
+                height: 36px !important;
+            }
         }
         
         .site-title {

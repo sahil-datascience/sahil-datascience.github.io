@@ -12,10 +12,13 @@
     width: 100%;
     position: fixed !important;
     top: 0;
+    left: 0; /* Ensure it starts from the left edge */
+    right: 0; /* Ensure it extends to the right edge */
     z-index: 1000;
     display: block !important;
     visibility: visible !important;
     height: auto !important;
+    min-height: 60px; /* Minimum height for mobile */
     
     /* Remove the bottom border line */
     &::after {
@@ -248,13 +251,14 @@
 @media (max-width: 768px) {
     .masthead {
         .masthead__inner-wrap {
-            padding: 12px 15px;
+            padding: 10px 15px;
             flex-direction: column;
-            gap: 10px;
+            gap: 15px; /* More space between title and nav */
         }
         
         .site-title {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            text-align: center;
         }
     }
     
@@ -265,12 +269,15 @@
             justify-content: center !important;
             flex-wrap: wrap;
             width: 100%;
+            padding-right: 0 !important; /* Remove right padding on mobile */
+            gap: 6px; /* Consistent gap between buttons */
             
             .masthead__menu-item {
                 a {
-                    padding: 8px 12px;
-                    font-size: 0.9rem;
-                    min-width: 50px;
+                    padding: 8px 14px;
+                    font-size: 0.85rem;
+                    min-width: auto;
+                    white-space: nowrap;
                 }
             }
         }
@@ -281,18 +288,26 @@
 @media (max-width: 480px) {
     .masthead {
         .masthead__inner-wrap {
-            padding: 10px;
+            padding: 8px 10px;
+            gap: 12px;
+        }
+        
+        .site-title {
+            font-size: 1.2rem;
         }
     }
     
     .greedy-nav .visible-links {
-        justify-content: space-around !important;
+        justify-content: center !important;
+        gap: 4px; /* Smaller gap for very small screens */
+        padding-right: 0 !important;
         
         .masthead__menu-item {
             a {
-                padding: 6px 8px;
-                font-size: 0.85rem;
-                min-width: 45px;
+                padding: 6px 10px;
+                font-size: 0.8rem;
+                min-width: auto;
+                border-width: 1px; /* Thinner borders on small screens */
             }
         }
     }
@@ -440,20 +455,6 @@
         }
         
         @media (max-width: 768px) {
-            top: 20px !important;
-            right: 20px !important;
-            
-            #theme-toggle {
-                width: 44px !important;
-                height: 44px !important;
-                
-                i {
-                    font-size: 1.1rem !important;
-                }
-            }
-        }
-        
-        @media (max-width: 600px) {
             top: 15px !important;
             right: 15px !important;
             
@@ -463,6 +464,20 @@
                 
                 i {
                     font-size: 1rem !important;
+                }
+            }
+        }
+        
+        @media (max-width: 600px) {
+            top: 12px !important;
+            right: 12px !important;
+            
+            #theme-toggle {
+                width: 36px !important;
+                height: 36px !important;
+                
+                i {
+                    font-size: 0.9rem !important;
                 }
             }
         }
@@ -541,16 +556,19 @@
 }
 
 /* Mobile navigation improvements */
-/* Mobile navigation improvements */
 @media (max-width: 768px) {
     .greedy-nav {
         .visible-links {
             justify-content: center !important;
+            flex-wrap: wrap;
+            gap: 6px;
+            padding-right: 0 !important;
             
             .masthead__menu-item {
                 a {
-                    padding: 12px 24px;
-                    font-size: 0.95rem;
+                    padding: 8px 14px;
+                    font-size: 0.85rem;
+                    white-space: nowrap;
                 }
             }
         }
@@ -562,15 +580,12 @@
     .greedy-nav {
         .visible-links {
             justify-content: center !important;
+            gap: 5px;
             
             .masthead__menu-item {
                 a {
-                    padding: 10px 18px;
-                    font-size: 0.9rem;
-                    
-                    &::after {
-                        bottom: 6px;
-                    }
+                    padding: 7px 12px;
+                    font-size: 0.8rem;
                 }
             }
         }
@@ -582,13 +597,51 @@
     .greedy-nav {
         .visible-links {
             justify-content: center !important;
+            gap: 4px;
             
             .masthead__menu-item {
                 a {
-                    padding: 8px 14px;
-                    font-size: 0.85rem;
+                    padding: 6px 10px;
+                    font-size: 0.75rem;
+                    border-width: 1px !important;
                 }
             }
+        }
+    }
+}
+
+/* Mobile-specific light mode adjustments */
+@media (max-width: 768px) {
+    .greedy-nav .visible-links .masthead__menu-item a {
+        padding: 8px 14px !important;
+        font-size: 0.85rem !important;
+        background: rgba(102, 126, 234, 0.35) !important; /* Slightly more visible on mobile */
+        border: 1px solid rgba(102, 126, 234, 0.6) !important; /* Thinner border for mobile */
+    }
+    
+    .masthead .site-title {
+        font-size: 1.3rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .greedy-nav .visible-links .masthead__menu-item a {
+        padding: 6px 10px !important;
+        font-size: 0.75rem !important;
+        background: rgba(102, 126, 234, 0.3) !important;
+        border: 1px solid rgba(102, 126, 234, 0.5) !important;
+    }
+    
+    .masthead .site-title {
+        font-size: 1.2rem !important;
+    }
+    
+    .masthead__theme-toggle #theme-toggle {
+        width: 36px !important;
+        height: 36px !important;
+        
+        i {
+            font-size: 0.9rem !important;
         }
     }
 }
