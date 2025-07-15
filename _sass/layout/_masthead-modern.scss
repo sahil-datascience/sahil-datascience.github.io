@@ -77,16 +77,16 @@
         align-items: center;
         gap: 8px;
         width: 100%;
-        padding-right: 80px; /* Leave space for theme toggle */
+        padding-right: 120px; /* Increased space for theme toggle */
         
         @media (max-width: 768px) {
             justify-content: center;
             gap: 5px;
-            padding-right: 60px; /* Adjust for smaller screens */
+            padding-right: 100px; /* Adjust for smaller screens */
         }
         
         @media (max-width: 480px) {
-            padding-right: 50px;
+            padding-right: 80px;
             gap: 3px;
         }
         
@@ -105,8 +105,8 @@
                 font-size: 0.95rem;
                 transition: all 0.3s ease;
                 position: relative;
-                background: rgba(255, 255, 255, 0.15) !important; /* More visible button background */
-                border: 1px solid rgba(255, 255, 255, 0.3) !important;
+                background: rgba(255, 255, 255, 0.2) !important; /* More visible button background */
+                border: 2px solid rgba(255, 255, 255, 0.4) !important; /* Stronger border */
                 border-radius: 8px !important;
                 text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
                 letter-spacing: 0.5px;
@@ -117,8 +117,8 @@
                 
                 &:hover {
                     color: white !important;
-                    background: rgba(255, 255, 255, 0.35) !important;
-                    border-color: rgba(255, 255, 255, 0.5) !important;
+                    background: rgba(255, 255, 255, 0.45) !important;
+                    border-color: rgba(255, 255, 255, 0.6) !important;
                     transform: translateY(-2px) !important;
                     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
                 }
@@ -392,8 +392,8 @@
     /* Theme toggle positioned outside navigation flow */
     .masthead__theme-toggle {
         position: fixed !important; /* Fixed to viewport, not relative to parent */
-        top: 20px !important; /* Same top position as sidebar button */
-        right: 20px !important; /* Right side, mirroring sidebar's left position */
+        top: 25px !important; /* Increased top position for more spacing */
+        right: 25px !important; /* Increased right position for more spacing */
         z-index: 1002 !important; /* Higher than sidebar (1001) */
         
         #theme-toggle {
@@ -440,8 +440,8 @@
         }
         
         @media (max-width: 768px) {
-            top: 15px !important;
-            right: 15px !important;
+            top: 20px !important;
+            right: 20px !important;
             
             #theme-toggle {
                 width: 44px !important;
@@ -454,8 +454,8 @@
         }
         
         @media (max-width: 600px) {
-            top: 12px !important;
-            right: 12px !important;
+            top: 15px !important;
+            right: 15px !important;
             
             #theme-toggle {
                 width: 40px !important;
@@ -749,8 +749,8 @@ html:not([data-theme="dark"]) {
         /* Dark text for better readability on light background */
         color: #2c3e50 !important;
         text-shadow: none !important; /* Remove text shadow for clean look */
-        background: rgba(102, 126, 234, 0.25) !important; /* More visible button background */
-        border: 1px solid rgba(102, 126, 234, 0.5) !important;
+        background: rgba(102, 126, 234, 0.4) !important; /* Much more visible button background */
+        border: 2px solid rgba(102, 126, 234, 0.7) !important; /* Stronger border */
         border-radius: 8px !important;
         font-weight: 600 !important;
         transition: all 0.3s ease !important;
@@ -813,10 +813,10 @@ html:not([data-theme="dark"]) {
     
     /* Light mode theme toggle styling */
     .masthead__theme-toggle #theme-toggle {
-        background: rgba(102, 126, 234, 0.2) !important;
-        border: 2px solid rgba(102, 126, 234, 0.6) !important;
+        background: rgba(102, 126, 234, 0.3) !important; /* More visible background */
+        border: 2px solid rgba(102, 126, 234, 0.8) !important; /* Stronger border */
         color: rgba(102, 126, 234, 0.9) !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15) !important; /* Enhanced shadow */
         
         &:hover {
             background: rgba(102, 126, 234, 0.9) !important;
